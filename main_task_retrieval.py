@@ -18,21 +18,59 @@ from modules.optimization import BertAdam
 from util import parallel_apply, get_logger
 from dataloaders.data_dataloaders import DATALOADER_DICT
 
+from timeit import default_timer as timer
+from tqdm.auto import tqdm
+import wandb
+import json
+
 torch.distributed.init_process_group(backend="nccl")
 
 global logger
 
+AVAILABLE_BEST_MODEL_STRATEGIES = {'last', 'tvR1', 'loss'}
+BEST_MODEL_FN = 'best_model.json'
+
+def is_better_model(args, metrics, previous_best):
+    """
+    function to test whether a model is better than the previous based on the metrics it reported and on the strategy defined in args
+    returns (a bool flag indicating whether the new model is better, the new best value for the observed metric)
+    """
+    if args.best_model_strategy == 'last':
+        return True, previous_best
+    elif args.best_model_strategy == 'tvR1':
+        if previous_best is None or metrics['tv']['R1'] >= previous_best: # use also = to avoid getting stuck at the first model
+            return True, metrics['tv']['R1']
+        else:
+            return False, previous_best
+    elif args.best_model_strategy == 'loss':
+        if previous_best is None or metrics['loss'] <= previous_best: # use also = to avoid getting stuck at the first model
+            return True, metrics['loss']
+        else:
+            return False, previous_best
+    else:
+        raise ValueError('option {args.best_model_strategy} is not a valid strategy to choose the best model,use one between {AVAILABLE_BEST_MODEL_STRATEGIES}')
+
 def get_args(description='CLIP4Clip on Retrieval Task'):
     parser = argparse.ArgumentParser(description=description)
-    parser.add_argument("--do_pretrain", action='store_true', help="Whether to run training.")
+    parser.add_argument("--do_pretrain", action='store_true', help="Whether to run training.") # TODO: investigate
+    
     parser.add_argument("--do_train", action='store_true', help="Whether to run training.")
     parser.add_argument("--do_eval", action='store_true', help="Whether to run eval on the dev set.")
+    parser.add_argument("--test_best_model", action='store_true', help="Whether to load and test the best model at the end")
 
-    parser.add_argument('--train_csv', type=str, default='data/.train.csv', help='')
-    parser.add_argument('--val_csv', type=str, default='data/.val.csv', help='')
-    parser.add_argument('--data_path', type=str, default='data/caption.pickle', help='data pickle file path')
-    parser.add_argument('--features_path', type=str, default='data/videos_feature.pickle', help='feature path')
+    parser.add_argument('--train_csv', type=str, help='')
+    parser.add_argument('--val_csv', type=str, help='')
+    parser.add_argument('--data_path', type=str, help='data pickle file path')
+    parser.add_argument('--features_path', type=str, help='feature path')
 
+    parser.add_argument('--metadata_fn', type=str, help='metadata name filename relative to the dataset base path (artistic_videos)')
+    parser.add_argument('--video_dir', type=str, help='video root dir relative to the dataset base path (artistic_videos)')
+    parser.add_argument('--split', type=str, help='name or filename of the split data, relative to the dataset base path (artistic_videos)')
+    parser.add_argument("--merge_test_val", action='store_true', help="Whether to merge test and training split for evaluation/test of the model, may be usefull for a second finetune when data are little and hyperparameters are fixed. In this case best_model_strategy must be set to last (artistic_videos)")
+
+    parser.add_argument('--best_model_strategy', type=str, help=f'strategy to select the best model, could be: {AVAILABLE_BEST_MODEL_STRATEGIES}')
+
+    parser.add_argument("--use_caching", action='store_true', help="Whether to use caching for the dataloader (warning this may be rather space consuming, more than the original data) (artistic videos only)")
     parser.add_argument('--num_thread_reader', type=int, default=1, help='')
     parser.add_argument('--lr', type=float, default=0.0001, help='initial learning rate')
     parser.add_argument('--epochs', type=int, default=20, help='upper epoch limit')
@@ -40,7 +78,7 @@ def get_args(description='CLIP4Clip on Retrieval Task'):
     parser.add_argument('--batch_size_val', type=int, default=3500, help='batch size eval')
     parser.add_argument('--lr_decay', type=float, default=0.9, help='Learning rate exp epoch decay')
     parser.add_argument('--n_display', type=int, default=100, help='Information display frequence')
-    parser.add_argument('--video_dim', type=int, default=1024, help='video feature dimension')
+    # parser.add_argument('--video_dim', type=int, default=224, help='video feature dimension') # unused ?
     parser.add_argument('--seed', type=int, default=42, help='random seed')
     parser.add_argument('--max_words', type=int, default=20, help='')
     parser.add_argument('--max_frames', type=int, default=100, help='')
@@ -60,7 +98,7 @@ def get_args(description='CLIP4Clip on Retrieval Task'):
                         help="Proportion of training to perform linear learning rate warmup for. E.g., 0.1 = 10%% of training.")
     parser.add_argument('--gradient_accumulation_steps', type=int, default=1,
                         help="Number of updates steps to accumulate before performing a backward/update pass.")
-    parser.add_argument('--n_gpu', type=int, default=1, help="Changed in the execute process.")
+    parser.add_argument('--n_gpu', type=int, default=torch.cuda.device_count(), help="Changed in the execute process.")
 
     parser.add_argument("--cache_dir", default="", type=str,
                         help="Where do you want to store the pre-trained models downloaded from s3")
@@ -72,7 +110,7 @@ def get_args(description='CLIP4Clip on Retrieval Task'):
                              "See details at https://nvidia.github.io/apex/amp.html")
 
     parser.add_argument("--task_type", default="retrieval", type=str, help="Point the task `retrieval` to finetune.")
-    parser.add_argument("--datatype", default="msrvtt", type=str, help="Point the dataset to finetune.")
+    parser.add_argument("--datatype", type=str, help="Point the dataset to finetune.")
 
     parser.add_argument("--world_size", default=0, type=int, help="distribted training")
     parser.add_argument("--local_rank", default=0, type=int, help="distribted training")
@@ -103,6 +141,8 @@ def get_args(description='CLIP4Clip on Retrieval Task'):
                         help="choice a similarity header.")
 
     parser.add_argument("--pretrained_clip_name", default="ViT-B/32", type=str, help="Choose a CLIP version")
+    parser.add_argument("--load_model_from_fn", type=str, help="Load a previous model from the given path file")
+    parser.add_argument("--load_best_model_from_dir", type=str, help="Load the best model in a given checkpoint directory")
 
     args = parser.parse_args()
 
@@ -115,6 +155,32 @@ def get_args(description='CLIP4Clip on Retrieval Task'):
             args.gradient_accumulation_steps))
     if not args.do_train and not args.do_eval:
         raise ValueError("At least one of `do_train` or `do_eval` must be True.")
+    if args.do_train and args.do_eval:
+        raise ValueError("`do_train` and `do_eval` cannot be both set, to test the model after training use the flag --test_best_model or re run the script after the training")
+    
+    if args.merge_test_val and args.best_model_strategy != 'last':
+        raise ValueError("When  merge_test_val is set best_model_strategy must be last as otherwise the evaluation would be biased.")
+    
+    if args.datatype == 'artistic_videos':
+        if args.metadata_fn is None:
+            raise ValueError(f"metadata_fn must be set when datatype is set to artistic_videos")
+        if args.video_dir is None:
+            raise ValueError(f"video_dir must be set when datatype is set to artistic_videos")
+        if args.split is None:
+            raise ValueError(f"split must be set when datatype is set to artistic_videos")
+        if args.do_train and args.best_model_strategy is None:
+            raise ValueError(f"best_model_strategy must be set when datatype is set to artistic_videos and do_train is set")
+        if args.use_caching and args.num_thread_reader != 1:
+            raise ValueError(f"num_thread_reader must be set to 1 when caching is used to prevent cuncurrency issues")
+
+    elif args.use_caching:
+        raise ValueError(f"use_caching is supported only for artistic_videos datatype")
+
+    if args.load_model_from_fn  and args.load_best_model_from_dir:
+        raise ValueError(f"pnly one between load_model_from_fn  and load_best_model_from_dir can be set")
+
+    if (args.load_model_from_fn  or args.load_best_model_from_dir) and not args.do_eval:
+        raise ValueError(f"loading model cannot be used for training, only for evaluation, use resume_model settings instead")
 
     args.batch_size = int(args.batch_size / args.gradient_accumulation_steps)
 
@@ -138,8 +204,15 @@ def set_seed_logger(args):
     rank = torch.distributed.get_rank()
     args.rank = rank
 
-    if not os.path.exists(args.output_dir):
-        os.makedirs(args.output_dir, exist_ok=True)
+    if args.do_train:
+        args.output_dir = f"{args.output_dir}_lr{args.lr}_e{args.epochs}_b{args.batch_size}_{args.max_frames}fps_{args.best_model_strategy}_{args.seed}_{int(time.time())}"
+    else:
+        args.output_dir = f"{args.output_dir}_eval_{args.max_frames}fps_{args.seed}_{int(time.time())}"
+
+    os.makedirs(args.output_dir, exist_ok=False)
+    
+    with open(os.path.join(args.output_dir, "args.json"), 'w') as f:
+        json.dump(vars(args), f, indent=4)
 
     logger = get_logger(os.path.join(args.output_dir, "log.txt"))
 
@@ -254,10 +327,10 @@ def train_epoch(epoch, args, model, train_dataloader, device, n_gpu, optimizer, 
     torch.cuda.empty_cache()
     model.train()
     log_step = args.n_display
-    start_time = time.time()
+    start_timer = time.time()
     total_loss = 0
 
-    for step, batch in enumerate(train_dataloader):
+    for step, batch in enumerate(tqdm(train_dataloader)):
         if n_gpu == 1:
             # multi-gpu does scattering it-self
             batch = tuple(t.to(device=device, non_blocking=True) for t in batch)
@@ -269,6 +342,8 @@ def train_epoch(epoch, args, model, train_dataloader, device, n_gpu, optimizer, 
             loss = loss.mean()  # mean() to average on multi-gpu.
         if args.gradient_accumulation_steps > 1:
             loss = loss / args.gradient_accumulation_steps
+
+        args.wandbrun.log({"batch_loss": loss})
 
         loss.backward()
 
@@ -295,9 +370,9 @@ def train_epoch(epoch, args, model, train_dataloader, device, n_gpu, optimizer, 
                             args.epochs, step + 1,
                             len(train_dataloader), "-".join([str('%.9f'%itm) for itm in sorted(list(set(optimizer.get_lr())))]),
                             float(loss),
-                            (time.time() - start_time) / (log_step * args.gradient_accumulation_steps))
-                start_time = time.time()
-
+                            (time.time() - start_timer) / (log_step * args.gradient_accumulation_steps))
+                start_timer = time.time()
+        
     total_loss = total_loss / len(train_dataloader)
     return total_loss, global_step
 
@@ -318,7 +393,12 @@ def _run_on_single_gpu(model, batch_list_t, batch_list_v, batch_sequence_output_
         sim_matrix.append(each_row)
     return sim_matrix
 
-def eval_epoch(args, model, test_dataloader, device, n_gpu):
+def eval_epoch(args, model, test_dataloader, device, n_gpu, isTest=False):
+
+    if args.use_caching:
+        test_dataloader.dataset.refreshCache()
+
+    evalTypeName = "test" if isTest else "eval"
 
     if hasattr(model, 'module'):
         model = model.module.to(device)
@@ -356,7 +436,12 @@ def eval_epoch(args, model, test_dataloader, device, n_gpu):
         # ----------------------------
         # 1. cache the features
         # ----------------------------
-        for bid, batch in enumerate(test_dataloader):
+        before_batch_timer = timer()
+        for bid, batch in enumerate(tqdm(test_dataloader)):
+            after_batch_timer=timer()
+            logger.info(f"retrieval of video {args.batch_size_val} took {after_batch_timer - before_batch_timer}")
+            
+
             batch = tuple(t.to(device) for t in batch)
             input_ids, input_mask, segment_ids, video, video_mask = batch
 
@@ -386,10 +471,15 @@ def eval_epoch(args, model, test_dataloader, device, n_gpu):
                 batch_list_v.append((video_mask,))
 
             print("{}/{}\r".format(bid, len(test_dataloader)), end="")
+                        
+            logger.info(f"computation took {timer() - after_batch_timer}")
+            before_batch_timer = timer()
 
         # ----------------------------------
         # 2. calculate the similarity
         # ----------------------------------
+        save_output_data={}
+        save_output_data['n_gpu']=n_gpu
         if n_gpu > 1:
             device_ids = list(range(n_gpu))
             batch_list_t_splits = []
@@ -425,6 +515,7 @@ def eval_epoch(args, model, test_dataloader, device, n_gpu):
             for idx in range(len(parallel_outputs)):
                 sim_matrix += parallel_outputs[idx]
             sim_matrix = np.concatenate(tuple(sim_matrix), axis=0)
+            
         else:
             sim_matrix = _run_on_single_gpu(model, batch_list_t, batch_list_v, batch_sequence_output_list, batch_visual_output_list)
             sim_matrix = np.concatenate(tuple(sim_matrix), axis=0)
@@ -448,7 +539,36 @@ def eval_epoch(args, model, test_dataloader, device, n_gpu):
         tv_metrics = compute_metrics(sim_matrix)
         vt_metrics = compute_metrics(sim_matrix.T)
         logger.info('\t Length-T: {}, Length-V:{}'.format(len(sim_matrix), len(sim_matrix[0])))
+        
+    metrics = {
+        'tv':tv_metrics,
+        'vt':vt_metrics
+    }
+    
+    sim_matrix_tensor = torch.tensor(sim_matrix)
+    sim_loss1 = model.loss_fct(sim_matrix_tensor)
+    sim_loss2 = model.loss_fct(sim_matrix_tensor.T)
+    sim_loss = (sim_loss1 + sim_loss2) / 2
 
+    metrics['loss'] = float(sim_loss) # use float to make it serializable
+
+    save_output_data['sim_matrix'] = sim_matrix.tolist()
+
+    args.wandbrun.log({f"{evalTypeName}: similarity loss": sim_loss})
+
+    args.wandbrun.log({f"{evalTypeName}: T2V - R@1": tv_metrics['R1']})
+    args.wandbrun.log({f"{evalTypeName}: T2V - R@5": tv_metrics['R5']})
+    args.wandbrun.log({f"{evalTypeName}: T2V - R@10": tv_metrics['R10']})
+    args.wandbrun.log({f"{evalTypeName}: T2V - Median Rank": tv_metrics['MR']})
+    args.wandbrun.log({f"{evalTypeName}: T2V - Mean Rank": tv_metrics['MeanR']})
+
+    args.wandbrun.log({f"{evalTypeName}: V2T - R@1": vt_metrics['R1']})
+    args.wandbrun.log({f"{evalTypeName}: V2T - R@5": vt_metrics['R5']})
+    args.wandbrun.log({f"{evalTypeName}: V2T - R@10": vt_metrics['R10']})
+    args.wandbrun.log({f"{evalTypeName}: V2T - Median Rank": vt_metrics['MR']})
+    args.wandbrun.log({f"{evalTypeName}: V2T - Mean Rank": vt_metrics['MeanR']})
+
+    logger.info("Similarity loss: {:.1f}".format(sim_loss))
     logger.info("Text-to-Video:")
     logger.info('\t>>>  R@1: {:.1f} - R@5: {:.1f} - R@10: {:.1f} - Median R: {:.1f} - Mean R: {:.1f}'.
                 format(tv_metrics['R1'], tv_metrics['R5'], tv_metrics['R10'], tv_metrics['MR'], tv_metrics['MeanR']))
@@ -456,8 +576,13 @@ def eval_epoch(args, model, test_dataloader, device, n_gpu):
     logger.info('\t>>>  V2T$R@1: {:.1f} - V2T$R@5: {:.1f} - V2T$R@10: {:.1f} - V2T$Median R: {:.1f} - V2T$Mean R: {:.1f}'.
                 format(vt_metrics['R1'], vt_metrics['R5'], vt_metrics['R10'], vt_metrics['MR'], vt_metrics['MeanR']))
 
-    R1 = tv_metrics['R1']
-    return R1
+
+    save_output_data['metrics'] = metrics
+
+    if args.datatype == 'artistic_videos':
+        save_output_data['video_ids'] = test_dataloader.dataset.getVideoIds() # save video ids order relatively to the similarity matrix
+
+    return save_output_data
 
 def main():
     global logger
@@ -465,10 +590,27 @@ def main():
     args = set_seed_logger(args)
     device, n_gpu = init_device(args, args.local_rank)
 
+    run = wandb.init(project=f"CLIP4Clip-{args.datatype}-{args.split.split('.')[0]}")
+    config = run.config
+    config.update(vars(args)) # log all of the args into config
+    args.wandbrun = run
+
     tokenizer = ClipTokenizer()
 
     assert  args.task_type == "retrieval"
-    model = init_model(args, device, n_gpu, args.local_rank)
+    if args.load_model_from_fn:
+        logger.info(f'loading model from {args.load_model_from_fn}')
+        model = load_model(-1, args, n_gpu, device, model_file=args.load_model_from_fn)
+    elif args.load_best_model_from_dir:
+        logger.info(f'loading best model from dir {args.load_best_model_from_dir}')
+        assert os.path.isdir(args.load_best_model_from_dir), f"dir {args.load_best_model_from_dir} not found"
+        with open(os.path.join(args.load_best_model_from_dir, BEST_MODEL_FN)) as f:
+            data = json.load(f)
+        best_model_fn = os.path.join(args.load_best_model_from_dir, data['best_model_fn'])
+        model = load_model(-1, args, n_gpu, device, model_file=best_model_fn)
+    else:
+        model = init_model(args, device, n_gpu, args.local_rank)
+    
 
     ## ####################################
     # freeze testing
@@ -490,6 +632,9 @@ def main():
             else:
                 # paramenters which < freeze_layer_num will be freezed
                 param.requires_grad = False
+    
+    
+    args.wandbrun.watch(model)
 
     ## ####################################
     # dataloader loading
@@ -501,7 +646,7 @@ def main():
 
     test_dataloader, test_length = None, 0
     if DATALOADER_DICT[args.datatype]["test"] is not None:
-        test_dataloader, test_length = DATALOADER_DICT[args.datatype]["test"](args, tokenizer)
+        test_dataloader, test_length = DATALOADER_DICT[args.datatype]["test"](args, tokenizer, subset="test")
 
     if DATALOADER_DICT[args.datatype]["val"] is not None:
         val_dataloader, val_length = DATALOADER_DICT[args.datatype]["val"](args, tokenizer, subset="val")
@@ -537,8 +682,8 @@ def main():
             logger.info("  Batch size = %d", args.batch_size)
             logger.info("  Num steps = %d", num_train_optimization_steps * args.gradient_accumulation_steps)
 
-        best_score = 0.00001
-        best_output_model_file = "None"
+        best_score = None #0.00001
+        best_output_model_file = None
         ## ##############################################################
         # resume optimizer state besides loss to continue train
         ## ##############################################################
@@ -551,32 +696,49 @@ def main():
         
         global_step = 0
         for epoch in range(resumed_epoch, args.epochs):
+
+            if args.use_caching:
+                train_dataloader.dataset.refreshCache
+
             train_sampler.set_epoch(epoch)
             tr_loss, global_step = train_epoch(epoch, args, model, train_dataloader, device, n_gpu, optimizer,
                                                scheduler, global_step, local_rank=args.local_rank)
+            
+            args.wandbrun.log({"total_loss": tr_loss})
             if args.local_rank == 0:
                 logger.info("Epoch %d/%s Finished, Train Loss: %f", epoch + 1, args.epochs, tr_loss)
 
                 output_model_file = save_model(epoch, args, model, optimizer, tr_loss, type_name="")
+                output_model_dir = os.path.dirname(output_model_file)
 
-                ## Run on val dataset, this process is *TIME-consuming*.
-                # logger.info("Eval on val dataset")
-                # R1 = eval_epoch(args, model, val_dataloader, device, n_gpu)
+                # Run on val dataset, this process is *TIME-consuming*.
+                logger.info("Eval on val dataset")
+                output_data = eval_epoch(args, model, val_dataloader, device, n_gpu)
+                metrics = output_data['metrics']
+                with open(os.path.join(output_model_dir,f'val_output_data_e{epoch}.json'), 'w') as f:
+                    json.dump(output_data,f, indent=4)
 
-                R1 = eval_epoch(args, model, test_dataloader, device, n_gpu)
-                if best_score <= R1:
-                    best_score = R1
+                is_new_best, best_score = is_better_model(args, metrics, best_score)
+
+                if is_new_best:
                     best_output_model_file = output_model_file
-                logger.info("The best model is: {}, the R1 is: {:.4f}".format(best_output_model_file, best_score))
+                    with open(os.path.join(output_model_dir,BEST_MODEL_FN), 'w') as f:
+                        json.dump({'best_model_fn':os.path.basename(best_output_model_file)}, f, indent=4)
 
-        ## Uncomment if want to test on the best checkpoint
-        # if args.local_rank == 0:
-        #     model = load_model(-1, args, n_gpu, device, model_file=best_output_model_file)
-        #     eval_epoch(args, model, test_dataloader, device, n_gpu)
+                logger.info("The best model according to {} strategy is: {}, its metric is: {:.4f}".format(args.best_model_strategy, best_output_model_file, best_score if best_score is not None else -1))
+
+        # Uncomment if want to test on the best checkpoint
+        if args.test_best_model and args.local_rank == 0 and not args.merge_test_val:
+            model = load_model(-1, args, n_gpu, device, model_file=best_output_model_file)
+            output_data = eval_epoch(args, model, test_dataloader, device, n_gpu, isTest=True)
+            with open(os.path.join(args.output_dir,'test_output_data.json'), 'w') as f:
+                json.dump(output_data,f, indent=4)
 
     elif args.do_eval:
         if args.local_rank == 0:
-            eval_epoch(args, model, test_dataloader, device, n_gpu)
+            output_data = eval_epoch(args, model, test_dataloader, device, n_gpu, isTest=True)
+            with open(os.path.join(args.output_dir,'eval_output_data.json'), 'w') as f:
+                json.dump(output_data,f, indent=4)
 
 if __name__ == "__main__":
     main()

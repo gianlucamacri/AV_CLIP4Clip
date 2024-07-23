@@ -1,3 +1,10 @@
+# My observations
+
+- use `torchrun` as the commend they provide is deprecated
+- the "number of words" is instead the number of tokens
+- data types for numpy in the dataloaders are deprecated, and would need to get adjsuted as in the artistic video dataset
+- the DATA_PATH varibale must get set in a line *previously to the run command* and can be set only once
+
 # CLIP4Clip: An Empirical Study of CLIP for End to End Video Clip Retrieval
 
 (**July 28, 2021**) Add ViT-B/16 with an extra `--pretrained_clip_name`

@@ -10,17 +10,21 @@ from dataloaders.dataloader_msvd_retrieval import MSVD_DataLoader
 from dataloaders.dataloader_lsmdc_retrieval import LSMDC_DataLoader
 from dataloaders.dataloader_activitynet_retrieval import ActivityNet_DataLoader
 from dataloaders.dataloader_didemo_retrieval import DiDeMo_DataLoader
+import logging
 
 def dataloader_artistic_videos_train(args, tokenizer):
     artistic_videos_dataset = Artistic_Videos_DataLoader(
-        metadata_path=args.metadata_path,
-        video_path=args.video_path,
-        max_words=args.max_words,
-        video_framerate=args.video_framerate,
+        metadata_fn=args.metadata_fn,
+        video_dir=args.video_dir,
+        split_fn=args.split,
+        split='training',
+        merge_test_val=False,
+        video_framerate=args.feature_framerate,
         tokenizer=tokenizer,
         max_frames=args.max_frames,
         frame_order=args.train_frame_order,
         slice_framepos=args.slice_framepos,
+        use_caching=args.use_caching
     )
 
     train_sampler = torch.utils.data.distributed.DistributedSampler(artistic_videos_dataset)
@@ -34,35 +38,42 @@ def dataloader_artistic_videos_train(args, tokenizer):
         drop_last=True,
     )
 
+    dropped_els = len(artistic_videos_dataset) % (args.batch_size // args.n_gpu)
+    logging.info(f"{dropped_els} ({dropped_els*100.0/len(artistic_videos_dataset)} %) will remain unsued for each epoch due to drop last set to true for the dataloader")
+
     return dataloader, len(artistic_videos_dataset), train_sampler
 
-# TODO: split data into trining and test/eval or implement an index/id based filtering method
-def dataloader_artistic_videos_test(args, tokenizer, subset="test"):
+def dataloader_artistic_videos_test(args, tokenizer, subset:str):
+    if subset=='val':
+        subset='validation'
     artistic_videos_testset = Artistic_Videos_DataLoader(
-        metadata_path=args.metadata_path,
-        video_path=args.video_path,
-        max_words=args.max_words,
-        video_framerate=args.video_framerate,
+        metadata_fn=args.metadata_fn,
+        video_dir=args.video_dir,
+        split_fn=args.split,
+        split = subset,
+        merge_test_val=args.merge_test_val,
+        video_framerate=args.feature_framerate,
         tokenizer=tokenizer,
         max_frames=args.max_frames,
         frame_order=args.eval_frame_order,
         slice_framepos=args.slice_framepos,
+        use_caching=args.use_caching
     )
-    dataloader_msrvtt = DataLoader(
+    dataloader = DataLoader(
         artistic_videos_testset,
         batch_size=args.batch_size_val,
         num_workers=args.num_thread_reader,
         shuffle=False,
         drop_last=False,
     )
-    return dataloader_msrvtt, len(artistic_videos_testset)
+    return dataloader, len(artistic_videos_testset)
 
 def dataloader_msrvtt_train(args, tokenizer):
     msrvtt_dataset = MSRVTT_TrainDataLoader(
         csv_path=args.train_csv,
         json_path=args.data_path,
         features_path=args.features_path,
-        max_words=args.max_words,
+        #max_words=args.max_words,
         feature_framerate=args.feature_framerate,
         tokenizer=tokenizer,
         max_frames=args.max_frames,

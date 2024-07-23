@@ -5,62 +5,13 @@ from PIL import Image
 from torchvision.transforms import Compose, Resize, CenterCrop, ToTensor, Normalize
 # pip install opencv-python
 import cv2
-import os
-import json
-import gzip
-import logging
 
 class RawVideoExtractorCV2():
-
-    _CACHE_DIR = 'extractorCache'
-    _CACHE_INDEX_FN = 'cacheIndex.json'
-
-    def __init__(self, centercrop=False, size=224, framerate=-1, use_caching:bool = True):
+    def __init__(self, centercrop=False, size=224, framerate=-1, ):
         self.centercrop = centercrop
         self.size = size
         self.framerate = framerate
         self.transform = self._transform(self.size)
-        self.use_caching = use_caching
-        if (self.use_caching):
-            self.cacheDir = os.path.join(os.path.dirname(os.path.abspath(__file__)), RawVideoExtractorCV2._CACHE_DIR)
-            if not os.path.exists(self.cacheDir):
-                os.mkdir(self.cacheDir)
-            self.cacheIndexFn = os.path.join(self.cacheDir, RawVideoExtractorCV2._CACHE_INDEX_FN)
-            if not os.path.exists(self.cacheIndexFn):
-                self.cacheIndex = {'next_index_to_use':0, 'cache_map':{}}
-                self.saveUpdatedCacheIndex()
-            else:
-                with open(self.cacheIndexFn) as f:
-                    self.cacheIndex = json.load(f)
-        if not 'logger' in globals():
-            logger = logging
-        self.logger = logger
-
-    def refreshCache(self):
-        with open(self.cacheIndexFn) as f:
-            self.cacheIndex = json.load(f)
-
-    def saveUpdatedCacheIndex(self):
-        self.logger.debug(f"updating cache index")
-        with open(self.cacheIndexFn, 'w') as f:
-            json.dump(self.cacheIndex, f, indent=4)
-        self.logger.debug(f"cacheIndex now has {len(self.cacheIndex['cache_map'])} entries")
-    
-    def saveDataAndUpdateCache(self, image_input, video_path, start_time, end_time):
-        fn = f"{self.cacheIndex['next_index_to_use']}"
-        self.cacheIndex['next_index_to_use'] += 1
-        self.logger.debug(f"saving {video_path} to entry {fn} of the cache")
-        f = gzip.GzipFile(os.path.join(self.cacheDir, fn), "w")
-        np.save(f, image_input['video'].numpy())
-        f.close()
-        self.cacheIndex['cache_map'][self.getCacheIndexName(video_path, start_time, end_time)] = fn
-        self.saveUpdatedCacheIndex()
-
-    def getCacheIndexName(self, video_path, start_time, end_time):
-        return f"{video_path}_{start_time}_{end_time}_{self.centercrop}_{self.size}_{self.framerate}" 
-
-    def isCached(self, video_path, start_time, end_time):
-        return self.getCacheIndexName(video_path, start_time, end_time) in self.cacheIndex['cache_map'].keys()
 
     def _transform(self, n_px):
         return Compose([
@@ -122,17 +73,7 @@ class RawVideoExtractorCV2():
         return {'video': video_data}
 
     def get_video_data(self, video_path, start_time=None, end_time=None):
-        if self.use_caching and self.isCached(video_path, start_time, end_time):
-            self.logger.debug(f"cache hit: {video_path}")
-            image_input_fn =  self.cacheIndex['cache_map'][self.getCacheIndexName(video_path, start_time, end_time)]
-            f = gzip.GzipFile(os.path.join(self.cacheDir,image_input_fn), 'r')
-            image_input = {'video':th.tensor(np.load(f))}
-            f.close()
-            return image_input
-        # else
-        if self.use_caching: self.logger.info(f"cache miss: {video_path}")
         image_input = self.video_to_tensor(video_path, self.transform, sample_fp=self.framerate, start_time=start_time, end_time=end_time)
-        if self.use_caching: self.saveDataAndUpdateCache(image_input, video_path, start_time, end_time)
         return image_input
 
     def process_raw_data(self, raw_video_data):
