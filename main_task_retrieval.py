@@ -144,6 +144,8 @@ def get_args(description='CLIP4Clip on Retrieval Task'):
     parser.add_argument("--load_model_from_fn", type=str, help="Load a previous model from the given path file")
     parser.add_argument("--load_best_model_from_dir", type=str, help="Load the best model in a given checkpoint directory")
 
+    parser.add_argument("--test", action='store_true', help="A flag to avoid clogging up the wandb when performing tests, as it uses a separate project")
+
     args = parser.parse_args()
 
     if args.sim_header == "tightTransf":
@@ -590,7 +592,8 @@ def main():
     args = set_seed_logger(args)
     device, n_gpu = init_device(args, args.local_rank)
 
-    run = wandb.init(project=f"CLIP4Clip-{args.datatype}-{args.split.split('.')[0]}")
+    project_name = f"CLIP4Clip-{args.datatype}-{args.split.split('.')[0]}{'-test' if args.test else ''}"
+    run = wandb.init(project=project_name)
     config = run.config
     config.update(vars(args)) # log all of the args into config
     args.wandbrun = run
