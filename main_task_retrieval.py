@@ -27,7 +27,7 @@ torch.distributed.init_process_group(backend="nccl")
 
 global logger
 
-AVAILABLE_BEST_MODEL_STRATEGIES = {'last', 'tvR1', 'loss'}
+AVAILABLE_BEST_MODEL_STRATEGIES = {'last', 'tvR1', 'loss', 'tvMean'}
 BEST_MODEL_FN = 'best_model.json'
 
 def is_better_model(args, metrics, previous_best):
@@ -45,6 +45,11 @@ def is_better_model(args, metrics, previous_best):
     elif args.best_model_strategy == 'loss':
         if previous_best is None or metrics['loss'] <= previous_best: # use also = to avoid getting stuck at the first model
             return True, metrics['loss']
+        else:
+            return False, previous_best
+    elif args.best_model_strategy == 'tvMean':
+        if previous_best is None or metrics['tv']['MeanR'] <= previous_best: # use also = to avoid getting stuck at the first model
+            return True, metrics['tv']['MeanR']
         else:
             return False, previous_best
     else:
@@ -80,8 +85,8 @@ def get_args(description='CLIP4Clip on Retrieval Task'):
     parser.add_argument('--n_display', type=int, default=100, help='Information display frequence')
     # parser.add_argument('--video_dim', type=int, default=224, help='video feature dimension') # unused ?
     parser.add_argument('--seed', type=int, default=42, help='random seed')
-    parser.add_argument('--max_words', type=int, default=20, help='')
-    parser.add_argument('--max_frames', type=int, default=100, help='')
+    parser.add_argument('--max_words', type=int, default=75, help='Max number of words to be used')
+    parser.add_argument('--max_frames', type=int, default=100, help='Max number of frames to be sampled')
     parser.add_argument('--feature_framerate', type=int, default=1, help='')
     parser.add_argument('--margin', type=float, default=0.1, help='margin for loss')
     parser.add_argument('--hard_negative_rate', type=float, default=0.5, help='rate of intra negative sample')
@@ -98,7 +103,7 @@ def get_args(description='CLIP4Clip on Retrieval Task'):
                         help="Proportion of training to perform linear learning rate warmup for. E.g., 0.1 = 10%% of training.")
     parser.add_argument('--gradient_accumulation_steps', type=int, default=1,
                         help="Number of updates steps to accumulate before performing a backward/update pass.")
-    parser.add_argument('--n_gpu', type=int, default=torch.cuda.device_count(), help="Changed in the execute process.")
+    parser.add_argument('--n_gpu', type=int, default=torch.cuda.device_count(), help="Number of gpus to be used.")
 
     parser.add_argument("--cache_dir", default="", type=str,
                         help="Where do you want to store the pre-trained models downloaded from s3")
@@ -132,8 +137,8 @@ def get_args(description='CLIP4Clip on Retrieval Task'):
                         help="Frame order, 0: ordinary order; 1: reverse order; 2: random order.")
 
     parser.add_argument('--freeze_layer_num', type=int, default=0, help="Layer NO. of CLIP need to freeze.")
-    parser.add_argument('--slice_framepos', type=int, default=0, choices=[0, 1, 2],
-                        help="0: cut from head frames; 1: cut from tail frames; 2: extract frames uniformly.")
+    parser.add_argument('--slice_framepos', type=int, default=0, choices=[0, 1, 2, 3],
+                        help="0: cut from head frames; 1: cut from tail frames; 2: extract frames uniformly; 3: extract frames uniformly at random preserving the order of train_frame_order")
     parser.add_argument('--linear_patch', type=str, default="2d", choices=["2d", "3d"],
                         help="linear projection of flattened patches.")
     parser.add_argument('--sim_header', type=str, default="meanP",
@@ -145,11 +150,14 @@ def get_args(description='CLIP4Clip on Retrieval Task'):
     parser.add_argument("--load_best_model_from_dir", type=str, help="Load the best model in a given checkpoint directory")
 
     parser.add_argument("--test", action='store_true', help="A flag to avoid clogging up the wandb when performing tests, as it uses a separate project")
+    parser.add_argument("--debug", action='store_true', help="A flag to use debug settings")
+
 
     args = parser.parse_args()
 
     if args.sim_header == "tightTransf":
         args.loose_type = False
+    
 
     # Check paramenters
     if args.gradient_accumulation_steps < 1:
@@ -219,7 +227,7 @@ def set_seed_logger(args):
     with open(os.path.join(args.output_dir, "args.json"), 'w') as f:
         json.dump(vars(args), f, indent=4)
 
-    logger = get_logger(os.path.join(args.output_dir, "log.txt"))
+    logger = get_logger(os.path.join(args.output_dir, "log.txt"), debug=args.debug)
 
     if args.local_rank == 0:
         logger.info("Effective parameters:")
@@ -234,15 +242,13 @@ def init_device(args, local_rank):
 
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu", local_rank)
 
-    n_gpu = torch.cuda.device_count()
-    logger.info("device: {} n_gpu: {}".format(device, n_gpu))
-    args.n_gpu = n_gpu
+    logger.info("device: {} n_gpu: {}".format(device, args.n_gpu))
 
     if args.batch_size % args.n_gpu != 0 or args.batch_size_val % args.n_gpu != 0:
         raise ValueError("Invalid batch_size/batch_size_val and n_gpu parameter: {}%{} and {}%{}, should be == 0".format(
             args.batch_size, args.n_gpu, args.batch_size_val, args.n_gpu))
 
-    return device, n_gpu
+    return device
 
 def init_model(args, device, n_gpu, local_rank):
 
@@ -594,7 +600,7 @@ def main():
     global logger
     args = get_args()
     args = set_seed_logger(args)
-    device, n_gpu = init_device(args, args.local_rank)
+    device = init_device(args, args.local_rank)
 
     project_name = f"CLIP4Clip-{args.datatype}-{args.split.split('.')[0]}{'-test' if args.test else ''}"
     run = wandb.init(project=project_name)
@@ -607,16 +613,16 @@ def main():
     assert  args.task_type == "retrieval"
     if args.load_model_from_fn:
         logger.info(f'loading model from {args.load_model_from_fn}')
-        model = load_model(-1, args, n_gpu, device, model_file=args.load_model_from_fn)
+        model = load_model(-1, args, args.n_gpu, device, model_file=args.load_model_from_fn)
     elif args.load_best_model_from_dir:
         logger.info(f'loading best model from dir {args.load_best_model_from_dir}')
         assert os.path.isdir(args.load_best_model_from_dir), f"dir {args.load_best_model_from_dir} not found"
         with open(os.path.join(args.load_best_model_from_dir, BEST_MODEL_FN)) as f:
             data = json.load(f)
         best_model_fn = os.path.join(args.load_best_model_from_dir, data['best_model_fn'])
-        model = load_model(-1, args, n_gpu, device, model_file=best_model_fn)
+        model = load_model(-1, args, args.n_gpu, device, model_file=best_model_fn)
     else:
-        model = init_model(args, device, n_gpu, args.local_rank)
+        model = init_model(args, device, args.n_gpu, args.local_rank)
     
 
     ## ####################################
@@ -681,7 +687,7 @@ def main():
                                         / args.gradient_accumulation_steps) * args.epochs
 
         coef_lr = args.coef_lr
-        optimizer, scheduler, model = prep_optimizer(args, model, num_train_optimization_steps, device, n_gpu, args.local_rank, coef_lr=coef_lr)
+        optimizer, scheduler, model = prep_optimizer(args, model, num_train_optimization_steps, device, args.n_gpu, args.local_rank, coef_lr=coef_lr)
 
         if args.local_rank == 0:
             logger.info("***** Running training *****")
@@ -708,7 +714,7 @@ def main():
                 train_dataloader.dataset.refreshCache
 
             train_sampler.set_epoch(epoch)
-            tr_loss, global_step = train_epoch(epoch, args, model, train_dataloader, device, n_gpu, optimizer,
+            tr_loss, global_step = train_epoch(epoch, args, model, train_dataloader, device, args.n_gpu, optimizer,
                                                scheduler, global_step, local_rank=args.local_rank)
             
             args.wandbrun.log({"total_loss": tr_loss})
@@ -720,7 +726,7 @@ def main():
 
                 # Run on val dataset, this process is *TIME-consuming*.
                 logger.info("Eval on val dataset")
-                output_data = eval_epoch(args, model, val_dataloader, device, n_gpu)
+                output_data = eval_epoch(args, model, val_dataloader, device, args.n_gpu)
                 metrics = output_data['metrics']
                 with open(os.path.join(output_model_dir,f'val_output_data_e{epoch}.json'), 'w') as f:
                     json.dump(output_data,f, indent=4)
@@ -736,14 +742,14 @@ def main():
 
         # Uncomment if want to test on the best checkpoint
         if args.test_best_model and args.local_rank == 0 and not args.merge_test_val:
-            model = load_model(-1, args, n_gpu, device, model_file=best_output_model_file)
-            output_data = eval_epoch(args, model, test_dataloader, device, n_gpu, isTest=True)
+            model = load_model(-1, args, args.n_gpu, device, model_file=best_output_model_file)
+            output_data = eval_epoch(args, model, test_dataloader, device, args.n_gpu, isTest=True)
             with open(os.path.join(args.output_dir,'test_output_data.json'), 'w') as f:
                 json.dump(output_data,f, indent=4)
 
     elif args.do_eval:
         if args.local_rank == 0:
-            output_data = eval_epoch(args, model, test_dataloader, device, n_gpu, isTest=True)
+            output_data = eval_epoch(args, model, test_dataloader, device, args.n_gpu, isTest=True)
             with open(os.path.join(args.output_dir,'eval_output_data.json'), 'w') as f:
                 json.dump(output_data,f, indent=4)
 

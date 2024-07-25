@@ -1,3 +1,4 @@
+from sympy import false
 import torch
 import torch.nn as nn
 import threading
@@ -59,9 +60,9 @@ def parallel_apply(fct, model, inputs, device_ids):
         outputs.append(output)
     return outputs
 
-def get_logger(filename=None):
+def get_logger(filename=None, debug=false):
     logger = logging.getLogger('logger')
-    logger.setLevel(logging.DEBUG)
+    logger.setLevel(logging.INFO if not debug else logging.DEBUG)
     logging.basicConfig(format='%(asctime)s - %(levelname)s -   %(message)s',
                     datefmt='%m/%d/%Y %H:%M:%S',
                     level=logging.INFO)

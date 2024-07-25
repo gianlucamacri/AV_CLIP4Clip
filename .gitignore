@@ -7,3 +7,5 @@ wandb/*
 ckpts/*/*
 !ckpts/*/*.json
 */extractorCache/
+ckpts
+*/extractorCache

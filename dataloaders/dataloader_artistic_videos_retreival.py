@@ -63,7 +63,7 @@ class Artistic_Videos_DataLoader(Dataset):
         assert self.frame_order in [0, 1, 2]
         # 0: cut from head frames; 1: cut from tail frames; 2: extract frames uniformly.
         self.slice_framepos = slice_framepos
-        assert self.slice_framepos in [0, 1, 2]
+        assert self.slice_framepos in [0, 1, 2, 3]
 
         self.rawVideoExtractor = RawVideoExtractor(framerate=video_framerate, size=image_resolution, use_caching=use_caching, logger=self.logger)
         self.SPECIAL_TOKEN = {"CLS_TOKEN": "<|startoftext|>", "SEP_TOKEN": "<|endoftext|>",
@@ -129,9 +129,13 @@ class Artistic_Videos_DataLoader(Dataset):
                         video_slice = raw_video_slice[:self.max_frames, ...]
                     elif self.slice_framepos == 1:
                         video_slice = raw_video_slice[-self.max_frames:, ...]
-                    else:
+                    elif self.slice_framepos == 2:
                         sample_indx = np.linspace(0, raw_video_slice.shape[0] - 1, num=self.max_frames, dtype=int)
                         video_slice = raw_video_slice[sample_indx, ...]
+                    else:
+                        sample_indx = sorted(np.random.choice(raw_video_slice.shape[0], size=self.max_frames, replace=False))
+                        video_slice = raw_video_slice[sample_indx, ...]
+
                 else:
                     video_slice = raw_video_slice
 
