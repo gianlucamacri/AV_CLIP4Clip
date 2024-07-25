@@ -211,6 +211,9 @@ def set_seed_logger(args):
     else:
         args.output_dir = f"{args.output_dir}_eval_{args.max_frames}fps_{args.seed}_{int(time.time())}"
 
+    if args.test:
+        args.output_dir += '_test'
+
     os.makedirs(args.output_dir, exist_ok=False)
     
     with open(os.path.join(args.output_dir, "args.json"), 'w') as f:
@@ -222,6 +225,7 @@ def set_seed_logger(args):
         logger.info("Effective parameters:")
         for key in sorted(args.__dict__):
             logger.info("  <<< {}: {}".format(key, args.__dict__[key]))
+    args.logger = logger
 
     return args
 

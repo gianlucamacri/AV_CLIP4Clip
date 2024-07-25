@@ -24,14 +24,15 @@ def dataloader_artistic_videos_train(args, tokenizer):
         max_frames=args.max_frames,
         frame_order=args.train_frame_order,
         slice_framepos=args.slice_framepos,
-        use_caching=args.use_caching
+        use_caching=args.use_caching,
+        logger=args.logger
     )
 
     train_sampler = torch.utils.data.distributed.DistributedSampler(artistic_videos_dataset)
     dataloader = DataLoader(
         artistic_videos_dataset,
         batch_size=args.batch_size // args.n_gpu,
-        num_workers=args.num_thread_reader,
+        num_workers=args.num_thread_reader if args.num_thread_reader > 1 else 0, # necessary to avoid possible caching issue due to concurrency as 1 means "an additional process"
         pin_memory=False,
         shuffle=(train_sampler is None),
         sampler=train_sampler,
@@ -57,12 +58,13 @@ def dataloader_artistic_videos_test(args, tokenizer, subset:str):
         max_frames=args.max_frames,
         frame_order=args.eval_frame_order,
         slice_framepos=args.slice_framepos,
-        use_caching=args.use_caching
+        use_caching=args.use_caching,
+        logger = args.logger
     )
     dataloader = DataLoader(
         artistic_videos_testset,
         batch_size=args.batch_size_val,
-        num_workers=args.num_thread_reader,
+        num_workers=args.num_thread_reader if args.num_thread_reader > 1 else 0, # necessary to avoid possible caching issue due to concurrency as 1 means "an additional process"
         shuffle=False,
         drop_last=False,
     )

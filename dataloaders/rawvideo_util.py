@@ -15,12 +15,16 @@ class RawVideoExtractorCV2():
     _CACHE_DIR = 'extractorCache'
     _CACHE_INDEX_FN = 'cacheIndex.json'
 
-    def __init__(self, centercrop=False, size=224, framerate=-1, use_caching:bool = True):
+    def __init__(self, centercrop=False, size=224, framerate=-1, use_caching:bool = True, logger=None):
         self.centercrop = centercrop
         self.size = size
         self.framerate = framerate
         self.transform = self._transform(self.size)
         self.use_caching = use_caching
+        if logger is None:
+            logger = logging
+        self.logger = logger
+
         if (self.use_caching):
             self.cacheDir = os.path.join(os.path.dirname(os.path.abspath(__file__)), RawVideoExtractorCV2._CACHE_DIR)
             if not os.path.exists(self.cacheDir):
@@ -32,9 +36,6 @@ class RawVideoExtractorCV2():
             else:
                 with open(self.cacheIndexFn) as f:
                     self.cacheIndex = json.load(f)
-        if not 'logger' in globals():
-            logger = logging
-        self.logger = logger
 
     def refreshCache(self):
         with open(self.cacheIndexFn) as f:
@@ -50,9 +51,8 @@ class RawVideoExtractorCV2():
         fn = f"{self.cacheIndex['next_index_to_use']}"
         self.cacheIndex['next_index_to_use'] += 1
         self.logger.debug(f"saving {video_path} to entry {fn} of the cache")
-        f = gzip.GzipFile(os.path.join(self.cacheDir, fn), "w")
-        np.save(f, image_input['video'].numpy())
-        f.close()
+        with gzip.GzipFile(os.path.join(self.cacheDir, fn), "x") as f:
+            np.save(f, image_input['video'].numpy())
         self.cacheIndex['cache_map'][self.getCacheIndexName(video_path, start_time, end_time)] = fn
         self.saveUpdatedCacheIndex()
 
@@ -60,7 +60,11 @@ class RawVideoExtractorCV2():
         return f"{video_path}_{start_time}_{end_time}_{self.centercrop}_{self.size}_{self.framerate}" 
 
     def isCached(self, video_path, start_time, end_time):
-        return self.getCacheIndexName(video_path, start_time, end_time) in self.cacheIndex['cache_map'].keys()
+        cacheIdxName = self.getCacheIndexName(video_path, start_time, end_time)
+        retVal = cacheIdxName in self.cacheIndex['cache_map'].keys()
+        if retVal: 
+            assert os.path.exists(os.path.join(self.cacheDir,self.cacheIndex['cache_map'][cacheIdxName])), f"key found in the index but corresponding data is not available"
+        return retVal
 
     def _transform(self, n_px):
         return Compose([
@@ -125,15 +129,16 @@ class RawVideoExtractorCV2():
         if self.use_caching and self.isCached(video_path, start_time, end_time):
             self.logger.debug(f"cache hit: {video_path}")
             image_input_fn =  self.cacheIndex['cache_map'][self.getCacheIndexName(video_path, start_time, end_time)]
-            f = gzip.GzipFile(os.path.join(self.cacheDir,image_input_fn), 'r')
-            image_input = {'video':th.tensor(np.load(f))}
-            f.close()
+            with gzip.GzipFile(os.path.join(self.cacheDir,image_input_fn), 'r') as f:
+                image_input = {'video':th.tensor(np.load(f))}
             return image_input
-        # else
-        if self.use_caching: self.logger.info(f"cache miss: {video_path}")
-        image_input = self.video_to_tensor(video_path, self.transform, sample_fp=self.framerate, start_time=start_time, end_time=end_time)
-        if self.use_caching: self.saveDataAndUpdateCache(image_input, video_path, start_time, end_time)
-        return image_input
+        else:
+            if self.use_caching:
+                self.logger.info(f"cache miss: {video_path}")
+            image_input = self.video_to_tensor(video_path, self.transform, sample_fp=self.framerate, start_time=start_time, end_time=end_time)
+            if self.use_caching:
+                self.saveDataAndUpdateCache(image_input, video_path, start_time, end_time)
+            return image_input
 
     def process_raw_data(self, raw_video_data):
         tensor_size = raw_video_data.size()

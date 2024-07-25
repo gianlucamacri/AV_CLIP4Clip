@@ -34,9 +34,10 @@ class Artistic_Videos_DataLoader(Dataset):
             frame_order:int=0,
             slice_framepos:int=0,
             use_caching=True,
+            logger=None
     ):
         
-        if not 'logger' in globals():
+        if logger is None:
             logger = logging
         self.logger = logger
         avd = ArtisticVideoDataset(metadata_fn, video_dir)
@@ -64,7 +65,7 @@ class Artistic_Videos_DataLoader(Dataset):
         self.slice_framepos = slice_framepos
         assert self.slice_framepos in [0, 1, 2]
 
-        self.rawVideoExtractor = RawVideoExtractor(framerate=video_framerate, size=image_resolution, use_caching=use_caching)
+        self.rawVideoExtractor = RawVideoExtractor(framerate=video_framerate, size=image_resolution, use_caching=use_caching, logger=self.logger)
         self.SPECIAL_TOKEN = {"CLS_TOKEN": "<|startoftext|>", "SEP_TOKEN": "<|endoftext|>",
                               "MASK_TOKEN": "[MASK]", "UNK_TOKEN": "[UNK]", "PAD_TOKEN": "[PAD]"}
         
