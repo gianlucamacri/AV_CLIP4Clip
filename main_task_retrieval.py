@@ -22,6 +22,7 @@ from timeit import default_timer as timer
 from tqdm.auto import tqdm
 import wandb
 import json
+import pickle
 
 torch.distributed.init_process_group(backend="nccl")
 
@@ -59,6 +60,7 @@ def get_args(description='CLIP4Clip on Retrieval Task'):
     parser = argparse.ArgumentParser(description=description)
     parser.add_argument("--do_pretrain", action='store_true', help="Whether to run training.") # TODO: investigate
     
+    parser.add_argument("--do_featureExt", action='store_true', help="Whether to extract only video features.")
     parser.add_argument("--do_train", action='store_true', help="Whether to run training.")
     parser.add_argument("--do_eval", action='store_true', help="Whether to run eval on the dev set.")
     parser.add_argument("--test_best_model", action='store_true', help="Whether to load and test the best model at the end")
@@ -152,6 +154,8 @@ def get_args(description='CLIP4Clip on Retrieval Task'):
     parser.add_argument("--test", action='store_true', help="A flag to avoid clogging up the wandb when performing tests, as it uses a separate project")
     parser.add_argument("--debug", action='store_true', help="A flag to use debug settings")
 
+    parser.add_argument("--wandb", default=1, type=int, help="wandb log")
+    parser.add_argument('--featureExtDir', type=str, help="directory to extract the features to")
 
     args = parser.parse_args()
 
@@ -163,11 +167,18 @@ def get_args(description='CLIP4Clip on Retrieval Task'):
     if args.gradient_accumulation_steps < 1:
         raise ValueError("Invalid gradient_accumulation_steps parameter: {}, should be >= 1".format(
             args.gradient_accumulation_steps))
-    if not args.do_train and not args.do_eval:
-        raise ValueError("At least one of `do_train` or `do_eval` must be True.")
-    if args.do_train and args.do_eval:
-        raise ValueError("`do_train` and `do_eval` cannot be both set, to test the model after training use the flag --test_best_model or re run the script after the training")
-    
+    if not args.do_train and not args.do_eval and not args.do_featureExt:
+        raise ValueError("At least one of `do_train`, `do_eval` or `do_featureExt` must be True.")
+
+    if args.do_featureExt:
+
+        args.wandb = 0
+        args.batch_size = 1
+        args.batch_size_val = 1
+
+        assert args.featureExtDir is not None, "featureExtDir is required when do_featureExt is set"
+        assert args.datatype == 'artistic_videos', 'feature extraction is supported only by artistic_videos'
+
     if args.merge_test_val and args.best_model_strategy != 'last':
         raise ValueError("When  merge_test_val is set best_model_strategy must be last as otherwise the evaluation would be biased.")
     
@@ -189,7 +200,7 @@ def get_args(description='CLIP4Clip on Retrieval Task'):
     if args.load_model_from_fn  and args.load_best_model_from_dir:
         raise ValueError(f"pnly one between load_model_from_fn  and load_best_model_from_dir can be set")
 
-    if (args.load_model_from_fn  or args.load_best_model_from_dir) and not args.do_eval:
+    if (args.load_model_from_fn  or args.load_best_model_from_dir) and not (args.do_eval or args.do_featureExt):
         raise ValueError(f"loading model cannot be used for training, only for evaluation, use resume_model settings instead")
 
     args.batch_size = int(args.batch_size / args.gradient_accumulation_steps)
@@ -214,14 +225,20 @@ def set_seed_logger(args):
     rank = torch.distributed.get_rank()
     args.rank = rank
 
+    # logging the eval batch size in the name is pointless as the evaluation will still make sure to coampare all the videos between eachother, so using a larger batchzise
+	# will only lead to a (minor) speed bump
     if args.do_train:
         args.output_dir = f"{args.output_dir}_lr{args.lr}_e{args.epochs}_b{args.batch_size}_{args.max_frames}fps_{args.best_model_strategy}_{args.seed}_{int(time.time())}"
-    else:
+    elif args.do_eval:
         args.output_dir = f"{args.output_dir}_eval_{args.max_frames}fps_{args.seed}_{int(time.time())}"
+    elif args.do_featureExt:
+        args.output_dir = f"{args.output_dir}_featureExt_{args.max_frames}fps_{args.seed}_{int(time.time())}"
+
 
     if args.test:
         args.output_dir += '_test'
 
+    print(f'output_dir will be {args.output_dir}')
     os.makedirs(args.output_dir, exist_ok=False)
     
     with open(os.path.join(args.output_dir, "args.json"), 'w') as f:
@@ -347,7 +364,7 @@ def train_epoch(epoch, args, model, train_dataloader, device, n_gpu, optimizer, 
             # multi-gpu does scattering it-self
             batch = tuple(t.to(device=device, non_blocking=True) for t in batch)
 
-        input_ids, input_mask, segment_ids, video, video_mask = batch
+        input_ids, input_mask, segment_ids, video, video_mask, _ = batch
         loss = model(input_ids, segment_ids, input_mask, video, video_mask)
 
         if n_gpu > 1:
@@ -455,7 +472,7 @@ def eval_epoch(args, model, test_dataloader, device, n_gpu, isTest=False):
             
 
             batch = tuple(t.to(device) for t in batch)
-            input_ids, input_mask, segment_ids, video, video_mask = batch
+            input_ids, input_mask, segment_ids, video, video_mask, _ = batch
 
             if multi_sentence_:
                 # multi-sentences retrieval means: one clip has two or more descriptions.
@@ -596,17 +613,95 @@ def eval_epoch(args, model, test_dataloader, device, n_gpu, isTest=False):
 
     return save_output_data
 
+def extract_video_features(args, model, test_dataloader, device):
+
+    
+    if args.use_caching:
+        test_dataloader.dataset.refreshCache()
+
+
+    if hasattr(model, 'module'):
+        model = model.module.to(device)
+    else:
+        model = model.to(device)
+
+    videoIdsMap = test_dataloader.dataset.getVideoIds()
+    visual_features_dict = {}
+    
+    model.eval()
+    with torch.no_grad():
+
+        for bid, batch in enumerate(tqdm(test_dataloader)):
+
+            batch = tuple(t.to(device) for t in batch)
+            input_ids, input_mask, segment_ids, video, video_mask, vid_idx = batch
+
+            
+            _, visual_output = model.get_sequence_visual_output(input_ids, segment_ids, input_mask, video, video_mask)
+
+
+            vid_id = videoIdsMap[vid_idx.cpu()[0]]
+            visual_output = visual_output.cpu()[0][0]
+
+            visual_features_dict[vid_id] = visual_output
+
+
+
+
+            print("{}/{}\r".format(bid, len(test_dataloader)), end="")
+
+
+
+    if args.load_model_from_fn:
+        featureSource = {
+            "type": "model_from_fn",
+            "model_fn": args.load_model_from_fn
+        }
+    elif args.load_best_model_from_dir:
+        featureSource = {
+            "type": "best_model_from_dir",
+            "model_dir": args.load_best_model_from_dir
+        }
+    else:
+        featureSource = {
+            "type": "plain_model"
+        }
+
+
+    outputData = {
+        'featureSource':featureSource,
+        'features':visual_features_dict
+    }
+
+    featureFn = os.path.join(args.featureExtDir, f'artisticVideosFeature_CLIP4clip_{args.max_frames}fps_{"_base" if not args.load_model_from_fn and not args.load_best_model_from_dir else ""}{"_test" if args.test else ""}.pickle')
+    i = 1
+    testFn = featureFn
+    while os.path.exists(testFn):
+        logger.info(f'name clash on testFn, incrementing counter')
+        parts = featureFn.split('.')
+        parts[-2] += str(i)
+        testFn = '.'.join(parts)
+        i += 1
+
+    featureFn = testFn
+
+    logger.info(f'saving features dict to {featureFn}')
+    with open(featureFn, 'wb') as f:
+        pickle.dump(outputData, f)
+	
+
 def main():
     global logger
     args = get_args()
     args = set_seed_logger(args)
     device = init_device(args, args.local_rank)
 
-    project_name = f"CLIP4Clip-{args.datatype}-{args.split.split('.')[0]}{'-test' if args.test else ''}"
-    run = wandb.init(project=project_name)
-    config = run.config
-    config.update(vars(args)) # log all of the args into config
-    args.wandbrun = run
+    if args.wandb and args.local_rank==0 :
+        project_name = f"CLIP4Clip-{args.datatype}-{args.split.split('.')[0]}{'-test' if args.test else ''}"
+        run = wandb.init(project=project_name, name='_'.join(args.output_dir.split('/')[-1].split('_')[:-2 if not args.test else -3]))
+        config = run.config
+        config.update(vars(args)) # log all of the args into config
+        args.wandbrun = run
 
     tokenizer = ClipTokenizer()
 
@@ -646,8 +741,8 @@ def main():
                 # paramenters which < freeze_layer_num will be freezed
                 param.requires_grad = False
     
-    
-    args.wandbrun.watch(model)
+    if args.wandb:
+        args.wandbrun.watch(model)
 
     ## ####################################
     # dataloader loading
@@ -752,6 +847,14 @@ def main():
             output_data = eval_epoch(args, model, test_dataloader, device, args.n_gpu, isTest=True)
             with open(os.path.join(args.output_dir,'eval_output_data.json'), 'w') as f:
                 json.dump(output_data,f, indent=4)
+    
+    elif args.do_featureExt:
+        if not args.load_model_from_fn and not args.load_best_model_from_dir:
+            logger.warning("evaluationg plain model without loading any previous save")
+
+        if args.local_rank == 0:
+            extract_video_features(args, model, test_dataloader, device)
+
 
 if __name__ == "__main__":
     main()

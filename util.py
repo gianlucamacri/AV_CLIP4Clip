@@ -60,7 +60,7 @@ def parallel_apply(fct, model, inputs, device_ids):
         outputs.append(output)
     return outputs
 
-def get_logger(filename=None, debug=false):
+def get_logger(filename=None, debug=False):
     logger = logging.getLogger('logger')
     logger.setLevel(logging.INFO if not debug else logging.DEBUG)
     logging.basicConfig(format='%(asctime)s - %(levelname)s -   %(message)s',

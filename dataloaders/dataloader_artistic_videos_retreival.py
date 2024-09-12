@@ -10,6 +10,7 @@ import pandas as pd
 from dataloaders.rawvideo_util import RawVideoExtractor
 import logging
 from datasets.artistic_video_dataset.utils import ArtisticVideoDataset
+import torch
 
 ### adapted from MSR-VTT
 # edited the deprecated numpy types according to https://numpy.org/devdocs/release/1.20.0-notes.html#using-the-aliases-of-builtin-types-like-np-int-is-deprecated 
@@ -161,7 +162,7 @@ class Artistic_Videos_DataLoader(Dataset):
 
         pairs_text, pairs_mask, pairs_segment, choice_video_ids = self._get_text(video_id, sentence)
         video, video_mask = self._get_rawvideo(choice_video_ids)
-        return pairs_text, pairs_mask, pairs_segment, video, video_mask
+        return pairs_text, pairs_mask, pairs_segment, video, video_mask, torch.tensor(idx, dtype=int)
     
     def getVideoIds(self):
         return self.data['video_id'].values.tolist()
