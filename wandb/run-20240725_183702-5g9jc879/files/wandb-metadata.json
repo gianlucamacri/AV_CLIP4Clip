@@ -1,0 +1,215 @@
+{
+    "os": "Linux-5.4.0-150-generic-x86_64-with-glibc2.27",
+    "python": "3.12.4",
+    "heartbeatAt": "2024-07-25T16:37:03.361047",
+    "startedAt": "2024-07-25T16:37:02.795513",
+    "docker": null,
+    "cuda": null,
+    "args": [
+        "--do_train",
+        "--num_thread_reader=1",
+        "--epochs=10",
+        "--batch_size=30",
+        "--n_display=50",
+        "--metadata_fn",
+        "metadata_no_accents",
+        "--video_dir",
+        "compressedVideos",
+        "--split",
+        "75_5_10_split_3strat_cap_75",
+        "--output_dir",
+        "ckpts/av_retreival",
+        "--lr",
+        "2e-5",
+        "--max_frames",
+        "26",
+        "--batch_size_val",
+        "150",
+        "--datatype",
+        "artistic_videos",
+        "--feature_framerate",
+        "1",
+        "--coef_lr",
+        "1e-3",
+        "--freeze_layer_num",
+        "0",
+        "--slice_framepos",
+        "2",
+        "--loose_type",
+        "--linear_patch",
+        "2d",
+        "--sim_header",
+        "meanP",
+        "--pretrained_clip_name",
+        "ViT-B/32",
+        "--best_model_strategy",
+        "loss",
+        "--use_caching",
+        "--test_best_model",
+        "--test",
+        "--n_gpu=1"
+    ],
+    "state": "running",
+    "program": "/home/gmacri/tesiMagistrale/AV_CLIP4Clip/main_task_retrieval.py",
+    "codePathLocal": "main_task_retrieval.py",
+    "codePath": "main_task_retrieval.py",
+    "git": {
+        "remote": "git@github.com:gianlucamacri/AV_CLIP4Clip.git",
+        "commit": "071a7b3e19f093cccee33664fdb1150e9a4ea229"
+    },
+    "email": "gianluca18ma@gmail.com",
+    "root": "/home/gmacri/tesiMagistrale/AV_CLIP4Clip",
+    "host": "leonardo",
+    "username": "gmacri",
+    "executable": "/home/gmacri/anaconda3/envs/clip/bin/python",
+    "cpu_count": 12,
+    "cpu_count_logical": 24,
+    "cpu_freq": {
+        "current": 2.007916666666666,
+        "min": 2200.0,
+        "max": 3500.0
+    },
+    "cpu_freq_per_core": [
+        {
+            "current": 2.059,
+            "min": 2200.0,
+            "max": 3500.0
+        },
+        {
+            "current": 1.893,
+            "min": 2200.0,
+            "max": 3500.0
+        },
+        {
+            "current": 1.887,
+            "min": 2200.0,
+            "max": 3500.0
+        },
+        {
+            "current": 1.923,
+            "min": 2200.0,
+            "max": 3500.0
+        },
+        {
+            "current": 2.009,
+            "min": 2200.0,
+            "max": 3500.0
+        },
+        {
+            "current": 2.077,
+            "min": 2200.0,
+            "max": 3500.0
+        },
+        {
+            "current": 2.198,
+            "min": 2200.0,
+            "max": 3500.0
+        },
+        {
+            "current": 1.879,
+            "min": 2200.0,
+            "max": 3500.0
+        },
+        {
+            "current": 1.929,
+            "min": 2200.0,
+            "max": 3500.0
+        },
+        {
+            "current": 1.956,
+            "min": 2200.0,
+            "max": 3500.0
+        },
+        {
+            "current": 1.892,
+            "min": 2200.0,
+            "max": 3500.0
+        },
+        {
+            "current": 1.977,
+            "min": 2200.0,
+            "max": 3500.0
+        },
+        {
+            "current": 1.954,
+            "min": 2200.0,
+            "max": 3500.0
+        },
+        {
+            "current": 2.188,
+            "min": 2200.0,
+            "max": 3500.0
+        },
+        {
+            "current": 2.197,
+            "min": 2200.0,
+            "max": 3500.0
+        },
+        {
+            "current": 1.868,
+            "min": 2200.0,
+            "max": 3500.0
+        },
+        {
+            "current": 2.026,
+            "min": 2200.0,
+            "max": 3500.0
+        },
+        {
+            "current": 2.027,
+            "min": 2200.0,
+            "max": 3500.0
+        },
+        {
+            "current": 2.181,
+            "min": 2200.0,
+            "max": 3500.0
+        },
+        {
+            "current": 1.914,
+            "min": 2200.0,
+            "max": 3500.0
+        },
+        {
+            "current": 1.861,
+            "min": 2200.0,
+            "max": 3500.0
+        },
+        {
+            "current": 2.196,
+            "min": 2200.0,
+            "max": 3500.0
+        },
+        {
+            "current": 2.03,
+            "min": 2200.0,
+            "max": 3500.0
+        },
+        {
+            "current": 2.069,
+            "min": 2200.0,
+            "max": 3500.0
+        }
+    ],
+    "disk": {
+        "/": {
+            "total": 937.8226585388184,
+            "used": 740.9286880493164
+        }
+    },
+    "gpu": "NVIDIA TITAN RTX",
+    "gpu_count": 2,
+    "gpu_devices": [
+        {
+            "name": "NVIDIA TITAN RTX",
+            "memory_total": 25396838400
+        },
+        {
+            "name": "NVIDIA TITAN RTX",
+            "memory_total": 25395462144
+        }
+    ],
+    "memory": {
+        "total": 62.74051284790039
+    }
+}

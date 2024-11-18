@@ -1,0 +1,216 @@
+07/25/2024 17:47:55 - INFO -   loading archive file /home/gmacri/tesiMagistrale/AV_CLIP4Clip/modules/cross-base
+07/25/2024 17:47:55 - INFO -   Model config {
+  "attention_probs_dropout_prob": 0.1,
+  "hidden_act": "gelu",
+  "hidden_dropout_prob": 0.1,
+  "hidden_size": 512,
+  "initializer_range": 0.02,
+  "intermediate_size": 2048,
+  "max_position_embeddings": 128,
+  "num_attention_heads": 8,
+  "num_hidden_layers": 4,
+  "type_vocab_size": 2,
+  "vocab_size": 512
+}
+07/25/2024 17:47:55 - INFO -   Weight doesn't exsits. /home/gmacri/tesiMagistrale/AV_CLIP4Clip/modules/cross-base/cross_pytorch_model.bin
+07/25/2024 17:47:55 - WARNING -   Stage-One:True, Stage-Two:False
+07/25/2024 17:47:55 - WARNING -   Test retrieval by loose type.
+07/25/2024 17:47:55 - WARNING -   	 embed_dim: 512
+07/25/2024 17:47:55 - WARNING -   	 image_resolution: 224
+07/25/2024 17:47:55 - WARNING -   	 vision_layers: 12
+07/25/2024 17:47:55 - WARNING -   	 vision_width: 768
+07/25/2024 17:47:55 - WARNING -   	 vision_patch_size: 32
+07/25/2024 17:47:55 - WARNING -   	 context_length: 77
+07/25/2024 17:47:55 - WARNING -   	 vocab_size: 49408
+07/25/2024 17:47:55 - WARNING -   	 transformer_width: 512
+07/25/2024 17:47:55 - WARNING -   	 transformer_heads: 8
+07/25/2024 17:47:55 - WARNING -   	 transformer_layers: 12
+07/25/2024 17:47:55 - WARNING -   		 linear_patch: 2d
+07/25/2024 17:47:55 - WARNING -   	 cut_top_layer: 0
+07/25/2024 17:47:56 - WARNING -   	 sim_header: meanP
+07/25/2024 17:48:00 - INFO -   --------------------
+07/25/2024 17:48:00 - INFO -   Weights from pretrained model not used in CLIP4Clip:
+   clip.input_resolution
+   clip.context_length
+   clip.vocab_size
+07/25/2024 17:48:01 - INFO -   updating metadata video filename paths to match the actual location, to prevent this behavior set the updateVideoFilenames to false
+07/25/2024 17:48:01 - INFO -   updating metadata video filename paths to match the actual location, to prevent this behavior set the updateVideoFilenames to false
+07/25/2024 17:48:01 - INFO -   ***** Running test *****
+07/25/2024 17:48:01 - INFO -     Num examples = 24
+07/25/2024 17:48:01 - INFO -     Batch size = 16
+07/25/2024 17:48:01 - INFO -     Num steps = 2
+07/25/2024 17:48:01 - INFO -   ***** Running val *****
+07/25/2024 17:48:01 - INFO -     Num examples = 6
+07/25/2024 17:48:01 - INFO -   updating metadata video filename paths to match the actual location, to prevent this behavior set the updateVideoFilenames to false
+07/25/2024 17:48:01 - INFO -   0 (0.0 %) will remain unsued for each epoch due to drop last set to true for the dataloader
+07/25/2024 17:48:01 - INFO -   ***** Running training *****
+07/25/2024 17:48:01 - INFO -     Num examples = 90
+07/25/2024 17:48:01 - INFO -     Batch size = 18
+07/25/2024 17:48:01 - INFO -     Num steps = 100
+
+
+
+
+
+
+
+
+
+100%|█████████████████████████████████████████| 10/10 [00:45<00:00,  4.51s/it]
+07/25/2024 17:48:46 - INFO -   Epoch 1/10 Finished, Train Loss: 0.305266
+07/25/2024 17:48:47 - INFO -   Model saved to ../ckpts/av_retreival_lr0.0001_e10_b18_100fps_loss_42_1721922467_test/pytorch_model.bin.0
+07/25/2024 17:48:47 - INFO -   Optimizer saved to ../ckpts/av_retreival_lr0.0001_e10_b18_100fps_loss_42_1721922467_test/pytorch_opt.bin.0
+07/25/2024 17:48:47 - INFO -   Eval on val dataset
+  0%|                                                   | 0/1 [00:00<?, ?it/s]07/25/2024 17:48:49 - INFO -   retrieval of video 16 took 2.5835101269185543
+07/25/2024 17:48:49 - INFO -   computation took 0.08332075900398195
+100%|███████████████████████████████████████████| 1/1 [00:02<00:00,  2.67s/it]
+07/25/2024 17:48:51 - INFO -   sim matrix size: 6, 6
+07/25/2024 17:48:51 - INFO -   	 Length-T: 6, Length-V:6
+07/25/2024 17:48:51 - INFO -   Similarity loss: 1.6
+07/25/2024 17:48:51 - INFO -   Text-to-Video:
+07/25/2024 17:48:51 - INFO -   	>>>  R@1: 83.3 - R@5: 100.0 - R@10: 100.0 - Median R: 1.0 - Mean R: 1.3
+07/25/2024 17:48:51 - INFO -   Video-to-Text:
+07/25/2024 17:48:51 - INFO -   	>>>  V2T$R@1: 83.3 - V2T$R@5: 83.3 - V2T$R@10: 100.0 - V2T$Median R: 1.0 - V2T$Mean R: 1.8
+07/25/2024 17:48:51 - INFO -   The best model according to loss strategy is: ../ckpts/av_retreival_lr0.0001_e10_b18_100fps_loss_42_1721922467_test/pytorch_model.bin.0, its metric is: 1.5686
+  0%|                                                  | 0/10 [00:00<?, ?it/s]
+
+
+
+
+
+
+
+
+
+100%|█████████████████████████████████████████| 10/10 [00:44<00:00,  4.44s/it]
+07/25/2024 17:49:35 - INFO -   Epoch 2/10 Finished, Train Loss: 0.117423
+07/25/2024 17:49:36 - INFO -   Model saved to ../ckpts/av_retreival_lr0.0001_e10_b18_100fps_loss_42_1721922467_test/pytorch_model.bin.1
+07/25/2024 17:49:36 - INFO -   Optimizer saved to ../ckpts/av_retreival_lr0.0001_e10_b18_100fps_loss_42_1721922467_test/pytorch_opt.bin.1
+07/25/2024 17:49:36 - INFO -   Eval on val dataset
+  0%|                                                   | 0/1 [00:00<?, ?it/s]07/25/2024 17:49:38 - INFO -   retrieval of video 16 took 2.5438355839578435
+07/25/2024 17:49:39 - INFO -   computation took 0.0888755259802565
+100%|███████████████████████████████████████████| 1/1 [00:02<00:00,  2.63s/it]
+07/25/2024 17:49:39 - INFO -   sim matrix size: 6, 6
+07/25/2024 17:49:39 - INFO -   	 Length-T: 6, Length-V:6
+07/25/2024 17:49:39 - INFO -   Similarity loss: 1.6
+07/25/2024 17:49:39 - INFO -   Text-to-Video:
+07/25/2024 17:49:39 - INFO -   	>>>  R@1: 83.3 - R@5: 100.0 - R@10: 100.0 - Median R: 1.0 - Mean R: 1.3
+07/25/2024 17:49:39 - INFO -   Video-to-Text:
+07/25/2024 17:49:39 - INFO -   	>>>  V2T$R@1: 66.7 - V2T$R@5: 83.3 - V2T$R@10: 100.0 - V2T$Median R: 1.0 - V2T$Mean R: 2.0
+07/25/2024 17:49:39 - INFO -   The best model according to loss strategy is: ../ckpts/av_retreival_lr0.0001_e10_b18_100fps_loss_42_1721922467_test/pytorch_model.bin.0, its metric is: 1.5686
+
+
+
+
+
+
+
+
+
+100%|█████████████████████████████████████████| 10/10 [00:44<00:00,  4.46s/it]
+07/25/2024 17:50:23 - INFO -   Epoch 3/10 Finished, Train Loss: 0.019551
+07/25/2024 17:50:24 - INFO -   Model saved to ../ckpts/av_retreival_lr0.0001_e10_b18_100fps_loss_42_1721922467_test/pytorch_model.bin.2
+07/25/2024 17:50:24 - INFO -   Optimizer saved to ../ckpts/av_retreival_lr0.0001_e10_b18_100fps_loss_42_1721922467_test/pytorch_opt.bin.2
+07/25/2024 17:50:24 - INFO -   Eval on val dataset
+  0%|                                                   | 0/1 [00:00<?, ?it/s]07/25/2024 17:50:27 - INFO -   retrieval of video 16 took 2.592084072995931
+07/25/2024 17:50:27 - INFO -   computation took 0.08320679201278836
+100%|███████████████████████████████████████████| 1/1 [00:02<00:00,  2.68s/it]
+07/25/2024 17:50:27 - INFO -   sim matrix size: 6, 6
+07/25/2024 17:50:27 - INFO -   	 Length-T: 6, Length-V:6
+07/25/2024 17:50:27 - INFO -   Similarity loss: 1.6
+07/25/2024 17:50:27 - INFO -   Text-to-Video:
+07/25/2024 17:50:27 - INFO -   	>>>  R@1: 83.3 - R@5: 100.0 - R@10: 100.0 - Median R: 1.0 - Mean R: 1.5
+07/25/2024 17:50:27 - INFO -   Video-to-Text:
+07/25/2024 17:50:27 - INFO -   	>>>  V2T$R@1: 83.3 - V2T$R@5: 83.3 - V2T$R@10: 100.0 - V2T$Median R: 1.0 - V2T$Mean R: 1.8
+07/25/2024 17:50:27 - INFO -   The best model according to loss strategy is: ../ckpts/av_retreival_lr0.0001_e10_b18_100fps_loss_42_1721922467_test/pytorch_model.bin.0, its metric is: 1.5686
+
+
+
+
+
+
+
+
+
+100%|█████████████████████████████████████████| 10/10 [00:44<00:00,  4.47s/it]
+07/25/2024 17:51:12 - INFO -   Epoch 4/10 Finished, Train Loss: 0.002736
+07/25/2024 17:51:13 - INFO -   Model saved to ../ckpts/av_retreival_lr0.0001_e10_b18_100fps_loss_42_1721922467_test/pytorch_model.bin.3
+07/25/2024 17:51:13 - INFO -   Optimizer saved to ../ckpts/av_retreival_lr0.0001_e10_b18_100fps_loss_42_1721922467_test/pytorch_opt.bin.3
+07/25/2024 17:51:13 - INFO -   Eval on val dataset
+07/25/2024 17:51:16 - INFO -   	 Length-T: 6, Length-V:6| 0/1 [00:00<?, ?it/s]07/25/2024 17:51:15 - INFO -   retrieval of video 16 took 2.5984586289850995
+07/25/2024 17:51:15 - INFO -   computation took 0.08329716697335243
+100%|███████████████████████████████████████████| 1/1 [00:02<00:00,  2.68s/it]
+07/25/2024 17:51:16 - INFO -   sim matrix size: 6, 6
+07/25/2024 17:51:16 - INFO -   	 Length-T: 6, Length-V:6| 0/1 [00:00<?, ?it/s]07/25/2024 17:51:15 - INFO -   retrieval of video 16 took 2.5984586289850995
+07/25/2024 17:51:16 - INFO -   Similarity loss: 1.6
+07/25/2024 17:51:16 - INFO -   Text-to-Video:
+07/25/2024 17:51:16 - INFO -   	>>>  R@1: 83.3 - R@5: 100.0 - R@10: 100.0 - Median R: 1.0 - Mean R: 1.5
+07/25/2024 17:51:16 - INFO -   Video-to-Text:
+07/25/2024 17:51:16 - INFO -   	>>>  V2T$R@1: 83.3 - V2T$R@5: 100.0 - V2T$R@10: 100.0 - V2T$Median R: 1.0 - V2T$Mean R: 1.7
+07/25/2024 17:51:16 - INFO -   The best model according to loss strategy is: ../ckpts/av_retreival_lr0.0001_e10_b18_100fps_loss_42_1721922467_test/pytorch_model.bin.0, its metric is: 1.5686
+ 10%|████▏                                     | 1/10 [00:04<00:36,  4.10s/it]
+ 20%|████████▍                                 | 2/10 [00:08<00:35,  4.44s/it]
+ 30%|████████████▌                             | 3/10 [00:13<00:32,  4.62s/it]
+ 40%|████████████████▊                         | 4/10 [00:17<00:25,  4.29s/it]
+ 50%|█████████████████████                     | 5/10 [00:23<00:24,  5.00s/it]
+ 60%|█████████████████████████▏                | 6/10 [00:27<00:18,  4.68s/it]
+ 70%|█████████████████████████████▍            | 7/10 [00:31<00:12,  4.30s/it]
+ 80%|█████████████████████████████████▌        | 8/10 [00:35<00:08,  4.26s/it]
+ 90%|█████████████████████████████████████▊    | 9/10 [00:40<00:04,  4.38s/it]
+ 90%|█████████████████████████████████████▊    | 9/10 [00:40<00:04,  4.38s/it]07/25/2024 17:52:00 - INFO -   Epoch: 5/10, Step: 10/10, Lr: , Loss: 0.000194, Time/step: 0.887876
+07/25/2024 17:52:01 - INFO -   Model saved to ../ckpts/av_retreival_lr0.0001_e10_b18_100fps_loss_42_1721922467_test/pytorch_model.bin.4Lr: , Loss: 0.000194, Time/step: 0.887876
+  0%|                                                  | 0/10 [00:00<?, ?it/s]07/25/2024 17:52:03 - INFO -   retrieval of video 16 took 2.57206044392660264, Time/step: 0.887876
+ 10%|████▏                                     | 1/10 [00:05<00:48,  5.35s/it]07/25/2024 17:52:03 - INFO -   retrieval of video 16 took 2.57206044392660264, Time/step: 0.887876
+ 20%|████████▍                                 | 2/10 [00:09<00:35,  4.48s/it]07/25/2024 17:52:03 - INFO -   retrieval of video 16 took 2.57206044392660264, Time/step: 0.887876
+ 30%|████████████▌                             | 3/10 [00:13<00:30,  4.36s/it]07/25/2024 17:52:03 - INFO -   retrieval of video 16 took 2.57206044392660264, Time/step: 0.887876
+ 40%|████████████████▊                         | 4/10 [00:18<00:27,  4.54s/it]07/25/2024 17:52:03 - INFO -   retrieval of video 16 took 2.57206044392660264, Time/step: 0.887876
+ 50%|█████████████████████                     | 5/10 [00:22<00:21,  4.35s/it]07/25/2024 17:52:03 - INFO -   retrieval of video 16 took 2.57206044392660264, Time/step: 0.887876
+ 60%|█████████████████████████▏                | 6/10 [00:28<00:19,  4.89s/it]07/25/2024 17:52:03 - INFO -   retrieval of video 16 took 2.57206044392660264, Time/step: 0.887876
+ 70%|█████████████████████████████▍            | 7/10 [00:32<00:13,  4.60s/it]07/25/2024 17:52:03 - INFO -   retrieval of video 16 took 2.57206044392660264, Time/step: 0.887876
+ 80%|█████████████████████████████████▌        | 8/10 [00:36<00:08,  4.40s/it]07/25/2024 17:52:03 - INFO -   retrieval of video 16 took 2.57206044392660264, Time/step: 0.887876
+ 90%|█████████████████████████████████████▊    | 9/10 [00:39<00:04,  4.13s/it]07/25/2024 17:52:03 - INFO -   retrieval of video 16 took 2.57206044392660264, Time/step: 0.887876
+100%|█████████████████████████████████████████| 10/10 [00:44<00:00,  4.45s/it]07/25/2024 17:52:03 - INFO -   retrieval of video 16 took 2.57206044392660264, Time/step: 0.887876
+07/25/2024 17:52:49 - INFO -   Model saved to ../ckpts/av_retreival_lr0.0001_e10_b18_100fps_loss_42_1721922467_test/pytorch_model.bin.5 2.57206044392660264, Time/step: 0.887876
+  0%|                                                  | 0/10 [00:00<?, ?it/s]07/25/2024 17:52:52 - INFO -   retrieval of video 16 took 2.58989901398308584, Time/step: 0.887876
+ 10%|████▏                                     | 1/10 [00:03<00:32,  3.60s/it]07/25/2024 17:52:52 - INFO -   retrieval of video 16 took 2.58989901398308584, Time/step: 0.887876
+ 20%|████████▍                                 | 2/10 [00:08<00:36,  4.52s/it]07/25/2024 17:52:52 - INFO -   retrieval of video 16 took 2.58989901398308584, Time/step: 0.887876
+ 30%|████████████▌                             | 3/10 [00:13<00:32,  4.70s/it]07/25/2024 17:52:52 - INFO -   retrieval of video 16 took 2.58989901398308584, Time/step: 0.887876
+ 40%|████████████████▊                         | 4/10 [00:18<00:27,  4.60s/it]07/25/2024 17:52:52 - INFO -   retrieval of video 16 took 2.58989901398308584, Time/step: 0.887876
+ 50%|█████████████████████                     | 5/10 [00:22<00:22,  4.41s/it]07/25/2024 17:52:52 - INFO -   retrieval of video 16 took 2.58989901398308584, Time/step: 0.887876
+ 60%|█████████████████████████▏                | 6/10 [00:27<00:18,  4.58s/it]07/25/2024 17:52:52 - INFO -   retrieval of video 16 took 2.58989901398308584, Time/step: 0.887876
+ 70%|█████████████████████████████▍            | 7/10 [00:31<00:13,  4.56s/it]07/25/2024 17:52:52 - INFO -   retrieval of video 16 took 2.58989901398308584, Time/step: 0.887876
+ 80%|█████████████████████████████████▌        | 8/10 [00:35<00:08,  4.34s/it]07/25/2024 17:52:52 - INFO -   retrieval of video 16 took 2.58989901398308584, Time/step: 0.887876
+ 90%|█████████████████████████████████████▊    | 9/10 [00:39<00:04,  4.21s/it]07/25/2024 17:52:52 - INFO -   retrieval of video 16 took 2.58989901398308584, Time/step: 0.887876
+100%|█████████████████████████████████████████| 10/10 [00:44<00:00,  4.42s/it]07/25/2024 17:52:52 - INFO -   retrieval of video 16 took 2.58989901398308584, Time/step: 0.887876
+07/25/2024 17:53:37 - INFO -   Model saved to ../ckpts/av_retreival_lr0.0001_e10_b18_100fps_loss_42_1721922467_test/pytorch_model.bin.6 2.58989901398308584, Time/step: 0.887876
+  0%|                                                  | 0/10 [00:00<?, ?it/s]07/25/2024 17:53:40 - INFO -   retrieval of video 16 took 2.56816229107789784, Time/step: 0.887876
+ 10%|████▏                                     | 1/10 [00:04<00:36,  4.06s/it]07/25/2024 17:53:40 - INFO -   retrieval of video 16 took 2.56816229107789784, Time/step: 0.887876
+ 20%|████████▍                                 | 2/10 [00:07<00:31,  3.92s/it]07/25/2024 17:53:40 - INFO -   retrieval of video 16 took 2.56816229107789784, Time/step: 0.887876
+ 30%|████████████▌                             | 3/10 [00:12<00:29,  4.24s/it]07/25/2024 17:53:40 - INFO -   retrieval of video 16 took 2.56816229107789784, Time/step: 0.887876
+ 40%|████████████████▊                         | 4/10 [00:18<00:28,  4.76s/it]07/25/2024 17:53:40 - INFO -   retrieval of video 16 took 2.56816229107789784, Time/step: 0.887876
+ 50%|█████████████████████                     | 5/10 [00:21<00:21,  4.34s/it]07/25/2024 17:53:40 - INFO -   retrieval of video 16 took 2.56816229107789784, Time/step: 0.887876
+ 60%|█████████████████████████▏                | 6/10 [00:27<00:18,  4.73s/it]07/25/2024 17:53:40 - INFO -   retrieval of video 16 took 2.56816229107789784, Time/step: 0.887876
+ 70%|█████████████████████████████▍            | 7/10 [00:32<00:14,  4.79s/it]07/25/2024 17:53:40 - INFO -   retrieval of video 16 took 2.56816229107789784, Time/step: 0.887876
+ 80%|█████████████████████████████████▌        | 8/10 [00:36<00:09,  4.68s/it]07/25/2024 17:53:40 - INFO -   retrieval of video 16 took 2.56816229107789784, Time/step: 0.887876
+ 90%|█████████████████████████████████████▊    | 9/10 [00:39<00:04,  4.18s/it]07/25/2024 17:53:40 - INFO -   retrieval of video 16 took 2.56816229107789784, Time/step: 0.887876
+100%|█████████████████████████████████████████| 10/10 [00:44<00:00,  4.44s/it]07/25/2024 17:53:40 - INFO -   retrieval of video 16 took 2.56816229107789784, Time/step: 0.887876
+07/25/2024 17:54:25 - INFO -   Model saved to ../ckpts/av_retreival_lr0.0001_e10_b18_100fps_loss_42_1721922467_test/pytorch_model.bin.7 2.56816229107789784, Time/step: 0.887876
+  0%|                                                  | 0/10 [00:00<?, ?it/s]07/25/2024 17:54:28 - INFO -   retrieval of video 16 took 2.57305487501435784, Time/step: 0.887876
+ 10%|████▏                                     | 1/10 [00:03<00:35,  4.00s/it]07/25/2024 17:54:28 - INFO -   retrieval of video 16 took 2.57305487501435784, Time/step: 0.887876
+ 20%|████████▍                                 | 2/10 [00:08<00:32,  4.12s/it]07/25/2024 17:54:28 - INFO -   retrieval of video 16 took 2.57305487501435784, Time/step: 0.887876
+ 30%|████████████▌                             | 3/10 [00:13<00:31,  4.46s/it]07/25/2024 17:54:28 - INFO -   retrieval of video 16 took 2.57305487501435784, Time/step: 0.887876
+ 40%|████████████████▊                         | 4/10 [00:19<00:31,  5.18s/it]07/25/2024 17:54:28 - INFO -   retrieval of video 16 took 2.57305487501435784, Time/step: 0.887876
+ 50%|█████████████████████                     | 5/10 [00:23<00:23,  4.70s/it]07/25/2024 17:54:28 - INFO -   retrieval of video 16 took 2.57305487501435784, Time/step: 0.887876
+ 60%|█████████████████████████▏                | 6/10 [00:27<00:18,  4.66s/it]07/25/2024 17:54:28 - INFO -   retrieval of video 16 took 2.57305487501435784, Time/step: 0.887876
+ 70%|█████████████████████████████▍            | 7/10 [00:31<00:12,  4.31s/it]07/25/2024 17:54:28 - INFO -   retrieval of video 16 took 2.57305487501435784, Time/step: 0.887876
+ 80%|█████████████████████████████████▌        | 8/10 [00:36<00:09,  4.67s/it]07/25/2024 17:54:28 - INFO -   retrieval of video 16 took 2.57305487501435784, Time/step: 0.887876
+ 90%|█████████████████████████████████████▊    | 9/10 [00:40<00:04,  4.27s/it]07/25/2024 17:54:28 - INFO -   retrieval of video 16 took 2.57305487501435784, Time/step: 0.887876
+100%|█████████████████████████████████████████| 10/10 [00:44<00:00,  4.43s/it]07/25/2024 17:54:28 - INFO -   retrieval of video 16 took 2.57305487501435784, Time/step: 0.887876
+07/25/2024 17:55:13 - INFO -   Model saved to ../ckpts/av_retreival_lr0.0001_e10_b18_100fps_loss_42_1721922467_test/pytorch_model.bin.8 2.57305487501435784, Time/step: 0.887876
+  0%|                                                  | 0/10 [00:00<?, ?it/s]07/25/2024 17:55:16 - INFO -   retrieval of video 16 took 2.56556472904048864, Time/step: 0.887876
+ 10%|████▏                                     | 1/10 [00:04<00:39,  4.41s/it]07/25/2024 17:55:16 - INFO -   retrieval of video 16 took 2.56556472904048864, Time/step: 0.887876
+ 20%|████████▍                                 | 2/10 [00:09<00:37,  4.65s/it]07/25/2024 17:55:16 - INFO -   retrieval of video 16 took 2.56556472904048864, Time/step: 0.887876
+ 30%|████████████▌                             | 3/10 [00:12<00:27,  3.97s/it]07/25/2024 17:55:16 - INFO -   retrieval of video 16 took 2.56556472904048864, Time/step: 0.887876
+ 40%|████████████████▊                         | 4/10 [00:18<00:28,  4.67s/it]07/25/2024 17:55:16 - INFO -   retrieval of video 16 took 2.56556472904048864, Time/step: 0.887876
+[rank0]:   File "/home/gmacri/anaconda3/envs/clip/lib/python3.12/site-packages/torch/distributed/c10d_logger.py", line 79, in wrapperok 2.56556472904048864, Time/step: 0.887876
+[rank0]:   File "/home/gmacri/anaconda3/envs/clip/lib/python3.12/site-packages/torch/distributed/c10d_logger.py", line 79, in wrapperok 2.56556472904048864, Time/step: 0.887876

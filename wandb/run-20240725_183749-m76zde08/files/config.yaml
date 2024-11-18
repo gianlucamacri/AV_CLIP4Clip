@@ -1,0 +1,224 @@
+wandb_version: 1
+
+_wandb:
+  desc: null
+  value:
+    python_version: 3.12.4
+    cli_version: 0.16.6
+    framework: torch
+    is_jupyter_run: false
+    is_kaggle_kernel: false
+    start_time: 1721925469.0
+    t:
+      1:
+      - 1
+      - 41
+      - 51
+      - 55
+      2:
+      - 1
+      - 41
+      - 51
+      - 55
+      3:
+      - 23
+      4: 3.12.4
+      5: 0.16.6
+      8:
+      - 5
+      13: linux-x86_64
+do_pretrain:
+  desc: null
+  value: false
+do_train:
+  desc: null
+  value: true
+do_eval:
+  desc: null
+  value: false
+test_best_model:
+  desc: null
+  value: true
+train_csv:
+  desc: null
+  value: null
+val_csv:
+  desc: null
+  value: null
+data_path:
+  desc: null
+  value: null
+features_path:
+  desc: null
+  value: null
+metadata_fn:
+  desc: null
+  value: metadata_no_accents
+video_dir:
+  desc: null
+  value: compressedVideos
+split:
+  desc: null
+  value: 75_5_10_split_3strat_cap_75
+merge_test_val:
+  desc: null
+  value: false
+best_model_strategy:
+  desc: null
+  value: loss
+use_caching:
+  desc: null
+  value: true
+num_thread_reader:
+  desc: null
+  value: 1
+lr:
+  desc: null
+  value: 2.0e-05
+epochs:
+  desc: null
+  value: 10
+batch_size:
+  desc: null
+  value: 30
+batch_size_val:
+  desc: null
+  value: 16
+lr_decay:
+  desc: null
+  value: 0.9
+n_display:
+  desc: null
+  value: 50
+seed:
+  desc: null
+  value: 42
+max_words:
+  desc: null
+  value: 20
+max_frames:
+  desc: null
+  value: 128
+feature_framerate:
+  desc: null
+  value: 1
+margin:
+  desc: null
+  value: 0.1
+hard_negative_rate:
+  desc: null
+  value: 0.5
+negative_weighting:
+  desc: null
+  value: 1
+n_pair:
+  desc: null
+  value: 1
+output_dir:
+  desc: null
+  value: ckpts/av_retreival_lr2e-05_e10_b30_128fps_loss_42_1721925469_test
+cross_model:
+  desc: null
+  value: cross-base
+init_model:
+  desc: null
+  value: null
+resume_model:
+  desc: null
+  value: null
+do_lower_case:
+  desc: null
+  value: false
+warmup_proportion:
+  desc: null
+  value: 0.1
+gradient_accumulation_steps:
+  desc: null
+  value: 1
+n_gpu:
+  desc: null
+  value: 1
+cache_dir:
+  desc: null
+  value: ''
+fp16:
+  desc: null
+  value: false
+fp16_opt_level:
+  desc: null
+  value: O1
+task_type:
+  desc: null
+  value: retrieval
+datatype:
+  desc: null
+  value: artistic_videos
+world_size:
+  desc: null
+  value: 1
+local_rank:
+  desc: null
+  value: 0
+rank:
+  desc: null
+  value: 0
+coef_lr:
+  desc: null
+  value: 0.001
+use_mil:
+  desc: null
+  value: false
+sampled_use_mil:
+  desc: null
+  value: false
+text_num_hidden_layers:
+  desc: null
+  value: 12
+visual_num_hidden_layers:
+  desc: null
+  value: 12
+cross_num_hidden_layers:
+  desc: null
+  value: 4
+loose_type:
+  desc: null
+  value: true
+expand_msrvtt_sentences:
+  desc: null
+  value: false
+train_frame_order:
+  desc: null
+  value: 0
+eval_frame_order:
+  desc: null
+  value: 0
+freeze_layer_num:
+  desc: null
+  value: 0
+slice_framepos:
+  desc: null
+  value: 2
+linear_patch:
+  desc: null
+  value: 2d
+sim_header:
+  desc: null
+  value: meanP
+pretrained_clip_name:
+  desc: null
+  value: ViT-B/32
+load_model_from_fn:
+  desc: null
+  value: null
+load_best_model_from_dir:
+  desc: null
+  value: null
+test:
+  desc: null
+  value: true
+debug:
+  desc: null
+  value: false
+logger:
+  desc: null
+  value: <Logger logger (INFO)>

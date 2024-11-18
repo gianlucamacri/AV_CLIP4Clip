@@ -1,0 +1,283 @@
+07/25/2024 16:46:45 - INFO -   loading archive file /home/gmacri/tesiMagistrale/AV_CLIP4Clip/modules/cross-base
+07/25/2024 16:46:45 - INFO -   Model config {
+  "attention_probs_dropout_prob": 0.1,
+  "hidden_act": "gelu",
+  "hidden_dropout_prob": 0.1,
+  "hidden_size": 512,
+  "initializer_range": 0.02,
+  "intermediate_size": 2048,
+  "max_position_embeddings": 128,
+  "num_attention_heads": 8,
+  "num_hidden_layers": 4,
+  "type_vocab_size": 2,
+  "vocab_size": 512
+}
+07/25/2024 16:46:45 - INFO -   Weight doesn't exsits. /home/gmacri/tesiMagistrale/AV_CLIP4Clip/modules/cross-base/cross_pytorch_model.bin
+07/25/2024 16:46:45 - WARNING -   Stage-One:True, Stage-Two:False
+07/25/2024 16:46:45 - WARNING -   Test retrieval by loose type.
+07/25/2024 16:46:45 - WARNING -   	 embed_dim: 512
+07/25/2024 16:46:45 - WARNING -   	 image_resolution: 224
+07/25/2024 16:46:45 - WARNING -   	 vision_layers: 12
+07/25/2024 16:46:45 - WARNING -   	 vision_width: 768
+07/25/2024 16:46:45 - WARNING -   	 vision_patch_size: 32
+07/25/2024 16:46:45 - WARNING -   	 context_length: 77
+07/25/2024 16:46:45 - WARNING -   	 vocab_size: 49408
+07/25/2024 16:46:45 - WARNING -   	 transformer_width: 512
+07/25/2024 16:46:45 - WARNING -   	 transformer_heads: 8
+07/25/2024 16:46:45 - WARNING -   	 transformer_layers: 12
+07/25/2024 16:46:45 - WARNING -   		 linear_patch: 2d
+07/25/2024 16:46:45 - WARNING -   	 cut_top_layer: 0
+07/25/2024 16:46:46 - WARNING -   	 sim_header: meanP
+07/25/2024 16:46:49 - INFO -   --------------------
+07/25/2024 16:46:49 - INFO -   Weights from pretrained model not used in CLIP4Clip:
+   clip.input_resolution
+   clip.context_length
+   clip.vocab_size
+07/25/2024 16:46:50 - INFO -   updating metadata video filename paths to match the actual location, to prevent this behavior set the updateVideoFilenames to false
+07/25/2024 16:46:50 - INFO -   updating metadata video filename paths to match the actual location, to prevent this behavior set the updateVideoFilenames to false
+07/25/2024 16:46:50 - INFO -   ***** Running test *****
+07/25/2024 16:46:50 - INFO -     Num examples = 24
+07/25/2024 16:46:50 - INFO -     Batch size = 16
+07/25/2024 16:46:50 - INFO -     Num steps = 2
+07/25/2024 16:46:50 - INFO -   ***** Running val *****
+07/25/2024 16:46:50 - INFO -     Num examples = 6
+07/25/2024 16:46:50 - INFO -   updating metadata video filename paths to match the actual location, to prevent this behavior set the updateVideoFilenames to false
+07/25/2024 16:46:50 - INFO -   0 (0.0 %) will remain unsued for each epoch due to drop last set to true for the dataloader
+07/25/2024 16:46:50 - INFO -   ***** Running training *****
+07/25/2024 16:46:50 - INFO -     Num examples = 90
+07/25/2024 16:46:50 - INFO -     Batch size = 90
+07/25/2024 16:46:50 - INFO -     Num steps = 20
+  0%|                                                   | 0/2 [00:00<?, ?it/s]07/25/2024 16:46:50 - DEBUG -   cache hit: /home/gmacri/tesiMagistrale/AV_CLIP4Clip/datasets/artistic_video_dataset/compressedVideos/121815712_Nauman-Bruce_Black-Balls.mp4
+07/25/2024 16:46:51 - DEBUG -   cache hit: /home/gmacri/tesiMagistrale/AV_CLIP4Clip/datasets/artistic_video_dataset/compressedVideos/e338_338_Duba_Sambolec_Code_I_640.mp4
+07/25/2024 16:46:51 - DEBUG -   cache hit: /home/gmacri/tesiMagistrale/AV_CLIP4Clip/datasets/artistic_video_dataset/compressedVideos/135110753_Pilson-John_Sidewalk-single-channel_2003.mp4
+07/25/2024 16:46:52 - DEBUG -   cache hit: /home/gmacri/tesiMagistrale/AV_CLIP4Clip/datasets/artistic_video_dataset/compressedVideos/131792875_Taylor-Wood-Sam_Hysteria_1999.mp4
+07/25/2024 16:46:52 - DEBUG -   cache hit: /home/gmacri/tesiMagistrale/AV_CLIP4Clip/datasets/artistic_video_dataset/compressedVideos/e1004_1004_d250_muratovic_amir_zivljena_knjig1min.mp4
+07/25/2024 16:46:52 - DEBUG -   cache hit: /home/gmacri/tesiMagistrale/AV_CLIP4Clip/datasets/artistic_video_dataset/compressedVideos/127784684_Leslie-Alfred_The-Last-Clean-Shirt_1964.mp4
+07/25/2024 16:46:53 - DEBUG -   cache hit: /home/gmacri/tesiMagistrale/AV_CLIP4Clip/datasets/artistic_video_dataset/compressedVideos/152853167_Weiner-Lawrence_To-And-Fro.-Fro-And-To.-And-To-And-Fro.-And-Fro-And-To.mp4
+07/25/2024 16:46:53 - DEBUG -   cache hit: /home/gmacri/tesiMagistrale/AV_CLIP4Clip/datasets/artistic_video_dataset/compressedVideos/6ff577428996dcb0cadc5d9a7dd05461.mp4
+07/25/2024 16:46:54 - DEBUG -   cache hit: /home/gmacri/tesiMagistrale/AV_CLIP4Clip/datasets/artistic_video_dataset/compressedVideos/ad4d4e3ff70887910c6c1b5c6d416fc9.mp4
+07/25/2024 16:46:55 - DEBUG -   cache hit: /home/gmacri/tesiMagistrale/AV_CLIP4Clip/datasets/artistic_video_dataset/compressedVideos/e340_340_Duba-Sambolec_Code_III_640.mp4
+07/25/2024 16:46:55 - DEBUG -   cache hit: /home/gmacri/tesiMagistrale/AV_CLIP4Clip/datasets/artistic_video_dataset/compressedVideos/135131105_Dwoskin-Stephen_Moment_1968.mp4
+07/25/2024 16:46:56 - DEBUG -   cache hit: /home/gmacri/tesiMagistrale/AV_CLIP4Clip/datasets/artistic_video_dataset/compressedVideos/134065932_Eriksson_Annika_The-Great-Good-Place_2010.mp4
+07/25/2024 16:46:56 - DEBUG -   cache hit: /home/gmacri/tesiMagistrale/AV_CLIP4Clip/datasets/artistic_video_dataset/compressedVideos/135807828_Simpson-Lorna_Cloudscape_2004.mp4
+07/25/2024 16:46:56 - DEBUG -   cache hit: /home/gmacri/tesiMagistrale/AV_CLIP4Clip/datasets/artistic_video_dataset/compressedVideos/40d57def2cb5d948a8e2737a816f325a.mp4
+07/25/2024 16:46:56 - DEBUG -   cache hit: /home/gmacri/tesiMagistrale/AV_CLIP4Clip/datasets/artistic_video_dataset/compressedVideos/e309_309_D16d_skusek_natasa_toaleta1_16.MP4.mp4
+07/25/2024 16:46:56 - DEBUG -   cache hit: /home/gmacri/tesiMagistrale/AV_CLIP4Clip/datasets/artistic_video_dataset/compressedVideos/237753589_Mutu-Wangechi_Cutting.mp4
+07/25/2024 16:46:57 - DEBUG -   cache hit: /home/gmacri/tesiMagistrale/AV_CLIP4Clip/datasets/artistic_video_dataset/compressedVideos/e776_Stermitz_Darovanje_Mesecu.mp4
+07/25/2024 16:46:57 - DEBUG -   cache hit: /home/gmacri/tesiMagistrale/AV_CLIP4Clip/datasets/artistic_video_dataset/compressedVideos/b228e94aac9dafd3016a38a4d28e1431.mp4
+07/25/2024 16:46:57 - DEBUG -   cache hit: /home/gmacri/tesiMagistrale/AV_CLIP4Clip/datasets/artistic_video_dataset/compressedVideos/6820354b93096632fd0a041dcc2df335.mp4
+07/25/2024 16:46:58 - DEBUG -   cache hit: /home/gmacri/tesiMagistrale/AV_CLIP4Clip/datasets/artistic_video_dataset/compressedVideos/EvelinStermitz_rose_is_a_rose.mp4
+07/25/2024 16:46:58 - DEBUG -   cache hit: /home/gmacri/tesiMagistrale/AV_CLIP4Clip/datasets/artistic_video_dataset/compressedVideos/122679750_Arnold-Skip_Punch_1992.mp4
+07/25/2024 16:46:58 - DEBUG -   cache hit: /home/gmacri/tesiMagistrale/AV_CLIP4Clip/datasets/artistic_video_dataset/compressedVideos/e252_252_DVD97_vipotnik_miha_video8_tape_N3.avi.MP4.mp4
+07/25/2024 16:46:58 - DEBUG -   cache hit: /home/gmacri/tesiMagistrale/AV_CLIP4Clip/datasets/artistic_video_dataset/compressedVideos/125948671_Harris-Hilary_Longhorns_1951.mp4
+07/25/2024 16:46:58 - DEBUG -   cache hit: /home/gmacri/tesiMagistrale/AV_CLIP4Clip/datasets/artistic_video_dataset/compressedVideos/131792548_Taylor-Wood-Sam_Ascension_2003.mp4
+07/25/2024 16:46:59 - DEBUG -   cache hit: /home/gmacri/tesiMagistrale/AV_CLIP4Clip/datasets/artistic_video_dataset/compressedVideos/e805_805_D160_ana_cigon_real_presence.mp4
+07/25/2024 16:46:59 - DEBUG -   cache hit: /home/gmacri/tesiMagistrale/AV_CLIP4Clip/datasets/artistic_video_dataset/compressedVideos/e1136_Avtoportret.mp4
+07/25/2024 16:46:59 - DEBUG -   cache hit: /home/gmacri/tesiMagistrale/AV_CLIP4Clip/datasets/artistic_video_dataset/compressedVideos/e71_kracina_kurca_640.mp4
+07/25/2024 16:46:59 - DEBUG -   cache hit: /home/gmacri/tesiMagistrale/AV_CLIP4Clip/datasets/artistic_video_dataset/compressedVideos/EvelinStermitz_room_thoughts.mp4
+07/25/2024 16:46:59 - DEBUG -   cache hit: /home/gmacri/tesiMagistrale/AV_CLIP4Clip/datasets/artistic_video_dataset/compressedVideos/53a2e3657c136a9c3d8071bcda959771.mp4
+07/25/2024 16:46:59 - DEBUG -   cache hit: /home/gmacri/tesiMagistrale/AV_CLIP4Clip/datasets/artistic_video_dataset/compressedVideos/135115285_Wieland-Joyce_Sailboat_1967.mp4
+07/25/2024 16:46:59 - DEBUG -   cache hit: /home/gmacri/tesiMagistrale/AV_CLIP4Clip/datasets/artistic_video_dataset/compressedVideos/9b403de050d0f9549440b43b7167f7a3.mp4
+07/25/2024 16:47:00 - DEBUG -   cache hit: /home/gmacri/tesiMagistrale/AV_CLIP4Clip/datasets/artistic_video_dataset/compressedVideos/508416142d523b73a6e7f8307a4d92e3.mp4
+07/25/2024 16:47:00 - DEBUG -   cache hit: /home/gmacri/tesiMagistrale/AV_CLIP4Clip/datasets/artistic_video_dataset/compressedVideos/e1122_Ana_Sluga_Still_Life_1.mp4
+07/25/2024 16:47:00 - DEBUG -   cache hit: /home/gmacri/tesiMagistrale/AV_CLIP4Clip/datasets/artistic_video_dataset/compressedVideos/e289_Prosenc_Crossing.mp4
+07/25/2024 16:47:00 - DEBUG -   cache hit: /home/gmacri/tesiMagistrale/AV_CLIP4Clip/datasets/artistic_video_dataset/compressedVideos/c979d5c1408fb8ea58b83f4143cc39ba.mp4
+07/25/2024 16:47:00 - DEBUG -   cache hit: /home/gmacri/tesiMagistrale/AV_CLIP4Clip/datasets/artistic_video_dataset/compressedVideos/125836986_Goldstein-Jack_Ballet-Shoe_1975.mp4
+07/25/2024 16:47:01 - DEBUG -   cache hit: /home/gmacri/tesiMagistrale/AV_CLIP4Clip/datasets/artistic_video_dataset/compressedVideos/e135_203MirkoSimicAlislisiszvoktisine.mp4
+07/25/2024 16:47:01 - DEBUG -   cache hit: /home/gmacri/tesiMagistrale/AV_CLIP4Clip/datasets/artistic_video_dataset/compressedVideos/EvelinStermitz_into_the_mirror.mp4
+07/25/2024 16:47:01 - DEBUG -   cache hit: /home/gmacri/tesiMagistrale/AV_CLIP4Clip/datasets/artistic_video_dataset/compressedVideos/e807_807_D160_ana_cigon_one_more_kick.mp4
+07/25/2024 16:47:01 - DEBUG -   cache hit: /home/gmacri/tesiMagistrale/AV_CLIP4Clip/datasets/artistic_video_dataset/compressedVideos/132251077_Toshio.Matsumoto.-.Experimental.film.works.-.2.6.-.Atman.1975.mp4
+07/25/2024 16:47:02 - DEBUG -   cache hit: /home/gmacri/tesiMagistrale/AV_CLIP4Clip/datasets/artistic_video_dataset/compressedVideos/ce04410663a46df64678bbd4d2291e41.mp4
+07/25/2024 16:47:03 - DEBUG -   cache hit: /home/gmacri/tesiMagistrale/AV_CLIP4Clip/datasets/artistic_video_dataset/compressedVideos/124841012_Herring-Oliver_Nathan_2007.mp4
+07/25/2024 16:47:03 - DEBUG -   cache hit: /home/gmacri/tesiMagistrale/AV_CLIP4Clip/datasets/artistic_video_dataset/compressedVideos/e824_824_D170_Furlan_Tomaz_Wear_IV.mp4
+07/25/2024 16:47:03 - DEBUG -   cache hit: /home/gmacri/tesiMagistrale/AV_CLIP4Clip/datasets/artistic_video_dataset/compressedVideos/e1311_Bukovec_Okroznica.mp4
+07/25/2024 16:47:04 - DEBUG -   cache hit: /home/gmacri/tesiMagistrale/AV_CLIP4Clip/datasets/artistic_video_dataset/compressedVideos/624b47639c9eb7c4cb877b741e78f2cb.mp4
+  0%|                                                   | 0/2 [00:15<?, ?it/s]
+Traceback (most recent call last):
+  File "/home/gmacri/tesiMagistrale/AV_CLIP4Clip/main_task_retrieval.py", line 751, in <module>
+    main()
+  File "/home/gmacri/tesiMagistrale/AV_CLIP4Clip/main_task_retrieval.py", line 711, in main
+    tr_loss, global_step = train_epoch(epoch, args, model, train_dataloader, device, n_gpu, optimizer,
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/gmacri/tesiMagistrale/AV_CLIP4Clip/main_task_retrieval.py", line 345, in train_epoch
+    loss = model(input_ids, segment_ids, input_mask, video, video_mask)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/gmacri/anaconda3/envs/clip/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1553, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/gmacri/anaconda3/envs/clip/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1562, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/gmacri/anaconda3/envs/clip/lib/python3.12/site-packages/torch/nn/parallel/distributed.py", line 1636, in forward
+    else self._run_ddp_forward(*inputs, **kwargs)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/gmacri/anaconda3/envs/clip/lib/python3.12/site-packages/torch/nn/parallel/distributed.py", line 1454, in _run_ddp_forward
+    return self.module(*inputs, **kwargs)  # type: ignore[index]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/gmacri/anaconda3/envs/clip/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1553, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/gmacri/anaconda3/envs/clip/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1562, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/gmacri/tesiMagistrale/AV_CLIP4Clip/modules/modeling.py", line 261, in forward
+    sequence_output, visual_output = self.get_sequence_visual_output(input_ids, token_type_ids, attention_mask,
+                                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/gmacri/tesiMagistrale/AV_CLIP4Clip/modules/modeling.py", line 316, in get_sequence_visual_output
+    visual_output = self.get_visual_output(video, video_mask, shaped=True, video_frame=video_frame)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/gmacri/tesiMagistrale/AV_CLIP4Clip/modules/modeling.py", line 298, in get_visual_output
+    visual_hidden = self.clip.encode_image(video, video_frame=video_frame).float()
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/gmacri/tesiMagistrale/AV_CLIP4Clip/modules/module_clip.py", line 451, in encode_image
+    hidden = self.visual(image.type(self.dtype), video_frame=video_frame)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/gmacri/anaconda3/envs/clip/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1553, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/gmacri/anaconda3/envs/clip/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1562, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/gmacri/tesiMagistrale/AV_CLIP4Clip/modules/module_clip.py", line 314, in forward
+    x = self.transformer(x, video_frame=video_frame)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/gmacri/anaconda3/envs/clip/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1553, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/gmacri/anaconda3/envs/clip/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1562, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/gmacri/tesiMagistrale/AV_CLIP4Clip/modules/module_clip.py", line 266, in forward
+    return self.resblocks((x, video_frame))[0]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/gmacri/anaconda3/envs/clip/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1553, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/gmacri/anaconda3/envs/clip/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1562, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/gmacri/anaconda3/envs/clip/lib/python3.12/site-packages/torch/nn/modules/container.py", line 219, in forward
+    input = module(input)
+            ^^^^^^^^^^^^^
+  File "/home/gmacri/anaconda3/envs/clip/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1553, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/gmacri/anaconda3/envs/clip/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1562, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/gmacri/tesiMagistrale/AV_CLIP4Clip/modules/module_clip.py", line 253, in forward
+    x = x + self.attention(self.ln_1(x))
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/gmacri/tesiMagistrale/AV_CLIP4Clip/modules/module_clip.py", line 249, in attention
+    return self.attn(x, x, x, need_weights=False, attn_mask=attn_mask_)[0]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/gmacri/anaconda3/envs/clip/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1553, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/gmacri/anaconda3/envs/clip/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1562, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/gmacri/anaconda3/envs/clip/lib/python3.12/site-packages/torch/nn/modules/activation.py", line 1275, in forward
+    attn_output, attn_output_weights = F.multi_head_attention_forward(
+                                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/gmacri/anaconda3/envs/clip/lib/python3.12/site-packages/torch/nn/functional.py", line 5420, in multi_head_attention_forward
+    q, k, v = _in_projection_packed(query, key, value, in_proj_weight, in_proj_bias)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/gmacri/anaconda3/envs/clip/lib/python3.12/site-packages/torch/nn/functional.py", line 4922, in _in_projection_packed
+    proj = proj.unflatten(-1, (3, E)).unsqueeze(0).transpose(0, -2).squeeze(-2).contiguous()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 318.00 MiB. GPU 0 has a total capacity of 23.65 GiB of which 169.56 MiB is free. Including non-PyTorch memory, this process has 23.48 GiB memory in use. Of the allocated memory 21.78 GiB is allocated by PyTorch, and 572.17 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+[rank0]: Traceback (most recent call last):
+[rank0]:   File "/home/gmacri/tesiMagistrale/AV_CLIP4Clip/main_task_retrieval.py", line 751, in <module>
+[rank0]:     main()
+[rank0]:   File "/home/gmacri/tesiMagistrale/AV_CLIP4Clip/main_task_retrieval.py", line 711, in main
+[rank0]:     tr_loss, global_step = train_epoch(epoch, args, model, train_dataloader, device, n_gpu, optimizer,
+[rank0]:                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/home/gmacri/tesiMagistrale/AV_CLIP4Clip/main_task_retrieval.py", line 345, in train_epoch
+[rank0]:     loss = model(input_ids, segment_ids, input_mask, video, video_mask)
+[rank0]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/home/gmacri/anaconda3/envs/clip/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1553, in _wrapped_call_impl
+[rank0]:     return self._call_impl(*args, **kwargs)
+[rank0]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/home/gmacri/anaconda3/envs/clip/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1562, in _call_impl
+[rank0]:     return forward_call(*args, **kwargs)
+[rank0]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/home/gmacri/anaconda3/envs/clip/lib/python3.12/site-packages/torch/nn/parallel/distributed.py", line 1636, in forward
+[rank0]:     else self._run_ddp_forward(*inputs, **kwargs)
+[rank0]:          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/home/gmacri/anaconda3/envs/clip/lib/python3.12/site-packages/torch/nn/parallel/distributed.py", line 1454, in _run_ddp_forward
+[rank0]:     return self.module(*inputs, **kwargs)  # type: ignore[index]
+[rank0]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/home/gmacri/anaconda3/envs/clip/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1553, in _wrapped_call_impl
+[rank0]:     return self._call_impl(*args, **kwargs)
+[rank0]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/home/gmacri/anaconda3/envs/clip/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1562, in _call_impl
+[rank0]:     return forward_call(*args, **kwargs)
+[rank0]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/home/gmacri/tesiMagistrale/AV_CLIP4Clip/modules/modeling.py", line 261, in forward
+[rank0]:     sequence_output, visual_output = self.get_sequence_visual_output(input_ids, token_type_ids, attention_mask,
+[rank0]:                                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/home/gmacri/tesiMagistrale/AV_CLIP4Clip/modules/modeling.py", line 316, in get_sequence_visual_output
+[rank0]:     visual_output = self.get_visual_output(video, video_mask, shaped=True, video_frame=video_frame)
+[rank0]:                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/home/gmacri/tesiMagistrale/AV_CLIP4Clip/modules/modeling.py", line 298, in get_visual_output
+[rank0]:     visual_hidden = self.clip.encode_image(video, video_frame=video_frame).float()
+[rank0]:                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/home/gmacri/tesiMagistrale/AV_CLIP4Clip/modules/module_clip.py", line 451, in encode_image
+[rank0]:     hidden = self.visual(image.type(self.dtype), video_frame=video_frame)
+[rank0]:              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/home/gmacri/anaconda3/envs/clip/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1553, in _wrapped_call_impl
+[rank0]:     return self._call_impl(*args, **kwargs)
+[rank0]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/home/gmacri/anaconda3/envs/clip/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1562, in _call_impl
+[rank0]:     return forward_call(*args, **kwargs)
+[rank0]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/home/gmacri/tesiMagistrale/AV_CLIP4Clip/modules/module_clip.py", line 314, in forward
+[rank0]:     x = self.transformer(x, video_frame=video_frame)
+[rank0]:         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/home/gmacri/anaconda3/envs/clip/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1553, in _wrapped_call_impl
+[rank0]:     return self._call_impl(*args, **kwargs)
+[rank0]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/home/gmacri/anaconda3/envs/clip/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1562, in _call_impl
+[rank0]:     return forward_call(*args, **kwargs)
+[rank0]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/home/gmacri/tesiMagistrale/AV_CLIP4Clip/modules/module_clip.py", line 266, in forward
+[rank0]:     return self.resblocks((x, video_frame))[0]
+[rank0]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/home/gmacri/anaconda3/envs/clip/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1553, in _wrapped_call_impl
+[rank0]:     return self._call_impl(*args, **kwargs)
+[rank0]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/home/gmacri/anaconda3/envs/clip/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1562, in _call_impl
+[rank0]:     return forward_call(*args, **kwargs)
+[rank0]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/home/gmacri/anaconda3/envs/clip/lib/python3.12/site-packages/torch/nn/modules/container.py", line 219, in forward
+[rank0]:     input = module(input)
+[rank0]:             ^^^^^^^^^^^^^
+[rank0]:   File "/home/gmacri/anaconda3/envs/clip/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1553, in _wrapped_call_impl
+[rank0]:     return self._call_impl(*args, **kwargs)
+[rank0]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/home/gmacri/anaconda3/envs/clip/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1562, in _call_impl
+[rank0]:     return forward_call(*args, **kwargs)
+[rank0]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/home/gmacri/tesiMagistrale/AV_CLIP4Clip/modules/module_clip.py", line 253, in forward
+[rank0]:     x = x + self.attention(self.ln_1(x))
+[rank0]:             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/home/gmacri/tesiMagistrale/AV_CLIP4Clip/modules/module_clip.py", line 249, in attention
+[rank0]:     return self.attn(x, x, x, need_weights=False, attn_mask=attn_mask_)[0]
+[rank0]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/home/gmacri/anaconda3/envs/clip/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1553, in _wrapped_call_impl
+[rank0]:     return self._call_impl(*args, **kwargs)
+[rank0]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/home/gmacri/anaconda3/envs/clip/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1562, in _call_impl
+[rank0]:     return forward_call(*args, **kwargs)
+[rank0]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/home/gmacri/anaconda3/envs/clip/lib/python3.12/site-packages/torch/nn/modules/activation.py", line 1275, in forward
+[rank0]:     attn_output, attn_output_weights = F.multi_head_attention_forward(
+[rank0]:                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/home/gmacri/anaconda3/envs/clip/lib/python3.12/site-packages/torch/nn/functional.py", line 5420, in multi_head_attention_forward
+[rank0]:     q, k, v = _in_projection_packed(query, key, value, in_proj_weight, in_proj_bias)
+[rank0]:               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/home/gmacri/anaconda3/envs/clip/lib/python3.12/site-packages/torch/nn/functional.py", line 4922, in _in_projection_packed
+[rank0]:     proj = proj.unflatten(-1, (3, E)).unsqueeze(0).transpose(0, -2).squeeze(-2).contiguous()
+[rank0]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]: torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 318.00 MiB. GPU 0 has a total capacity of 23.65 GiB of which 169.56 MiB is free. Including non-PyTorch memory, this process has 23.48 GiB memory in use. Of the allocated memory 21.78 GiB is allocated by PyTorch, and 572.17 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)

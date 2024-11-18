@@ -1,0 +1,117 @@
+07/25/2024 16:08:40 - INFO -   loading archive file /home/gmacri/tesiMagistrale/AV_CLIP4Clip/modules/cross-base
+07/25/2024 16:08:40 - INFO -   Model config {
+  "attention_probs_dropout_prob": 0.1,
+  "hidden_act": "gelu",
+  "hidden_dropout_prob": 0.1,
+  "hidden_size": 512,
+  "initializer_range": 0.02,
+  "intermediate_size": 2048,
+  "max_position_embeddings": 128,
+  "num_attention_heads": 8,
+  "num_hidden_layers": 4,
+  "type_vocab_size": 2,
+  "vocab_size": 512
+}
+07/25/2024 16:08:40 - INFO -   Weight doesn't exsits. /home/gmacri/tesiMagistrale/AV_CLIP4Clip/modules/cross-base/cross_pytorch_model.bin
+07/25/2024 16:08:40 - WARNING -   Stage-One:True, Stage-Two:False
+07/25/2024 16:08:40 - WARNING -   Test retrieval by loose type.
+07/25/2024 16:08:40 - WARNING -   	 embed_dim: 512
+07/25/2024 16:08:40 - WARNING -   	 image_resolution: 224
+07/25/2024 16:08:40 - WARNING -   	 vision_layers: 12
+07/25/2024 16:08:40 - WARNING -   	 vision_width: 768
+07/25/2024 16:08:40 - WARNING -   	 vision_patch_size: 32
+07/25/2024 16:08:40 - WARNING -   	 context_length: 77
+07/25/2024 16:08:40 - WARNING -   	 vocab_size: 49408
+07/25/2024 16:08:40 - WARNING -   	 transformer_width: 512
+07/25/2024 16:08:40 - WARNING -   	 transformer_heads: 8
+07/25/2024 16:08:40 - WARNING -   	 transformer_layers: 12
+07/25/2024 16:08:40 - WARNING -   		 linear_patch: 2d
+07/25/2024 16:08:40 - WARNING -   	 cut_top_layer: 0
+07/25/2024 16:08:41 - WARNING -   	 sim_header: seqTransf
+07/25/2024 16:08:45 - INFO -   --------------------
+07/25/2024 16:08:45 - INFO -   Weights from pretrained model not used in CLIP4Clip:
+   clip.input_resolution
+   clip.context_length
+   clip.vocab_size
+07/25/2024 16:08:46 - INFO -   updating metadata video filename paths to match the actual location, to prevent this behavior set the updateVideoFilenames to false
+07/25/2024 16:08:47 - INFO -   updating metadata video filename paths to match the actual location, to prevent this behavior set the updateVideoFilenames to false
+07/25/2024 16:08:47 - INFO -   ***** Running test *****
+07/25/2024 16:08:47 - INFO -     Num examples = 24
+07/25/2024 16:08:47 - INFO -     Batch size = 16
+07/25/2024 16:08:47 - INFO -     Num steps = 2
+07/25/2024 16:08:47 - INFO -   ***** Running val *****
+07/25/2024 16:08:47 - INFO -     Num examples = 6
+07/25/2024 16:08:47 - INFO -   updating metadata video filename paths to match the actual location, to prevent this behavior set the updateVideoFilenames to false
+07/25/2024 16:08:47 - INFO -   2 (2.2222222222222223 %) will remain unsued for each epoch due to drop last set to true for the dataloader
+07/25/2024 16:08:47 - INFO -   ***** Running training *****
+07/25/2024 16:08:47 - INFO -     Num examples = 90
+07/25/2024 16:08:47 - INFO -     Batch size = 8
+07/25/2024 16:08:47 - INFO -     Num steps = 220
+  0%|                                                  | 0/22 [00:00<?, ?it/s]07/25/2024 16:08:47 - INFO -   cache miss: /home/gmacri/tesiMagistrale/AV_CLIP4Clip/datasets/artistic_video_dataset/compressedVideos/121815712_Nauman-Bruce_Black-Balls.mp4
+07/25/2024 16:09:01 - DEBUG -   saving /home/gmacri/tesiMagistrale/AV_CLIP4Clip/datasets/artistic_video_dataset/compressedVideos/121815712_Nauman-Bruce_Black-Balls.mp4 to entry 218 of the cache
+07/25/2024 16:09:17 - DEBUG -   updating cache index
+07/25/2024 16:09:17 - DEBUG -   cacheIndex now has 219 entries
+07/25/2024 16:09:17 - INFO -   cache miss: /home/gmacri/tesiMagistrale/AV_CLIP4Clip/datasets/artistic_video_dataset/compressedVideos/e338_338_Duba_Sambolec_Code_I_640.mp4
+  0%|                                                  | 0/22 [00:32<?, ?it/s]
+Traceback (most recent call last):
+  File "/home/gmacri/tesiMagistrale/AV_CLIP4Clip/main_task_retrieval.py", line 751, in <module>
+    main()
+  File "/home/gmacri/tesiMagistrale/AV_CLIP4Clip/main_task_retrieval.py", line 711, in main
+    tr_loss, global_step = train_epoch(epoch, args, model, train_dataloader, device, n_gpu, optimizer,
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/gmacri/tesiMagistrale/AV_CLIP4Clip/main_task_retrieval.py", line 339, in train_epoch
+    for step, batch in enumerate(tqdm(train_dataloader)):
+  File "/home/gmacri/anaconda3/envs/clip/lib/python3.12/site-packages/tqdm/std.py", line 1181, in __iter__
+    for obj in iterable:
+  File "/home/gmacri/anaconda3/envs/clip/lib/python3.12/site-packages/torch/utils/data/dataloader.py", line 630, in __next__
+    data = self._next_data()
+           ^^^^^^^^^^^^^^^^^
+  File "/home/gmacri/anaconda3/envs/clip/lib/python3.12/site-packages/torch/utils/data/dataloader.py", line 673, in _next_data
+    data = self._dataset_fetcher.fetch(index)  # may raise StopIteration
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/gmacri/anaconda3/envs/clip/lib/python3.12/site-packages/torch/utils/data/_utils/fetch.py", line 52, in fetch
+    data = [self.dataset[idx] for idx in possibly_batched_index]
+            ~~~~~~~~~~~~^^^^^
+  File "/home/gmacri/tesiMagistrale/AV_CLIP4Clip/dataloaders/dataloader_artistic_videos_retreival.py", line 159, in __getitem__
+    video, video_mask = self._get_rawvideo(choice_video_ids)
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/gmacri/tesiMagistrale/AV_CLIP4Clip/dataloaders/dataloader_artistic_videos_retreival.py", line 121, in _get_rawvideo
+    raw_video_data = self.rawVideoExtractor.get_video_data(video_path)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/gmacri/tesiMagistrale/AV_CLIP4Clip/dataloaders/rawvideo_util.py", line 138, in get_video_data
+    image_input = self.video_to_tensor(video_path, self.transform, sample_fp=self.framerate, start_time=start_time, end_time=end_time)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/gmacri/tesiMagistrale/AV_CLIP4Clip/dataloaders/rawvideo_util.py", line 114, in video_to_tensor
+    cap.set(cv2.CAP_PROP_POS_FRAMES, sec_base + ind)
+KeyboardInterrupt
+[rank0]: Traceback (most recent call last):
+[rank0]:   File "/home/gmacri/tesiMagistrale/AV_CLIP4Clip/main_task_retrieval.py", line 751, in <module>
+[rank0]:     main()
+[rank0]:   File "/home/gmacri/tesiMagistrale/AV_CLIP4Clip/main_task_retrieval.py", line 711, in main
+[rank0]:     tr_loss, global_step = train_epoch(epoch, args, model, train_dataloader, device, n_gpu, optimizer,
+[rank0]:                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/home/gmacri/tesiMagistrale/AV_CLIP4Clip/main_task_retrieval.py", line 339, in train_epoch
+[rank0]:     for step, batch in enumerate(tqdm(train_dataloader)):
+[rank0]:   File "/home/gmacri/anaconda3/envs/clip/lib/python3.12/site-packages/tqdm/std.py", line 1181, in __iter__
+[rank0]:     for obj in iterable:
+[rank0]:   File "/home/gmacri/anaconda3/envs/clip/lib/python3.12/site-packages/torch/utils/data/dataloader.py", line 630, in __next__
+[rank0]:     data = self._next_data()
+[rank0]:            ^^^^^^^^^^^^^^^^^
+[rank0]:   File "/home/gmacri/anaconda3/envs/clip/lib/python3.12/site-packages/torch/utils/data/dataloader.py", line 673, in _next_data
+[rank0]:     data = self._dataset_fetcher.fetch(index)  # may raise StopIteration
+[rank0]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/home/gmacri/anaconda3/envs/clip/lib/python3.12/site-packages/torch/utils/data/_utils/fetch.py", line 52, in fetch
+[rank0]:     data = [self.dataset[idx] for idx in possibly_batched_index]
+[rank0]:             ~~~~~~~~~~~~^^^^^
+[rank0]:   File "/home/gmacri/tesiMagistrale/AV_CLIP4Clip/dataloaders/dataloader_artistic_videos_retreival.py", line 159, in __getitem__
+[rank0]:     video, video_mask = self._get_rawvideo(choice_video_ids)
+[rank0]:                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/home/gmacri/tesiMagistrale/AV_CLIP4Clip/dataloaders/dataloader_artistic_videos_retreival.py", line 121, in _get_rawvideo
+[rank0]:     raw_video_data = self.rawVideoExtractor.get_video_data(video_path)
+[rank0]:                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/home/gmacri/tesiMagistrale/AV_CLIP4Clip/dataloaders/rawvideo_util.py", line 138, in get_video_data
+[rank0]:     image_input = self.video_to_tensor(video_path, self.transform, sample_fp=self.framerate, start_time=start_time, end_time=end_time)
+[rank0]:                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/home/gmacri/tesiMagistrale/AV_CLIP4Clip/dataloaders/rawvideo_util.py", line 114, in video_to_tensor
+[rank0]:     cap.set(cv2.CAP_PROP_POS_FRAMES, sec_base + ind)
+[rank0]: KeyboardInterrupt

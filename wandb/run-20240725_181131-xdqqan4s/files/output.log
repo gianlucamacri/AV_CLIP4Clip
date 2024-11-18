@@ -1,0 +1,123 @@
+07/25/2024 18:11:34 - INFO -   loading archive file /home/gmacri/tesiMagistrale/AV_CLIP4Clip/modules/cross-base
+07/25/2024 18:11:34 - INFO -   Model config {
+  "attention_probs_dropout_prob": 0.1,
+  "hidden_act": "gelu",
+  "hidden_dropout_prob": 0.1,
+  "hidden_size": 512,
+  "initializer_range": 0.02,
+  "intermediate_size": 2048,
+  "max_position_embeddings": 128,
+  "num_attention_heads": 8,
+  "num_hidden_layers": 4,
+  "type_vocab_size": 2,
+  "vocab_size": 512
+}
+07/25/2024 18:11:34 - INFO -   Weight doesn't exsits. /home/gmacri/tesiMagistrale/AV_CLIP4Clip/modules/cross-base/cross_pytorch_model.bin
+07/25/2024 18:11:34 - WARNING -   Stage-One:True, Stage-Two:False
+07/25/2024 18:11:34 - WARNING -   Test retrieval by loose type.
+07/25/2024 18:11:34 - WARNING -   	 embed_dim: 512
+07/25/2024 18:11:34 - WARNING -   	 image_resolution: 224
+07/25/2024 18:11:34 - WARNING -   	 vision_layers: 12
+07/25/2024 18:11:34 - WARNING -   	 vision_width: 768
+07/25/2024 18:11:34 - WARNING -   	 vision_patch_size: 16
+07/25/2024 18:11:34 - WARNING -   	 context_length: 77
+07/25/2024 18:11:34 - WARNING -   	 vocab_size: 49408
+07/25/2024 18:11:34 - WARNING -   	 transformer_width: 512
+07/25/2024 18:11:34 - WARNING -   	 transformer_heads: 8
+07/25/2024 18:11:34 - WARNING -   	 transformer_layers: 12
+07/25/2024 18:11:34 - WARNING -   		 linear_patch: 2d
+07/25/2024 18:11:34 - WARNING -   	 cut_top_layer: 0
+07/25/2024 18:11:35 - WARNING -   	 sim_header: meanP
+07/25/2024 18:11:38 - INFO -   --------------------
+07/25/2024 18:11:38 - INFO -   Weights from pretrained model not used in CLIP4Clip:
+   clip.input_resolution
+   clip.context_length
+   clip.vocab_size
+07/25/2024 18:11:39 - INFO -   updating metadata video filename paths to match the actual location, to prevent this behavior set the updateVideoFilenames to false
+07/25/2024 18:11:39 - INFO -   updating metadata video filename paths to match the actual location, to prevent this behavior set the updateVideoFilenames to false
+07/25/2024 18:11:39 - INFO -   ***** Running test *****
+07/25/2024 18:11:39 - INFO -     Num examples = 24
+07/25/2024 18:11:39 - INFO -     Batch size = 16
+07/25/2024 18:11:39 - INFO -     Num steps = 2
+07/25/2024 18:11:39 - INFO -   ***** Running val *****
+07/25/2024 18:11:39 - INFO -     Num examples = 6
+07/25/2024 18:11:39 - INFO -   updating metadata video filename paths to match the actual location, to prevent this behavior set the updateVideoFilenames to false
+07/25/2024 18:11:39 - INFO -   0 (0.0 %) will remain unsued for each epoch due to drop last set to true for the dataloader
+07/25/2024 18:11:39 - INFO -   ***** Running training *****
+07/25/2024 18:11:39 - INFO -     Num examples = 90
+07/25/2024 18:11:39 - INFO -     Batch size = 18
+07/25/2024 18:11:39 - INFO -     Num steps = 100
+
+
+
+
+
+
+
+
+
+100%|█████████████████████████████████████████| 10/10 [00:40<00:00,  4.05s/it]
+07/25/2024 18:12:20 - INFO -   Epoch 1/10 Finished, Train Loss: 0.331555
+07/25/2024 18:12:20 - INFO -   Model saved to ../ckpts/av_retreival_lr2e-05_e10_b18_28fps_loss_42_1721923890_test/pytorch_model.bin.0
+07/25/2024 18:12:20 - INFO -   Optimizer saved to ../ckpts/av_retreival_lr2e-05_e10_b18_28fps_loss_42_1721923890_test/pytorch_opt.bin.0
+07/25/2024 18:12:20 - INFO -   Eval on val dataset
+  0%|                                                   | 0/1 [00:00<?, ?it/s]07/25/2024 18:12:23 - INFO -   retrieval of video 16 took 2.297016307944432
+07/25/2024 18:12:23 - INFO -   computation took 0.03411105601117015
+100%|███████████████████████████████████████████| 1/1 [00:02<00:00,  2.33s/it]
+0/1
+Traceback (most recent call last):
+  File "/home/gmacri/tesiMagistrale/AV_CLIP4Clip/main_task_retrieval.py", line 753, in <module>
+    main()
+  File "/home/gmacri/tesiMagistrale/AV_CLIP4Clip/main_task_retrieval.py", line 725, in main
+    output_data = eval_epoch(args, model, val_dataloader, device, n_gpu)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/gmacri/tesiMagistrale/AV_CLIP4Clip/main_task_retrieval.py", line 521, in eval_epoch
+    parallel_outputs = parallel_apply(_run_on_single_gpu, model, parameters_tuple_list, device_ids)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/gmacri/tesiMagistrale/AV_CLIP4Clip/util.py", line 23, in parallel_apply
+    modules = nn.parallel.replicate(model, device_ids)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/gmacri/anaconda3/envs/clip/lib/python3.12/site-packages/torch/nn/parallel/replicate.py", line 110, in replicate
+    param_copies = _broadcast_coalesced_reshape(params, devices, detach)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/gmacri/anaconda3/envs/clip/lib/python3.12/site-packages/torch/nn/parallel/replicate.py", line 83, in _broadcast_coalesced_reshape
+    tensor_copies = Broadcast.apply(devices, *tensors)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/gmacri/anaconda3/envs/clip/lib/python3.12/site-packages/torch/autograd/function.py", line 574, in apply
+    return super().apply(*args, **kwargs)  # type: ignore[misc]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/gmacri/anaconda3/envs/clip/lib/python3.12/site-packages/torch/nn/parallel/_functions.py", line 23, in forward
+    outputs = comm.broadcast_coalesced(inputs, ctx.target_gpus)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/gmacri/anaconda3/envs/clip/lib/python3.12/site-packages/torch/nn/parallel/comm.py", line 58, in broadcast_coalesced
+    return torch._C._broadcast_coalesced(tensors, devices, buffer_size)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+RuntimeError: NCCL Error 1: unhandled cuda error (run with NCCL_DEBUG=INFO for details)
+[rank0]: Traceback (most recent call last):
+[rank0]:   File "/home/gmacri/tesiMagistrale/AV_CLIP4Clip/main_task_retrieval.py", line 753, in <module>
+[rank0]:     main()
+[rank0]:   File "/home/gmacri/tesiMagistrale/AV_CLIP4Clip/main_task_retrieval.py", line 725, in main
+[rank0]:     output_data = eval_epoch(args, model, val_dataloader, device, n_gpu)
+[rank0]:                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/home/gmacri/tesiMagistrale/AV_CLIP4Clip/main_task_retrieval.py", line 521, in eval_epoch
+[rank0]:     parallel_outputs = parallel_apply(_run_on_single_gpu, model, parameters_tuple_list, device_ids)
+[rank0]:                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/home/gmacri/tesiMagistrale/AV_CLIP4Clip/util.py", line 23, in parallel_apply
+[rank0]:     modules = nn.parallel.replicate(model, device_ids)
+[rank0]:               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/home/gmacri/anaconda3/envs/clip/lib/python3.12/site-packages/torch/nn/parallel/replicate.py", line 110, in replicate
+[rank0]:     param_copies = _broadcast_coalesced_reshape(params, devices, detach)
+[rank0]:                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/home/gmacri/anaconda3/envs/clip/lib/python3.12/site-packages/torch/nn/parallel/replicate.py", line 83, in _broadcast_coalesced_reshape
+[rank0]:     tensor_copies = Broadcast.apply(devices, *tensors)
+[rank0]:                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/home/gmacri/anaconda3/envs/clip/lib/python3.12/site-packages/torch/autograd/function.py", line 574, in apply
+[rank0]:     return super().apply(*args, **kwargs)  # type: ignore[misc]
+[rank0]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/home/gmacri/anaconda3/envs/clip/lib/python3.12/site-packages/torch/nn/parallel/_functions.py", line 23, in forward
+[rank0]:     outputs = comm.broadcast_coalesced(inputs, ctx.target_gpus)
+[rank0]:               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/home/gmacri/anaconda3/envs/clip/lib/python3.12/site-packages/torch/nn/parallel/comm.py", line 58, in broadcast_coalesced
+[rank0]:     return torch._C._broadcast_coalesced(tensors, devices, buffer_size)
+[rank0]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]: RuntimeError: NCCL Error 1: unhandled cuda error (run with NCCL_DEBUG=INFO for details)

@@ -1,0 +1,47 @@
+07/25/2024 16:47:58 - INFO -   loading archive file /home/gmacri/tesiMagistrale/AV_CLIP4Clip/modules/cross-base
+07/25/2024 16:47:58 - INFO -   Model config {
+  "attention_probs_dropout_prob": 0.1,
+  "hidden_act": "gelu",
+  "hidden_dropout_prob": 0.1,
+  "hidden_size": 512,
+  "initializer_range": 0.02,
+  "intermediate_size": 2048,
+  "max_position_embeddings": 128,
+  "num_attention_heads": 8,
+  "num_hidden_layers": 4,
+  "type_vocab_size": 2,
+  "vocab_size": 512
+}
+07/25/2024 16:47:58 - INFO -   Weight doesn't exsits. /home/gmacri/tesiMagistrale/AV_CLIP4Clip/modules/cross-base/cross_pytorch_model.bin
+Traceback (most recent call last):
+  File "/home/gmacri/tesiMagistrale/AV_CLIP4Clip/main_task_retrieval.py", line 751, in <module>
+    main()
+  File "/home/gmacri/tesiMagistrale/AV_CLIP4Clip/main_task_retrieval.py", line 619, in main
+    model = init_model(args, device, n_gpu, args.local_rank)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/gmacri/tesiMagistrale/AV_CLIP4Clip/main_task_retrieval.py", line 256, in init_model
+    model = CLIP4Clip.from_pretrained(args.cross_model, cache_dir=cache_dir, state_dict=model_state_dict, task_config=args)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/gmacri/tesiMagistrale/AV_CLIP4Clip/modules/modeling.py", line 52, in from_pretrained
+    model = cls(cross_config, clip_state_dict, *inputs, **kwargs)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/gmacri/tesiMagistrale/AV_CLIP4Clip/modules/modeling.py", line 150, in __init__
+    assert self.task_config.max_words + self.task_config.max_frames <= cross_config.max_position_embeddings
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError
+[rank0]: Traceback (most recent call last):
+[rank0]:   File "/home/gmacri/tesiMagistrale/AV_CLIP4Clip/main_task_retrieval.py", line 751, in <module>
+[rank0]:     main()
+[rank0]:   File "/home/gmacri/tesiMagistrale/AV_CLIP4Clip/main_task_retrieval.py", line 619, in main
+[rank0]:     model = init_model(args, device, n_gpu, args.local_rank)
+[rank0]:             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/home/gmacri/tesiMagistrale/AV_CLIP4Clip/main_task_retrieval.py", line 256, in init_model
+[rank0]:     model = CLIP4Clip.from_pretrained(args.cross_model, cache_dir=cache_dir, state_dict=model_state_dict, task_config=args)
+[rank0]:             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/home/gmacri/tesiMagistrale/AV_CLIP4Clip/modules/modeling.py", line 52, in from_pretrained
+[rank0]:     model = cls(cross_config, clip_state_dict, *inputs, **kwargs)
+[rank0]:             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/home/gmacri/tesiMagistrale/AV_CLIP4Clip/modules/modeling.py", line 150, in __init__
+[rank0]:     assert self.task_config.max_words + self.task_config.max_frames <= cross_config.max_position_embeddings
+[rank0]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]: AssertionError

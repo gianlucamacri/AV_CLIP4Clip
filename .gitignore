@@ -3,7 +3,7 @@
 **/__pycache__/
 *.pt
 datasets/*
-wandb/*
+#wandb/*
 ckpts/*/*
 !ckpts/*/*.json
 */extractorCache/

@@ -1,0 +1,743 @@
+2024-07-25 19:30:51,564 INFO    StreamThr :85365 [internal.py:wandb_internal():86] W&B internal server running at pid: 85365, started at: 2024-07-25 19:30:51.564094
+2024-07-25 19:30:51,566 DEBUG   HandlerThread:85365 [handler.py:handle_request():146] handle_request: status
+2024-07-25 19:30:51,568 INFO    WriterThread:85365 [datastore.py:open_for_write():87] open: /home/gmacri/tesiMagistrale/AV_CLIP4Clip/wandb/run-20240725_193051-5gul2vxp/run-5gul2vxp.wandb
+2024-07-25 19:30:51,569 DEBUG   SenderThread:85365 [sender.py:send():379] send: header
+2024-07-25 19:30:51,570 DEBUG   SenderThread:85365 [sender.py:send():379] send: run
+2024-07-25 19:30:51,958 INFO    SenderThread:85365 [dir_watcher.py:__init__():211] watching files in: /home/gmacri/tesiMagistrale/AV_CLIP4Clip/wandb/run-20240725_193051-5gul2vxp/files
+2024-07-25 19:30:51,958 INFO    SenderThread:85365 [sender.py:_start_run_threads():1124] run started: 5gul2vxp with start time 1721928651.563435
+2024-07-25 19:30:51,967 DEBUG   HandlerThread:85365 [handler.py:handle_request():146] handle_request: check_version
+2024-07-25 19:30:51,967 DEBUG   SenderThread:85365 [sender.py:send_request():406] send_request: check_version
+2024-07-25 19:30:52,070 DEBUG   HandlerThread:85365 [handler.py:handle_request():146] handle_request: run_start
+2024-07-25 19:30:52,074 DEBUG   HandlerThread:85365 [system_info.py:__init__():26] System info init
+2024-07-25 19:30:52,074 DEBUG   HandlerThread:85365 [system_info.py:__init__():41] System info init done
+2024-07-25 19:30:52,074 INFO    HandlerThread:85365 [system_monitor.py:start():194] Starting system monitor
+2024-07-25 19:30:52,075 INFO    SystemMonitor:85365 [system_monitor.py:_start():158] Starting system asset monitoring threads
+2024-07-25 19:30:52,075 INFO    HandlerThread:85365 [system_monitor.py:probe():214] Collecting system info
+2024-07-25 19:30:52,075 INFO    SystemMonitor:85365 [interfaces.py:start():190] Started cpu monitoring
+2024-07-25 19:30:52,077 INFO    SystemMonitor:85365 [interfaces.py:start():190] Started disk monitoring
+2024-07-25 19:30:52,078 INFO    SystemMonitor:85365 [interfaces.py:start():190] Started gpu monitoring
+2024-07-25 19:30:52,079 INFO    SystemMonitor:85365 [interfaces.py:start():190] Started memory monitoring
+2024-07-25 19:30:52,079 INFO    SystemMonitor:85365 [interfaces.py:start():190] Started network monitoring
+2024-07-25 19:30:52,107 DEBUG   HandlerThread:85365 [system_info.py:probe():150] Probing system
+2024-07-25 19:30:52,108 DEBUG   HandlerThread:85365 [system_info.py:_probe_git():135] Probing git
+2024-07-25 19:30:52,114 DEBUG   HandlerThread:85365 [system_info.py:_probe_git():143] Probing git done
+2024-07-25 19:30:52,114 DEBUG   HandlerThread:85365 [system_info.py:probe():198] Probing system done
+2024-07-25 19:30:52,114 DEBUG   HandlerThread:85365 [system_monitor.py:probe():223] {'os': 'Linux-5.4.0-150-generic-x86_64-with-glibc2.27', 'python': '3.12.4', 'heartbeatAt': '2024-07-25T17:30:52.107571', 'startedAt': '2024-07-25T17:30:51.558981', 'docker': None, 'cuda': None, 'args': ('--do_train', '--num_thread_reader=1', '--epochs=6', '--batch_size=30', '--n_display=50', '--metadata_fn', 'metadata_no_accents', '--video_dir', 'compressedVideos', '--split', '75_5_10_split_3strat_cap_75', '--output_dir', 'ckpts/av_retreival', '--lr', '2e-4', '--max_frames', '4', '--batch_size_val', '16', '--datatype', 'artistic_videos', '--feature_framerate', '1', '--coef_lr', '1e-3', '--freeze_layer_num', '0', '--slice_framepos', '2', '--loose_type', '--linear_patch', '2d', '--sim_header', 'meanP', '--pretrained_clip_name', 'ViT-B/32', '--best_model_strategy', 'loss', '--use_caching', '--test_best_model', '--test', '--n_gpu=1'), 'state': 'running', 'program': '/home/gmacri/tesiMagistrale/AV_CLIP4Clip/main_task_retrieval.py', 'codePathLocal': 'main_task_retrieval.py', 'codePath': 'main_task_retrieval.py', 'git': {'remote': 'git@github.com:gianlucamacri/AV_CLIP4Clip.git', 'commit': '071a7b3e19f093cccee33664fdb1150e9a4ea229'}, 'email': 'gianluca18ma@gmail.com', 'root': '/home/gmacri/tesiMagistrale/AV_CLIP4Clip', 'host': 'leonardo', 'username': 'gmacri', 'executable': '/home/gmacri/anaconda3/envs/clip/bin/python', 'cpu_count': 12, 'cpu_count_logical': 24, 'cpu_freq': {'current': 2.0529999999999995, 'min': 2200.0, 'max': 3500.0}, 'cpu_freq_per_core': [{'current': 1.773, 'min': 2200.0, 'max': 3500.0}, {'current': 2.305, 'min': 2200.0, 'max': 3500.0}, {'current': 1.991, 'min': 2200.0, 'max': 3500.0}, {'current': 1.949, 'min': 2200.0, 'max': 3500.0}, {'current': 1.89, 'min': 2200.0, 'max': 3500.0}, {'current': 2.021, 'min': 2200.0, 'max': 3500.0}, {'current': 2.371, 'min': 2200.0, 'max': 3500.0}, {'current': 1.931, 'min': 2200.0, 'max': 3500.0}, {'current': 1.925, 'min': 2200.0, 'max': 3500.0}, {'current': 1.827, 'min': 2200.0, 'max': 3500.0}, {'current': 2.067, 'min': 2200.0, 'max': 3500.0}, {'current': 2.313, 'min': 2200.0, 'max': 3500.0}, {'current': 1.939, 'min': 2200.0, 'max': 3500.0}, {'current': 2.093, 'min': 2200.0, 'max': 3500.0}, {'current': 2.088, 'min': 2200.0, 'max': 3500.0}, {'current': 1.996, 'min': 2200.0, 'max': 3500.0}, {'current': 2.021, 'min': 2200.0, 'max': 3500.0}, {'current': 2.195, 'min': 2200.0, 'max': 3500.0}, {'current': 2.352, 'min': 2200.0, 'max': 3500.0}, {'current': 1.846, 'min': 2200.0, 'max': 3500.0}, {'current': 1.852, 'min': 2200.0, 'max': 3500.0}, {'current': 2.071, 'min': 2200.0, 'max': 3500.0}, {'current': 1.903, 'min': 2200.0, 'max': 3500.0}, {'current': 2.553, 'min': 2200.0, 'max': 3500.0}], 'disk': {'/': {'total': 937.8226585388184, 'used': 740.9334182739258}}, 'gpu': 'NVIDIA TITAN RTX', 'gpu_count': 2, 'gpu_devices': [{'name': 'NVIDIA TITAN RTX', 'memory_total': 25396838400}, {'name': 'NVIDIA TITAN RTX', 'memory_total': 25395462144}], 'memory': {'total': 62.74051284790039}}
+2024-07-25 19:30:52,114 INFO    HandlerThread:85365 [system_monitor.py:probe():224] Finished collecting system info
+2024-07-25 19:30:52,114 INFO    HandlerThread:85365 [system_monitor.py:probe():227] Publishing system info
+2024-07-25 19:30:52,115 DEBUG   HandlerThread:85365 [system_info.py:_save_conda():207] Saving list of conda packages installed into the current environment
+2024-07-25 19:30:52,959 INFO    Thread-12 :85365 [dir_watcher.py:_on_file_created():271] file/dir created: /home/gmacri/tesiMagistrale/AV_CLIP4Clip/wandb/run-20240725_193051-5gul2vxp/files/conda-environment.yaml
+2024-07-25 19:30:53,281 DEBUG   HandlerThread:85365 [system_info.py:_save_conda():222] Saving conda packages done
+2024-07-25 19:30:53,282 INFO    HandlerThread:85365 [system_monitor.py:probe():229] Finished publishing system info
+2024-07-25 19:30:53,284 DEBUG   SenderThread:85365 [sender.py:send():379] send: files
+2024-07-25 19:30:53,284 INFO    SenderThread:85365 [sender.py:_save_file():1390] saving file wandb-metadata.json with policy now
+2024-07-25 19:30:53,317 DEBUG   HandlerThread:85365 [handler.py:handle_request():146] handle_request: python_packages
+2024-07-25 19:30:53,317 DEBUG   SenderThread:85365 [sender.py:send_request():406] send_request: python_packages
+2024-07-25 19:30:53,317 DEBUG   HandlerThread:85365 [handler.py:handle_request():146] handle_request: stop_status
+2024-07-25 19:30:53,318 DEBUG   SenderThread:85365 [sender.py:send_request():406] send_request: stop_status
+2024-07-25 19:30:53,321 DEBUG   HandlerThread:85365 [handler.py:handle_request():146] handle_request: internal_messages
+2024-07-25 19:30:53,584 DEBUG   SenderThread:85365 [sender.py:send():379] send: telemetry
+2024-07-25 19:30:53,584 DEBUG   SenderThread:85365 [sender.py:send():379] send: config
+2024-07-25 19:30:53,850 INFO    wandb-upload_0:85365 [upload_job.py:push():131] Uploaded file /tmp/tmptmnpfk8iwandb/dzmz3qit-wandb-metadata.json
+2024-07-25 19:30:53,958 INFO    Thread-12 :85365 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/gmacri/tesiMagistrale/AV_CLIP4Clip/wandb/run-20240725_193051-5gul2vxp/files/conda-environment.yaml
+2024-07-25 19:30:53,959 INFO    Thread-12 :85365 [dir_watcher.py:_on_file_created():271] file/dir created: /home/gmacri/tesiMagistrale/AV_CLIP4Clip/wandb/run-20240725_193051-5gul2vxp/files/wandb-metadata.json
+2024-07-25 19:30:53,959 INFO    Thread-12 :85365 [dir_watcher.py:_on_file_created():271] file/dir created: /home/gmacri/tesiMagistrale/AV_CLIP4Clip/wandb/run-20240725_193051-5gul2vxp/files/requirements.txt
+2024-07-25 19:30:53,959 INFO    Thread-12 :85365 [dir_watcher.py:_on_file_created():271] file/dir created: /home/gmacri/tesiMagistrale/AV_CLIP4Clip/wandb/run-20240725_193051-5gul2vxp/files/output.log
+2024-07-25 19:30:55,959 INFO    Thread-12 :85365 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/gmacri/tesiMagistrale/AV_CLIP4Clip/wandb/run-20240725_193051-5gul2vxp/files/output.log
+2024-07-25 19:30:56,903 DEBUG   HandlerThread:85365 [handler.py:handle_request():146] handle_request: status_report
+2024-07-25 19:30:59,098 DEBUG   SenderThread:85365 [sender.py:send():379] send: telemetry
+2024-07-25 19:30:59,960 INFO    Thread-12 :85365 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/gmacri/tesiMagistrale/AV_CLIP4Clip/wandb/run-20240725_193051-5gul2vxp/files/output.log
+2024-07-25 19:31:02,187 DEBUG   HandlerThread:85365 [handler.py:handle_request():146] handle_request: status_report
+2024-07-25 19:31:07,187 DEBUG   HandlerThread:85365 [handler.py:handle_request():146] handle_request: status_report
+2024-07-25 19:31:08,317 DEBUG   HandlerThread:85365 [handler.py:handle_request():146] handle_request: stop_status
+2024-07-25 19:31:08,318 DEBUG   SenderThread:85365 [sender.py:send_request():406] send_request: stop_status
+2024-07-25 19:31:08,319 DEBUG   HandlerThread:85365 [handler.py:handle_request():146] handle_request: internal_messages
+2024-07-25 19:31:08,748 DEBUG   HandlerThread:85365 [handler.py:handle_request():146] handle_request: partial_history
+2024-07-25 19:31:08,749 DEBUG   SenderThread:85365 [sender.py:send():379] send: history
+2024-07-25 19:31:08,749 DEBUG   SenderThread:85365 [sender.py:send_request():406] send_request: summary_record
+2024-07-25 19:31:08,751 INFO    SenderThread:85365 [sender.py:_save_file():1390] saving file wandb-summary.json with policy end
+2024-07-25 19:31:08,963 INFO    Thread-12 :85365 [dir_watcher.py:_on_file_created():271] file/dir created: /home/gmacri/tesiMagistrale/AV_CLIP4Clip/wandb/run-20240725_193051-5gul2vxp/files/wandb-summary.json
+2024-07-25 19:31:09,963 INFO    Thread-12 :85365 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/gmacri/tesiMagistrale/AV_CLIP4Clip/wandb/run-20240725_193051-5gul2vxp/files/output.log
+2024-07-25 19:31:12,934 DEBUG   HandlerThread:85365 [handler.py:handle_request():146] handle_request: status_report
+2024-07-25 19:31:17,445 DEBUG   HandlerThread:85365 [handler.py:handle_request():146] handle_request: partial_history
+2024-07-25 19:31:17,445 DEBUG   SenderThread:85365 [sender.py:send():379] send: history
+2024-07-25 19:31:17,446 DEBUG   SenderThread:85365 [sender.py:send_request():406] send_request: summary_record
+2024-07-25 19:31:17,447 INFO    SenderThread:85365 [sender.py:_save_file():1390] saving file wandb-summary.json with policy end
+2024-07-25 19:31:17,965 INFO    Thread-12 :85365 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/gmacri/tesiMagistrale/AV_CLIP4Clip/wandb/run-20240725_193051-5gul2vxp/files/wandb-summary.json
+2024-07-25 19:31:18,618 DEBUG   HandlerThread:85365 [handler.py:handle_request():146] handle_request: status_report
+2024-07-25 19:31:19,966 INFO    Thread-12 :85365 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/gmacri/tesiMagistrale/AV_CLIP4Clip/wandb/run-20240725_193051-5gul2vxp/files/output.log
+2024-07-25 19:31:23,318 DEBUG   HandlerThread:85365 [handler.py:handle_request():146] handle_request: stop_status
+2024-07-25 19:31:23,318 DEBUG   HandlerThread:85365 [handler.py:handle_request():146] handle_request: internal_messages
+2024-07-25 19:31:23,318 DEBUG   SenderThread:85365 [sender.py:send_request():406] send_request: stop_status
+2024-07-25 19:31:24,520 DEBUG   HandlerThread:85365 [handler.py:handle_request():146] handle_request: status_report
+2024-07-25 19:31:24,968 INFO    Thread-12 :85365 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/gmacri/tesiMagistrale/AV_CLIP4Clip/wandb/run-20240725_193051-5gul2vxp/files/config.yaml
+2024-07-25 19:31:29,688 DEBUG   HandlerThread:85365 [handler.py:handle_request():146] handle_request: status_report
+2024-07-25 19:31:29,764 DEBUG   HandlerThread:85365 [handler.py:handle_request():146] handle_request: partial_history
+2024-07-25 19:31:29,765 DEBUG   SenderThread:85365 [sender.py:send():379] send: history
+2024-07-25 19:31:29,765 DEBUG   SenderThread:85365 [sender.py:send_request():406] send_request: summary_record
+2024-07-25 19:31:29,766 INFO    SenderThread:85365 [sender.py:_save_file():1390] saving file wandb-summary.json with policy end
+2024-07-25 19:31:29,943 DEBUG   HandlerThread:85365 [handler.py:handle_request():146] handle_request: partial_history
+2024-07-25 19:31:29,943 DEBUG   SenderThread:85365 [sender.py:send():379] send: history
+2024-07-25 19:31:29,944 DEBUG   SenderThread:85365 [sender.py:send_request():406] send_request: summary_record
+2024-07-25 19:31:29,944 INFO    SenderThread:85365 [sender.py:_save_file():1390] saving file wandb-summary.json with policy end
+2024-07-25 19:31:29,969 INFO    Thread-12 :85365 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/gmacri/tesiMagistrale/AV_CLIP4Clip/wandb/run-20240725_193051-5gul2vxp/files/wandb-summary.json
+2024-07-25 19:31:31,970 INFO    Thread-12 :85365 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/gmacri/tesiMagistrale/AV_CLIP4Clip/wandb/run-20240725_193051-5gul2vxp/files/output.log
+2024-07-25 19:31:33,013 DEBUG   HandlerThread:85365 [handler.py:handle_request():146] handle_request: partial_history
+2024-07-25 19:31:33,013 DEBUG   HandlerThread:85365 [handler.py:handle_request():146] handle_request: partial_history
+2024-07-25 19:31:33,014 DEBUG   HandlerThread:85365 [handler.py:handle_request():146] handle_request: partial_history
+2024-07-25 19:31:33,014 DEBUG   SenderThread:85365 [sender.py:send():379] send: history
+2024-07-25 19:31:33,014 DEBUG   HandlerThread:85365 [handler.py:handle_request():146] handle_request: partial_history
+2024-07-25 19:31:33,015 DEBUG   SenderThread:85365 [sender.py:send_request():406] send_request: summary_record
+2024-07-25 19:31:33,015 DEBUG   HandlerThread:85365 [handler.py:handle_request():146] handle_request: partial_history
+2024-07-25 19:31:33,016 DEBUG   HandlerThread:85365 [handler.py:handle_request():146] handle_request: partial_history
+2024-07-25 19:31:33,016 DEBUG   HandlerThread:85365 [handler.py:handle_request():146] handle_request: partial_history
+2024-07-25 19:31:33,016 DEBUG   HandlerThread:85365 [handler.py:handle_request():146] handle_request: partial_history
+2024-07-25 19:31:33,017 INFO    SenderThread:85365 [sender.py:_save_file():1390] saving file wandb-summary.json with policy end
+2024-07-25 19:31:33,017 DEBUG   HandlerThread:85365 [handler.py:handle_request():146] handle_request: partial_history
+2024-07-25 19:31:33,017 DEBUG   SenderThread:85365 [sender.py:send():379] send: history
+2024-07-25 19:31:33,018 DEBUG   HandlerThread:85365 [handler.py:handle_request():146] handle_request: partial_history
+2024-07-25 19:31:33,018 DEBUG   SenderThread:85365 [sender.py:send_request():406] send_request: summary_record
+2024-07-25 19:31:33,018 DEBUG   HandlerThread:85365 [handler.py:handle_request():146] handle_request: partial_history
+2024-07-25 19:31:33,019 INFO    SenderThread:85365 [sender.py:_save_file():1390] saving file wandb-summary.json with policy end
+2024-07-25 19:31:33,019 DEBUG   SenderThread:85365 [sender.py:send():379] send: history
+2024-07-25 19:31:33,019 DEBUG   SenderThread:85365 [sender.py:send_request():406] send_request: summary_record
+2024-07-25 19:31:33,020 INFO    SenderThread:85365 [sender.py:_save_file():1390] saving file wandb-summary.json with policy end
+2024-07-25 19:31:33,020 DEBUG   SenderThread:85365 [sender.py:send():379] send: history
+2024-07-25 19:31:33,020 DEBUG   SenderThread:85365 [sender.py:send_request():406] send_request: summary_record
+2024-07-25 19:31:33,020 INFO    SenderThread:85365 [sender.py:_save_file():1390] saving file wandb-summary.json with policy end
+2024-07-25 19:31:33,020 DEBUG   SenderThread:85365 [sender.py:send():379] send: history
+2024-07-25 19:31:33,020 DEBUG   SenderThread:85365 [sender.py:send_request():406] send_request: summary_record
+2024-07-25 19:31:33,020 INFO    SenderThread:85365 [sender.py:_save_file():1390] saving file wandb-summary.json with policy end
+2024-07-25 19:31:33,021 DEBUG   SenderThread:85365 [sender.py:send():379] send: history
+2024-07-25 19:31:33,021 DEBUG   SenderThread:85365 [sender.py:send_request():406] send_request: summary_record
+2024-07-25 19:31:33,021 INFO    SenderThread:85365 [sender.py:_save_file():1390] saving file wandb-summary.json with policy end
+2024-07-25 19:31:33,021 DEBUG   SenderThread:85365 [sender.py:send():379] send: history
+2024-07-25 19:31:33,021 DEBUG   SenderThread:85365 [sender.py:send_request():406] send_request: summary_record
+2024-07-25 19:31:33,021 INFO    SenderThread:85365 [sender.py:_save_file():1390] saving file wandb-summary.json with policy end
+2024-07-25 19:31:33,021 DEBUG   SenderThread:85365 [sender.py:send():379] send: history
+2024-07-25 19:31:33,022 DEBUG   SenderThread:85365 [sender.py:send_request():406] send_request: summary_record
+2024-07-25 19:31:33,022 INFO    SenderThread:85365 [sender.py:_save_file():1390] saving file wandb-summary.json with policy end
+2024-07-25 19:31:33,022 DEBUG   SenderThread:85365 [sender.py:send():379] send: history
+2024-07-25 19:31:33,022 DEBUG   SenderThread:85365 [sender.py:send_request():406] send_request: summary_record
+2024-07-25 19:31:33,022 INFO    SenderThread:85365 [sender.py:_save_file():1390] saving file wandb-summary.json with policy end
+2024-07-25 19:31:33,022 DEBUG   SenderThread:85365 [sender.py:send():379] send: history
+2024-07-25 19:31:33,022 DEBUG   SenderThread:85365 [sender.py:send_request():406] send_request: summary_record
+2024-07-25 19:31:33,023 INFO    SenderThread:85365 [sender.py:_save_file():1390] saving file wandb-summary.json with policy end
+2024-07-25 19:31:33,023 DEBUG   SenderThread:85365 [sender.py:send():379] send: history
+2024-07-25 19:31:33,023 DEBUG   SenderThread:85365 [sender.py:send_request():406] send_request: summary_record
+2024-07-25 19:31:33,023 INFO    SenderThread:85365 [sender.py:_save_file():1390] saving file wandb-summary.json with policy end
+2024-07-25 19:31:33,970 INFO    Thread-12 :85365 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/gmacri/tesiMagistrale/AV_CLIP4Clip/wandb/run-20240725_193051-5gul2vxp/files/wandb-summary.json
+2024-07-25 19:31:33,970 INFO    Thread-12 :85365 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/gmacri/tesiMagistrale/AV_CLIP4Clip/wandb/run-20240725_193051-5gul2vxp/files/output.log
+2024-07-25 19:31:35,027 DEBUG   HandlerThread:85365 [handler.py:handle_request():146] handle_request: status_report
+2024-07-25 19:31:35,971 INFO    Thread-12 :85365 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/gmacri/tesiMagistrale/AV_CLIP4Clip/wandb/run-20240725_193051-5gul2vxp/files/output.log
+2024-07-25 19:31:38,318 DEBUG   HandlerThread:85365 [handler.py:handle_request():146] handle_request: stop_status
+2024-07-25 19:31:38,318 DEBUG   SenderThread:85365 [sender.py:send_request():406] send_request: stop_status
+2024-07-25 19:31:38,320 DEBUG   HandlerThread:85365 [handler.py:handle_request():146] handle_request: internal_messages
+2024-07-25 19:31:40,499 DEBUG   HandlerThread:85365 [handler.py:handle_request():146] handle_request: status_report
+2024-07-25 19:31:43,120 DEBUG   HandlerThread:85365 [handler.py:handle_request():146] handle_request: partial_history
+2024-07-25 19:31:43,120 DEBUG   SenderThread:85365 [sender.py:send():379] send: history
+2024-07-25 19:31:43,120 DEBUG   SenderThread:85365 [sender.py:send_request():406] send_request: summary_record
+2024-07-25 19:31:43,122 INFO    SenderThread:85365 [sender.py:_save_file():1390] saving file wandb-summary.json with policy end
+2024-07-25 19:31:43,973 INFO    Thread-12 :85365 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/gmacri/tesiMagistrale/AV_CLIP4Clip/wandb/run-20240725_193051-5gul2vxp/files/wandb-summary.json
+2024-07-25 19:31:43,974 INFO    Thread-12 :85365 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/gmacri/tesiMagistrale/AV_CLIP4Clip/wandb/run-20240725_193051-5gul2vxp/files/output.log
+2024-07-25 19:31:46,291 DEBUG   HandlerThread:85365 [handler.py:handle_request():146] handle_request: status_report
+2024-07-25 19:31:51,292 DEBUG   HandlerThread:85365 [handler.py:handle_request():146] handle_request: status_report
+2024-07-25 19:31:52,080 DEBUG   SystemMonitor:85365 [system_monitor.py:_start():172] Starting system metrics aggregation loop
+2024-07-25 19:31:52,081 DEBUG   SenderThread:85365 [sender.py:send():379] send: stats
+2024-07-25 19:31:53,318 DEBUG   HandlerThread:85365 [handler.py:handle_request():146] handle_request: stop_status
+2024-07-25 19:31:53,319 DEBUG   SenderThread:85365 [sender.py:send_request():406] send_request: stop_status
+2024-07-25 19:31:53,319 DEBUG   HandlerThread:85365 [handler.py:handle_request():146] handle_request: internal_messages
+2024-07-25 19:31:53,413 DEBUG   HandlerThread:85365 [handler.py:handle_request():146] handle_request: partial_history
+2024-07-25 19:31:53,557 DEBUG   SenderThread:85365 [sender.py:send():379] send: history
+2024-07-25 19:31:53,557 DEBUG   SenderThread:85365 [sender.py:send_request():406] send_request: summary_record
+2024-07-25 19:31:53,558 INFO    SenderThread:85365 [sender.py:_save_file():1390] saving file wandb-summary.json with policy end
+2024-07-25 19:31:53,977 INFO    Thread-12 :85365 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/gmacri/tesiMagistrale/AV_CLIP4Clip/wandb/run-20240725_193051-5gul2vxp/files/wandb-summary.json
+2024-07-25 19:31:55,977 INFO    Thread-12 :85365 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/gmacri/tesiMagistrale/AV_CLIP4Clip/wandb/run-20240725_193051-5gul2vxp/files/output.log
+2024-07-25 19:31:56,590 DEBUG   HandlerThread:85365 [handler.py:handle_request():146] handle_request: status_report
+2024-07-25 19:32:01,590 DEBUG   HandlerThread:85365 [handler.py:handle_request():146] handle_request: status_report
+2024-07-25 19:32:02,660 DEBUG   HandlerThread:85365 [handler.py:handle_request():146] handle_request: partial_history
+2024-07-25 19:32:02,661 DEBUG   SenderThread:85365 [sender.py:send():379] send: history
+2024-07-25 19:32:02,661 DEBUG   SenderThread:85365 [sender.py:send_request():406] send_request: summary_record
+2024-07-25 19:32:02,661 INFO    SenderThread:85365 [sender.py:_save_file():1390] saving file wandb-summary.json with policy end
+2024-07-25 19:32:02,840 DEBUG   HandlerThread:85365 [handler.py:handle_request():146] handle_request: partial_history
+2024-07-25 19:32:02,840 DEBUG   SenderThread:85365 [sender.py:send():379] send: history
+2024-07-25 19:32:02,840 DEBUG   SenderThread:85365 [sender.py:send_request():406] send_request: summary_record
+2024-07-25 19:32:02,840 INFO    SenderThread:85365 [sender.py:_save_file():1390] saving file wandb-summary.json with policy end
+2024-07-25 19:32:02,980 INFO    Thread-12 :85365 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/gmacri/tesiMagistrale/AV_CLIP4Clip/wandb/run-20240725_193051-5gul2vxp/files/wandb-summary.json
+2024-07-25 19:32:03,980 INFO    Thread-12 :85365 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/gmacri/tesiMagistrale/AV_CLIP4Clip/wandb/run-20240725_193051-5gul2vxp/files/output.log
+2024-07-25 19:32:05,973 DEBUG   HandlerThread:85365 [handler.py:handle_request():146] handle_request: partial_history
+2024-07-25 19:32:05,974 DEBUG   HandlerThread:85365 [handler.py:handle_request():146] handle_request: partial_history
+2024-07-25 19:32:05,974 DEBUG   HandlerThread:85365 [handler.py:handle_request():146] handle_request: partial_history
+2024-07-25 19:32:05,974 DEBUG   SenderThread:85365 [sender.py:send():379] send: history
+2024-07-25 19:32:05,975 DEBUG   HandlerThread:85365 [handler.py:handle_request():146] handle_request: partial_history
+2024-07-25 19:32:05,975 DEBUG   SenderThread:85365 [sender.py:send_request():406] send_request: summary_record
+2024-07-25 19:32:05,976 DEBUG   HandlerThread:85365 [handler.py:handle_request():146] handle_request: partial_history
+2024-07-25 19:32:05,976 DEBUG   HandlerThread:85365 [handler.py:handle_request():146] handle_request: partial_history
+2024-07-25 19:32:05,977 DEBUG   HandlerThread:85365 [handler.py:handle_request():146] handle_request: partial_history
+2024-07-25 19:32:05,977 DEBUG   HandlerThread:85365 [handler.py:handle_request():146] handle_request: partial_history
+2024-07-25 19:32:05,977 DEBUG   HandlerThread:85365 [handler.py:handle_request():146] handle_request: partial_history
+2024-07-25 19:32:05,977 INFO    SenderThread:85365 [sender.py:_save_file():1390] saving file wandb-summary.json with policy end
+2024-07-25 19:32:05,978 DEBUG   HandlerThread:85365 [handler.py:handle_request():146] handle_request: partial_history
+2024-07-25 19:32:05,978 DEBUG   SenderThread:85365 [sender.py:send():379] send: history
+2024-07-25 19:32:05,978 DEBUG   HandlerThread:85365 [handler.py:handle_request():146] handle_request: partial_history
+2024-07-25 19:32:05,979 DEBUG   SenderThread:85365 [sender.py:send_request():406] send_request: summary_record
+2024-07-25 19:32:05,980 INFO    SenderThread:85365 [sender.py:_save_file():1390] saving file wandb-summary.json with policy end
+2024-07-25 19:32:05,980 DEBUG   SenderThread:85365 [sender.py:send():379] send: history
+2024-07-25 19:32:05,980 DEBUG   SenderThread:85365 [sender.py:send_request():406] send_request: summary_record
+2024-07-25 19:32:05,980 INFO    SenderThread:85365 [sender.py:_save_file():1390] saving file wandb-summary.json with policy end
+2024-07-25 19:32:05,980 DEBUG   SenderThread:85365 [sender.py:send():379] send: history
+2024-07-25 19:32:05,981 DEBUG   SenderThread:85365 [sender.py:send_request():406] send_request: summary_record
+2024-07-25 19:32:05,981 INFO    Thread-12 :85365 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/gmacri/tesiMagistrale/AV_CLIP4Clip/wandb/run-20240725_193051-5gul2vxp/files/wandb-summary.json
+2024-07-25 19:32:05,981 INFO    SenderThread:85365 [sender.py:_save_file():1390] saving file wandb-summary.json with policy end
+2024-07-25 19:32:05,981 INFO    Thread-12 :85365 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/gmacri/tesiMagistrale/AV_CLIP4Clip/wandb/run-20240725_193051-5gul2vxp/files/output.log
+2024-07-25 19:32:05,982 DEBUG   SenderThread:85365 [sender.py:send():379] send: history
+2024-07-25 19:32:05,982 DEBUG   SenderThread:85365 [sender.py:send_request():406] send_request: summary_record
+2024-07-25 19:32:05,982 INFO    SenderThread:85365 [sender.py:_save_file():1390] saving file wandb-summary.json with policy end
+2024-07-25 19:32:05,982 DEBUG   SenderThread:85365 [sender.py:send():379] send: history
+2024-07-25 19:32:05,982 DEBUG   SenderThread:85365 [sender.py:send_request():406] send_request: summary_record
+2024-07-25 19:32:05,983 INFO    SenderThread:85365 [sender.py:_save_file():1390] saving file wandb-summary.json with policy end
+2024-07-25 19:32:05,983 DEBUG   SenderThread:85365 [sender.py:send():379] send: history
+2024-07-25 19:32:05,983 DEBUG   SenderThread:85365 [sender.py:send_request():406] send_request: summary_record
+2024-07-25 19:32:05,983 INFO    SenderThread:85365 [sender.py:_save_file():1390] saving file wandb-summary.json with policy end
+2024-07-25 19:32:05,983 DEBUG   SenderThread:85365 [sender.py:send():379] send: history
+2024-07-25 19:32:05,983 DEBUG   SenderThread:85365 [sender.py:send_request():406] send_request: summary_record
+2024-07-25 19:32:05,984 INFO    SenderThread:85365 [sender.py:_save_file():1390] saving file wandb-summary.json with policy end
+2024-07-25 19:32:05,984 DEBUG   SenderThread:85365 [sender.py:send():379] send: history
+2024-07-25 19:32:05,984 DEBUG   SenderThread:85365 [sender.py:send_request():406] send_request: summary_record
+2024-07-25 19:32:05,984 INFO    SenderThread:85365 [sender.py:_save_file():1390] saving file wandb-summary.json with policy end
+2024-07-25 19:32:05,984 DEBUG   SenderThread:85365 [sender.py:send():379] send: history
+2024-07-25 19:32:05,985 DEBUG   SenderThread:85365 [sender.py:send_request():406] send_request: summary_record
+2024-07-25 19:32:05,985 INFO    SenderThread:85365 [sender.py:_save_file():1390] saving file wandb-summary.json with policy end
+2024-07-25 19:32:05,985 DEBUG   SenderThread:85365 [sender.py:send():379] send: history
+2024-07-25 19:32:05,985 DEBUG   SenderThread:85365 [sender.py:send_request():406] send_request: summary_record
+2024-07-25 19:32:05,985 INFO    SenderThread:85365 [sender.py:_save_file():1390] saving file wandb-summary.json with policy end
+2024-07-25 19:32:06,981 INFO    Thread-12 :85365 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/gmacri/tesiMagistrale/AV_CLIP4Clip/wandb/run-20240725_193051-5gul2vxp/files/wandb-summary.json
+2024-07-25 19:32:06,989 DEBUG   HandlerThread:85365 [handler.py:handle_request():146] handle_request: status_report
+2024-07-25 19:32:07,982 INFO    Thread-12 :85365 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/gmacri/tesiMagistrale/AV_CLIP4Clip/wandb/run-20240725_193051-5gul2vxp/files/output.log
+2024-07-25 19:32:08,318 DEBUG   HandlerThread:85365 [handler.py:handle_request():146] handle_request: stop_status
+2024-07-25 19:32:08,318 DEBUG   SenderThread:85365 [sender.py:send_request():406] send_request: stop_status
+2024-07-25 19:32:08,320 DEBUG   HandlerThread:85365 [handler.py:handle_request():146] handle_request: internal_messages
+2024-07-25 19:32:12,480 DEBUG   HandlerThread:85365 [handler.py:handle_request():146] handle_request: status_report
+2024-07-25 19:32:14,978 DEBUG   HandlerThread:85365 [handler.py:handle_request():146] handle_request: partial_history
+2024-07-25 19:32:14,978 DEBUG   SenderThread:85365 [sender.py:send():379] send: history
+2024-07-25 19:32:14,979 DEBUG   SenderThread:85365 [sender.py:send_request():406] send_request: summary_record
+2024-07-25 19:32:14,979 INFO    SenderThread:85365 [sender.py:_save_file():1390] saving file wandb-summary.json with policy end
+2024-07-25 19:32:14,984 INFO    Thread-12 :85365 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/gmacri/tesiMagistrale/AV_CLIP4Clip/wandb/run-20240725_193051-5gul2vxp/files/wandb-summary.json
+2024-07-25 19:32:15,984 INFO    Thread-12 :85365 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/gmacri/tesiMagistrale/AV_CLIP4Clip/wandb/run-20240725_193051-5gul2vxp/files/output.log
+2024-07-25 19:32:18,154 DEBUG   HandlerThread:85365 [handler.py:handle_request():146] handle_request: status_report
+2024-07-25 19:32:22,082 DEBUG   SenderThread:85365 [sender.py:send():379] send: stats
+2024-07-25 19:32:23,318 DEBUG   HandlerThread:85365 [handler.py:handle_request():146] handle_request: stop_status
+2024-07-25 19:32:23,319 DEBUG   SenderThread:85365 [sender.py:send_request():406] send_request: stop_status
+2024-07-25 19:32:23,320 DEBUG   HandlerThread:85365 [handler.py:handle_request():146] handle_request: internal_messages
+2024-07-25 19:32:23,525 DEBUG   HandlerThread:85365 [handler.py:handle_request():146] handle_request: status_report
+2024-07-25 19:32:25,000 DEBUG   HandlerThread:85365 [handler.py:handle_request():146] handle_request: partial_history
+2024-07-25 19:32:25,001 DEBUG   SenderThread:85365 [sender.py:send():379] send: history
+2024-07-25 19:32:25,001 DEBUG   SenderThread:85365 [sender.py:send_request():406] send_request: summary_record
+2024-07-25 19:32:25,002 INFO    SenderThread:85365 [sender.py:_save_file():1390] saving file wandb-summary.json with policy end
+2024-07-25 19:32:25,987 INFO    Thread-12 :85365 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/gmacri/tesiMagistrale/AV_CLIP4Clip/wandb/run-20240725_193051-5gul2vxp/files/wandb-summary.json
+2024-07-25 19:32:25,988 INFO    Thread-12 :85365 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/gmacri/tesiMagistrale/AV_CLIP4Clip/wandb/run-20240725_193051-5gul2vxp/files/output.log
+2024-07-25 19:32:29,177 DEBUG   HandlerThread:85365 [handler.py:handle_request():146] handle_request: status_report
+2024-07-25 19:32:34,178 DEBUG   HandlerThread:85365 [handler.py:handle_request():146] handle_request: status_report
+2024-07-25 19:32:35,981 DEBUG   HandlerThread:85365 [handler.py:handle_request():146] handle_request: partial_history
+2024-07-25 19:32:35,982 DEBUG   SenderThread:85365 [sender.py:send():379] send: history
+2024-07-25 19:32:35,982 DEBUG   SenderThread:85365 [sender.py:send_request():406] send_request: summary_record
+2024-07-25 19:32:35,983 INFO    SenderThread:85365 [sender.py:_save_file():1390] saving file wandb-summary.json with policy end
+2024-07-25 19:32:35,991 INFO    Thread-12 :85365 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/gmacri/tesiMagistrale/AV_CLIP4Clip/wandb/run-20240725_193051-5gul2vxp/files/wandb-summary.json
+2024-07-25 19:32:36,164 DEBUG   HandlerThread:85365 [handler.py:handle_request():146] handle_request: partial_history
+2024-07-25 19:32:36,165 DEBUG   SenderThread:85365 [sender.py:send():379] send: history
+2024-07-25 19:32:36,165 DEBUG   SenderThread:85365 [sender.py:send_request():406] send_request: summary_record
+2024-07-25 19:32:36,165 INFO    SenderThread:85365 [sender.py:_save_file():1390] saving file wandb-summary.json with policy end
+2024-07-25 19:32:36,991 INFO    Thread-12 :85365 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/gmacri/tesiMagistrale/AV_CLIP4Clip/wandb/run-20240725_193051-5gul2vxp/files/wandb-summary.json
+2024-07-25 19:32:37,991 INFO    Thread-12 :85365 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/gmacri/tesiMagistrale/AV_CLIP4Clip/wandb/run-20240725_193051-5gul2vxp/files/output.log
+2024-07-25 19:32:38,318 DEBUG   HandlerThread:85365 [handler.py:handle_request():146] handle_request: stop_status
+2024-07-25 19:32:38,319 DEBUG   SenderThread:85365 [sender.py:send_request():406] send_request: stop_status
+2024-07-25 19:32:38,322 DEBUG   HandlerThread:85365 [handler.py:handle_request():146] handle_request: internal_messages
+2024-07-25 19:32:39,339 DEBUG   HandlerThread:85365 [handler.py:handle_request():146] handle_request: status_report
+2024-07-25 19:32:39,361 DEBUG   HandlerThread:85365 [handler.py:handle_request():146] handle_request: partial_history
+2024-07-25 19:32:39,361 DEBUG   HandlerThread:85365 [handler.py:handle_request():146] handle_request: partial_history
+2024-07-25 19:32:39,362 DEBUG   HandlerThread:85365 [handler.py:handle_request():146] handle_request: partial_history
+2024-07-25 19:32:39,362 DEBUG   SenderThread:85365 [sender.py:send():379] send: history
+2024-07-25 19:32:39,362 DEBUG   HandlerThread:85365 [handler.py:handle_request():146] handle_request: partial_history
+2024-07-25 19:32:39,363 DEBUG   SenderThread:85365 [sender.py:send_request():406] send_request: summary_record
+2024-07-25 19:32:39,363 DEBUG   HandlerThread:85365 [handler.py:handle_request():146] handle_request: partial_history
+2024-07-25 19:32:39,364 DEBUG   HandlerThread:85365 [handler.py:handle_request():146] handle_request: partial_history
+2024-07-25 19:32:39,364 DEBUG   HandlerThread:85365 [handler.py:handle_request():146] handle_request: partial_history
+2024-07-25 19:32:39,365 DEBUG   HandlerThread:85365 [handler.py:handle_request():146] handle_request: partial_history
+2024-07-25 19:32:39,365 INFO    SenderThread:85365 [sender.py:_save_file():1390] saving file wandb-summary.json with policy end
+2024-07-25 19:32:39,365 DEBUG   HandlerThread:85365 [handler.py:handle_request():146] handle_request: partial_history
+2024-07-25 19:32:39,366 DEBUG   SenderThread:85365 [sender.py:send():379] send: history
+2024-07-25 19:32:39,366 DEBUG   HandlerThread:85365 [handler.py:handle_request():146] handle_request: partial_history
+2024-07-25 19:32:39,366 DEBUG   SenderThread:85365 [sender.py:send_request():406] send_request: summary_record
+2024-07-25 19:32:39,367 DEBUG   HandlerThread:85365 [handler.py:handle_request():146] handle_request: partial_history
+2024-07-25 19:32:39,368 INFO    SenderThread:85365 [sender.py:_save_file():1390] saving file wandb-summary.json with policy end
+2024-07-25 19:32:39,368 DEBUG   SenderThread:85365 [sender.py:send():379] send: history
+2024-07-25 19:32:39,368 DEBUG   SenderThread:85365 [sender.py:send_request():406] send_request: summary_record
+2024-07-25 19:32:39,368 INFO    SenderThread:85365 [sender.py:_save_file():1390] saving file wandb-summary.json with policy end
+2024-07-25 19:32:39,368 DEBUG   SenderThread:85365 [sender.py:send():379] send: history
+2024-07-25 19:32:39,368 DEBUG   SenderThread:85365 [sender.py:send_request():406] send_request: summary_record
+2024-07-25 19:32:39,369 INFO    SenderThread:85365 [sender.py:_save_file():1390] saving file wandb-summary.json with policy end
+2024-07-25 19:32:39,369 DEBUG   SenderThread:85365 [sender.py:send():379] send: history
+2024-07-25 19:32:39,369 DEBUG   SenderThread:85365 [sender.py:send_request():406] send_request: summary_record
+2024-07-25 19:32:39,369 INFO    SenderThread:85365 [sender.py:_save_file():1390] saving file wandb-summary.json with policy end
+2024-07-25 19:32:39,369 DEBUG   SenderThread:85365 [sender.py:send():379] send: history
+2024-07-25 19:32:39,369 DEBUG   SenderThread:85365 [sender.py:send_request():406] send_request: summary_record
+2024-07-25 19:32:39,369 INFO    SenderThread:85365 [sender.py:_save_file():1390] saving file wandb-summary.json with policy end
+2024-07-25 19:32:39,370 DEBUG   SenderThread:85365 [sender.py:send():379] send: history
+2024-07-25 19:32:39,370 DEBUG   SenderThread:85365 [sender.py:send_request():406] send_request: summary_record
+2024-07-25 19:32:39,370 INFO    SenderThread:85365 [sender.py:_save_file():1390] saving file wandb-summary.json with policy end
+2024-07-25 19:32:39,370 DEBUG   SenderThread:85365 [sender.py:send():379] send: history
+2024-07-25 19:32:39,370 DEBUG   SenderThread:85365 [sender.py:send_request():406] send_request: summary_record
+2024-07-25 19:32:39,370 INFO    SenderThread:85365 [sender.py:_save_file():1390] saving file wandb-summary.json with policy end
+2024-07-25 19:32:39,370 DEBUG   SenderThread:85365 [sender.py:send():379] send: history
+2024-07-25 19:32:39,371 DEBUG   SenderThread:85365 [sender.py:send_request():406] send_request: summary_record
+2024-07-25 19:32:39,371 INFO    SenderThread:85365 [sender.py:_save_file():1390] saving file wandb-summary.json with policy end
+2024-07-25 19:32:39,371 DEBUG   SenderThread:85365 [sender.py:send():379] send: history
+2024-07-25 19:32:39,371 DEBUG   SenderThread:85365 [sender.py:send_request():406] send_request: summary_record
+2024-07-25 19:32:39,371 INFO    SenderThread:85365 [sender.py:_save_file():1390] saving file wandb-summary.json with policy end
+2024-07-25 19:32:39,371 DEBUG   SenderThread:85365 [sender.py:send():379] send: history
+2024-07-25 19:32:39,371 DEBUG   SenderThread:85365 [sender.py:send_request():406] send_request: summary_record
+2024-07-25 19:32:39,372 INFO    SenderThread:85365 [sender.py:_save_file():1390] saving file wandb-summary.json with policy end
+2024-07-25 19:32:39,992 INFO    Thread-12 :85365 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/gmacri/tesiMagistrale/AV_CLIP4Clip/wandb/run-20240725_193051-5gul2vxp/files/wandb-summary.json
+2024-07-25 19:32:39,992 INFO    Thread-12 :85365 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/gmacri/tesiMagistrale/AV_CLIP4Clip/wandb/run-20240725_193051-5gul2vxp/files/output.log
+2024-07-25 19:32:41,993 INFO    Thread-12 :85365 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/gmacri/tesiMagistrale/AV_CLIP4Clip/wandb/run-20240725_193051-5gul2vxp/files/output.log
+2024-07-25 19:32:44,377 DEBUG   HandlerThread:85365 [handler.py:handle_request():146] handle_request: status_report
+2024-07-25 19:32:49,378 DEBUG   HandlerThread:85365 [handler.py:handle_request():146] handle_request: status_report
+2024-07-25 19:32:50,748 DEBUG   HandlerThread:85365 [handler.py:handle_request():146] handle_request: partial_history
+2024-07-25 19:32:50,748 DEBUG   SenderThread:85365 [sender.py:send():379] send: history
+2024-07-25 19:32:50,749 DEBUG   SenderThread:85365 [sender.py:send_request():406] send_request: summary_record
+2024-07-25 19:32:50,750 INFO    SenderThread:85365 [sender.py:_save_file():1390] saving file wandb-summary.json with policy end
+2024-07-25 19:32:50,995 INFO    Thread-12 :85365 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/gmacri/tesiMagistrale/AV_CLIP4Clip/wandb/run-20240725_193051-5gul2vxp/files/wandb-summary.json
+2024-07-25 19:32:51,996 INFO    Thread-12 :85365 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/gmacri/tesiMagistrale/AV_CLIP4Clip/wandb/run-20240725_193051-5gul2vxp/files/output.log
+2024-07-25 19:32:52,083 DEBUG   SenderThread:85365 [sender.py:send():379] send: stats
+2024-07-25 19:32:53,318 DEBUG   HandlerThread:85365 [handler.py:handle_request():146] handle_request: stop_status
+2024-07-25 19:32:53,319 DEBUG   HandlerThread:85365 [handler.py:handle_request():146] handle_request: internal_messages
+2024-07-25 19:32:53,319 DEBUG   SenderThread:85365 [sender.py:send_request():406] send_request: stop_status
+2024-07-25 19:32:54,493 DEBUG   HandlerThread:85365 [handler.py:handle_request():146] handle_request: status_report
+2024-07-25 19:32:59,494 DEBUG   HandlerThread:85365 [handler.py:handle_request():146] handle_request: status_report
+2024-07-25 19:32:59,921 DEBUG   HandlerThread:85365 [handler.py:handle_request():146] handle_request: partial_history
+2024-07-25 19:32:59,922 DEBUG   SenderThread:85365 [sender.py:send():379] send: history
+2024-07-25 19:32:59,922 DEBUG   SenderThread:85365 [sender.py:send_request():406] send_request: summary_record
+2024-07-25 19:32:59,922 INFO    SenderThread:85365 [sender.py:_save_file():1390] saving file wandb-summary.json with policy end
+2024-07-25 19:32:59,998 INFO    Thread-12 :85365 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/gmacri/tesiMagistrale/AV_CLIP4Clip/wandb/run-20240725_193051-5gul2vxp/files/wandb-summary.json
+2024-07-25 19:33:01,999 INFO    Thread-12 :85365 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/gmacri/tesiMagistrale/AV_CLIP4Clip/wandb/run-20240725_193051-5gul2vxp/files/output.log
+2024-07-25 19:33:05,097 DEBUG   HandlerThread:85365 [handler.py:handle_request():146] handle_request: status_report
+2024-07-25 19:33:08,318 DEBUG   HandlerThread:85365 [handler.py:handle_request():146] handle_request: stop_status
+2024-07-25 19:33:08,319 DEBUG   SenderThread:85365 [sender.py:send_request():406] send_request: stop_status
+2024-07-25 19:33:08,320 DEBUG   HandlerThread:85365 [handler.py:handle_request():146] handle_request: internal_messages
+2024-07-25 19:33:09,240 DEBUG   HandlerThread:85365 [handler.py:handle_request():146] handle_request: partial_history
+2024-07-25 19:33:09,246 DEBUG   SenderThread:85365 [sender.py:send():379] send: history
+2024-07-25 19:33:09,246 DEBUG   SenderThread:85365 [sender.py:send_request():406] send_request: summary_record
+2024-07-25 19:33:09,246 INFO    SenderThread:85365 [sender.py:_save_file():1390] saving file wandb-summary.json with policy end
+2024-07-25 19:33:09,418 DEBUG   HandlerThread:85365 [handler.py:handle_request():146] handle_request: partial_history
+2024-07-25 19:33:09,419 DEBUG   SenderThread:85365 [sender.py:send():379] send: history
+2024-07-25 19:33:09,419 DEBUG   SenderThread:85365 [sender.py:send_request():406] send_request: summary_record
+2024-07-25 19:33:09,419 INFO    SenderThread:85365 [sender.py:_save_file():1390] saving file wandb-summary.json with policy end
+2024-07-25 19:33:10,001 INFO    Thread-12 :85365 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/gmacri/tesiMagistrale/AV_CLIP4Clip/wandb/run-20240725_193051-5gul2vxp/files/wandb-summary.json
+2024-07-25 19:33:10,298 DEBUG   HandlerThread:85365 [handler.py:handle_request():146] handle_request: status_report
+2024-07-25 19:33:12,002 INFO    Thread-12 :85365 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/gmacri/tesiMagistrale/AV_CLIP4Clip/wandb/run-20240725_193051-5gul2vxp/files/output.log
+2024-07-25 19:33:12,708 DEBUG   HandlerThread:85365 [handler.py:handle_request():146] handle_request: partial_history
+2024-07-25 19:33:12,709 DEBUG   HandlerThread:85365 [handler.py:handle_request():146] handle_request: partial_history
+2024-07-25 19:33:12,709 DEBUG   HandlerThread:85365 [handler.py:handle_request():146] handle_request: partial_history
+2024-07-25 19:33:12,709 DEBUG   SenderThread:85365 [sender.py:send():379] send: history
+2024-07-25 19:33:12,710 DEBUG   HandlerThread:85365 [handler.py:handle_request():146] handle_request: partial_history
+2024-07-25 19:33:12,710 DEBUG   SenderThread:85365 [sender.py:send_request():406] send_request: summary_record
+2024-07-25 19:33:12,711 DEBUG   HandlerThread:85365 [handler.py:handle_request():146] handle_request: partial_history
+2024-07-25 19:33:12,711 DEBUG   HandlerThread:85365 [handler.py:handle_request():146] handle_request: partial_history
+2024-07-25 19:33:12,711 DEBUG   HandlerThread:85365 [handler.py:handle_request():146] handle_request: partial_history
+2024-07-25 19:33:12,712 DEBUG   HandlerThread:85365 [handler.py:handle_request():146] handle_request: partial_history
+2024-07-25 19:33:12,712 INFO    SenderThread:85365 [sender.py:_save_file():1390] saving file wandb-summary.json with policy end
+2024-07-25 19:33:12,712 DEBUG   HandlerThread:85365 [handler.py:handle_request():146] handle_request: partial_history
+2024-07-25 19:33:12,713 DEBUG   SenderThread:85365 [sender.py:send():379] send: history
+2024-07-25 19:33:12,713 DEBUG   HandlerThread:85365 [handler.py:handle_request():146] handle_request: partial_history
+2024-07-25 19:33:12,713 DEBUG   SenderThread:85365 [sender.py:send_request():406] send_request: summary_record
+2024-07-25 19:33:12,713 DEBUG   HandlerThread:85365 [handler.py:handle_request():146] handle_request: partial_history
+2024-07-25 19:33:12,714 INFO    SenderThread:85365 [sender.py:_save_file():1390] saving file wandb-summary.json with policy end
+2024-07-25 19:33:12,715 DEBUG   SenderThread:85365 [sender.py:send():379] send: history
+2024-07-25 19:33:12,715 DEBUG   SenderThread:85365 [sender.py:send_request():406] send_request: summary_record
+2024-07-25 19:33:12,715 INFO    SenderThread:85365 [sender.py:_save_file():1390] saving file wandb-summary.json with policy end
+2024-07-25 19:33:12,715 DEBUG   SenderThread:85365 [sender.py:send():379] send: history
+2024-07-25 19:33:12,715 DEBUG   SenderThread:85365 [sender.py:send_request():406] send_request: summary_record
+2024-07-25 19:33:12,716 INFO    SenderThread:85365 [sender.py:_save_file():1390] saving file wandb-summary.json with policy end
+2024-07-25 19:33:12,716 DEBUG   SenderThread:85365 [sender.py:send():379] send: history
+2024-07-25 19:33:12,716 DEBUG   SenderThread:85365 [sender.py:send_request():406] send_request: summary_record
+2024-07-25 19:33:12,716 INFO    SenderThread:85365 [sender.py:_save_file():1390] saving file wandb-summary.json with policy end
+2024-07-25 19:33:12,716 DEBUG   SenderThread:85365 [sender.py:send():379] send: history
+2024-07-25 19:33:12,717 DEBUG   SenderThread:85365 [sender.py:send_request():406] send_request: summary_record
+2024-07-25 19:33:12,717 INFO    SenderThread:85365 [sender.py:_save_file():1390] saving file wandb-summary.json with policy end
+2024-07-25 19:33:12,717 DEBUG   SenderThread:85365 [sender.py:send():379] send: history
+2024-07-25 19:33:12,717 DEBUG   SenderThread:85365 [sender.py:send_request():406] send_request: summary_record
+2024-07-25 19:33:12,717 INFO    SenderThread:85365 [sender.py:_save_file():1390] saving file wandb-summary.json with policy end
+2024-07-25 19:33:12,718 DEBUG   SenderThread:85365 [sender.py:send():379] send: history
+2024-07-25 19:33:12,718 DEBUG   SenderThread:85365 [sender.py:send_request():406] send_request: summary_record
+2024-07-25 19:33:12,718 INFO    SenderThread:85365 [sender.py:_save_file():1390] saving file wandb-summary.json with policy end
+2024-07-25 19:33:12,718 DEBUG   SenderThread:85365 [sender.py:send():379] send: history
+2024-07-25 19:33:12,718 DEBUG   SenderThread:85365 [sender.py:send_request():406] send_request: summary_record
+2024-07-25 19:33:12,719 INFO    SenderThread:85365 [sender.py:_save_file():1390] saving file wandb-summary.json with policy end
+2024-07-25 19:33:12,719 DEBUG   SenderThread:85365 [sender.py:send():379] send: history
+2024-07-25 19:33:12,719 DEBUG   SenderThread:85365 [sender.py:send_request():406] send_request: summary_record
+2024-07-25 19:33:12,719 INFO    SenderThread:85365 [sender.py:_save_file():1390] saving file wandb-summary.json with policy end
+2024-07-25 19:33:12,719 DEBUG   SenderThread:85365 [sender.py:send():379] send: history
+2024-07-25 19:33:12,720 DEBUG   SenderThread:85365 [sender.py:send_request():406] send_request: summary_record
+2024-07-25 19:33:12,720 INFO    SenderThread:85365 [sender.py:_save_file():1390] saving file wandb-summary.json with policy end
+2024-07-25 19:33:13,002 INFO    Thread-12 :85365 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/gmacri/tesiMagistrale/AV_CLIP4Clip/wandb/run-20240725_193051-5gul2vxp/files/wandb-summary.json
+2024-07-25 19:33:14,002 INFO    Thread-12 :85365 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/gmacri/tesiMagistrale/AV_CLIP4Clip/wandb/run-20240725_193051-5gul2vxp/files/output.log
+2024-07-25 19:33:15,723 DEBUG   HandlerThread:85365 [handler.py:handle_request():146] handle_request: status_report
+2024-07-25 19:33:20,724 DEBUG   HandlerThread:85365 [handler.py:handle_request():146] handle_request: status_report
+2024-07-25 19:33:22,084 DEBUG   SenderThread:85365 [sender.py:send():379] send: stats
+2024-07-25 19:33:22,103 DEBUG   HandlerThread:85365 [handler.py:handle_request():146] handle_request: partial_history
+2024-07-25 19:33:22,103 DEBUG   SenderThread:85365 [sender.py:send():379] send: history
+2024-07-25 19:33:22,103 DEBUG   SenderThread:85365 [sender.py:send_request():406] send_request: summary_record
+2024-07-25 19:33:22,104 INFO    SenderThread:85365 [sender.py:_save_file():1390] saving file wandb-summary.json with policy end
+2024-07-25 19:33:23,005 INFO    Thread-12 :85365 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/gmacri/tesiMagistrale/AV_CLIP4Clip/wandb/run-20240725_193051-5gul2vxp/files/wandb-summary.json
+2024-07-25 19:33:23,319 DEBUG   HandlerThread:85365 [handler.py:handle_request():146] handle_request: stop_status
+2024-07-25 19:33:23,320 DEBUG   SenderThread:85365 [sender.py:send_request():406] send_request: stop_status
+2024-07-25 19:33:23,323 DEBUG   HandlerThread:85365 [handler.py:handle_request():146] handle_request: internal_messages
+2024-07-25 19:33:24,005 INFO    Thread-12 :85365 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/gmacri/tesiMagistrale/AV_CLIP4Clip/wandb/run-20240725_193051-5gul2vxp/files/output.log
+2024-07-25 19:33:26,572 DEBUG   HandlerThread:85365 [handler.py:handle_request():146] handle_request: status_report
+2024-07-25 19:33:31,572 DEBUG   HandlerThread:85365 [handler.py:handle_request():146] handle_request: status_report
+2024-07-25 19:33:32,803 DEBUG   HandlerThread:85365 [handler.py:handle_request():146] handle_request: partial_history
+2024-07-25 19:33:32,804 DEBUG   SenderThread:85365 [sender.py:send():379] send: history
+2024-07-25 19:33:32,804 DEBUG   SenderThread:85365 [sender.py:send_request():406] send_request: summary_record
+2024-07-25 19:33:32,806 INFO    SenderThread:85365 [sender.py:_save_file():1390] saving file wandb-summary.json with policy end
+2024-07-25 19:33:33,007 INFO    Thread-12 :85365 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/gmacri/tesiMagistrale/AV_CLIP4Clip/wandb/run-20240725_193051-5gul2vxp/files/wandb-summary.json
+2024-07-25 19:33:34,008 INFO    Thread-12 :85365 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/gmacri/tesiMagistrale/AV_CLIP4Clip/wandb/run-20240725_193051-5gul2vxp/files/output.log
+2024-07-25 19:33:36,980 DEBUG   HandlerThread:85365 [handler.py:handle_request():146] handle_request: status_report
+2024-07-25 19:33:38,319 DEBUG   HandlerThread:85365 [handler.py:handle_request():146] handle_request: stop_status
+2024-07-25 19:33:38,319 DEBUG   SenderThread:85365 [sender.py:send_request():406] send_request: stop_status
+2024-07-25 19:33:38,321 DEBUG   HandlerThread:85365 [handler.py:handle_request():146] handle_request: internal_messages
+2024-07-25 19:33:42,502 DEBUG   HandlerThread:85365 [handler.py:handle_request():146] handle_request: status_report
+2024-07-25 19:33:42,810 DEBUG   HandlerThread:85365 [handler.py:handle_request():146] handle_request: partial_history
+2024-07-25 19:33:42,811 DEBUG   SenderThread:85365 [sender.py:send():379] send: history
+2024-07-25 19:33:42,811 DEBUG   SenderThread:85365 [sender.py:send_request():406] send_request: summary_record
+2024-07-25 19:33:42,813 INFO    SenderThread:85365 [sender.py:_save_file():1390] saving file wandb-summary.json with policy end
+2024-07-25 19:33:42,992 DEBUG   HandlerThread:85365 [handler.py:handle_request():146] handle_request: partial_history
+2024-07-25 19:33:42,992 DEBUG   SenderThread:85365 [sender.py:send():379] send: history
+2024-07-25 19:33:42,993 DEBUG   SenderThread:85365 [sender.py:send_request():406] send_request: summary_record
+2024-07-25 19:33:42,993 INFO    SenderThread:85365 [sender.py:_save_file():1390] saving file wandb-summary.json with policy end
+2024-07-25 19:33:43,010 INFO    Thread-12 :85365 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/gmacri/tesiMagistrale/AV_CLIP4Clip/wandb/run-20240725_193051-5gul2vxp/files/wandb-summary.json
+2024-07-25 19:33:44,010 INFO    Thread-12 :85365 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/gmacri/tesiMagistrale/AV_CLIP4Clip/wandb/run-20240725_193051-5gul2vxp/files/output.log
+2024-07-25 19:33:46,011 INFO    Thread-12 :85365 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/gmacri/tesiMagistrale/AV_CLIP4Clip/wandb/run-20240725_193051-5gul2vxp/files/output.log
+2024-07-25 19:33:46,159 DEBUG   HandlerThread:85365 [handler.py:handle_request():146] handle_request: partial_history
+2024-07-25 19:33:46,159 DEBUG   HandlerThread:85365 [handler.py:handle_request():146] handle_request: partial_history
+2024-07-25 19:33:46,159 DEBUG   HandlerThread:85365 [handler.py:handle_request():146] handle_request: partial_history
+2024-07-25 19:33:46,159 DEBUG   SenderThread:85365 [sender.py:send():379] send: history
+2024-07-25 19:33:46,160 DEBUG   HandlerThread:85365 [handler.py:handle_request():146] handle_request: partial_history
+2024-07-25 19:33:46,160 DEBUG   SenderThread:85365 [sender.py:send_request():406] send_request: summary_record
+2024-07-25 19:33:46,161 DEBUG   HandlerThread:85365 [handler.py:handle_request():146] handle_request: partial_history
+2024-07-25 19:33:46,161 DEBUG   HandlerThread:85365 [handler.py:handle_request():146] handle_request: partial_history
+2024-07-25 19:33:46,162 DEBUG   HandlerThread:85365 [handler.py:handle_request():146] handle_request: partial_history
+2024-07-25 19:33:46,162 DEBUG   HandlerThread:85365 [handler.py:handle_request():146] handle_request: partial_history
+2024-07-25 19:33:46,162 INFO    SenderThread:85365 [sender.py:_save_file():1390] saving file wandb-summary.json with policy end
+2024-07-25 19:33:46,162 DEBUG   HandlerThread:85365 [handler.py:handle_request():146] handle_request: partial_history
+2024-07-25 19:33:46,163 DEBUG   SenderThread:85365 [sender.py:send():379] send: history
+2024-07-25 19:33:46,163 DEBUG   HandlerThread:85365 [handler.py:handle_request():146] handle_request: partial_history
+2024-07-25 19:33:46,163 DEBUG   SenderThread:85365 [sender.py:send_request():406] send_request: summary_record
+2024-07-25 19:33:46,164 DEBUG   HandlerThread:85365 [handler.py:handle_request():146] handle_request: partial_history
+2024-07-25 19:33:46,165 INFO    SenderThread:85365 [sender.py:_save_file():1390] saving file wandb-summary.json with policy end
+2024-07-25 19:33:46,165 DEBUG   SenderThread:85365 [sender.py:send():379] send: history
+2024-07-25 19:33:46,165 DEBUG   SenderThread:85365 [sender.py:send_request():406] send_request: summary_record
+2024-07-25 19:33:46,165 INFO    SenderThread:85365 [sender.py:_save_file():1390] saving file wandb-summary.json with policy end
+2024-07-25 19:33:46,165 DEBUG   SenderThread:85365 [sender.py:send():379] send: history
+2024-07-25 19:33:46,166 DEBUG   SenderThread:85365 [sender.py:send_request():406] send_request: summary_record
+2024-07-25 19:33:46,166 INFO    SenderThread:85365 [sender.py:_save_file():1390] saving file wandb-summary.json with policy end
+2024-07-25 19:33:46,166 DEBUG   SenderThread:85365 [sender.py:send():379] send: history
+2024-07-25 19:33:46,166 DEBUG   SenderThread:85365 [sender.py:send_request():406] send_request: summary_record
+2024-07-25 19:33:46,166 INFO    SenderThread:85365 [sender.py:_save_file():1390] saving file wandb-summary.json with policy end
+2024-07-25 19:33:46,166 DEBUG   SenderThread:85365 [sender.py:send():379] send: history
+2024-07-25 19:33:46,166 DEBUG   SenderThread:85365 [sender.py:send_request():406] send_request: summary_record
+2024-07-25 19:33:46,167 INFO    SenderThread:85365 [sender.py:_save_file():1390] saving file wandb-summary.json with policy end
+2024-07-25 19:33:46,167 DEBUG   SenderThread:85365 [sender.py:send():379] send: history
+2024-07-25 19:33:46,167 DEBUG   SenderThread:85365 [sender.py:send_request():406] send_request: summary_record
+2024-07-25 19:33:46,167 INFO    SenderThread:85365 [sender.py:_save_file():1390] saving file wandb-summary.json with policy end
+2024-07-25 19:33:46,167 DEBUG   SenderThread:85365 [sender.py:send():379] send: history
+2024-07-25 19:33:46,167 DEBUG   SenderThread:85365 [sender.py:send_request():406] send_request: summary_record
+2024-07-25 19:33:46,168 INFO    SenderThread:85365 [sender.py:_save_file():1390] saving file wandb-summary.json with policy end
+2024-07-25 19:33:46,168 DEBUG   SenderThread:85365 [sender.py:send():379] send: history
+2024-07-25 19:33:46,168 DEBUG   SenderThread:85365 [sender.py:send_request():406] send_request: summary_record
+2024-07-25 19:33:46,168 INFO    SenderThread:85365 [sender.py:_save_file():1390] saving file wandb-summary.json with policy end
+2024-07-25 19:33:46,168 DEBUG   SenderThread:85365 [sender.py:send():379] send: history
+2024-07-25 19:33:46,168 DEBUG   SenderThread:85365 [sender.py:send_request():406] send_request: summary_record
+2024-07-25 19:33:46,169 INFO    SenderThread:85365 [sender.py:_save_file():1390] saving file wandb-summary.json with policy end
+2024-07-25 19:33:46,169 DEBUG   SenderThread:85365 [sender.py:send():379] send: history
+2024-07-25 19:33:46,169 DEBUG   SenderThread:85365 [sender.py:send_request():406] send_request: summary_record
+2024-07-25 19:33:46,169 INFO    SenderThread:85365 [sender.py:_save_file():1390] saving file wandb-summary.json with policy end
+2024-07-25 19:33:47,012 INFO    Thread-12 :85365 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/gmacri/tesiMagistrale/AV_CLIP4Clip/wandb/run-20240725_193051-5gul2vxp/files/wandb-summary.json
+2024-07-25 19:33:48,012 INFO    Thread-12 :85365 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/gmacri/tesiMagistrale/AV_CLIP4Clip/wandb/run-20240725_193051-5gul2vxp/files/output.log
+2024-07-25 19:33:48,175 DEBUG   HandlerThread:85365 [handler.py:handle_request():146] handle_request: status_report
+2024-07-25 19:33:52,085 DEBUG   SenderThread:85365 [sender.py:send():379] send: stats
+2024-07-25 19:33:53,319 DEBUG   HandlerThread:85365 [handler.py:handle_request():146] handle_request: stop_status
+2024-07-25 19:33:53,319 DEBUG   SenderThread:85365 [sender.py:send_request():406] send_request: stop_status
+2024-07-25 19:33:53,321 DEBUG   HandlerThread:85365 [handler.py:handle_request():146] handle_request: internal_messages
+2024-07-25 19:33:53,570 DEBUG   HandlerThread:85365 [handler.py:handle_request():146] handle_request: status_report
+2024-07-25 19:33:56,397 DEBUG   HandlerThread:85365 [handler.py:handle_request():146] handle_request: partial_history
+2024-07-25 19:33:56,398 DEBUG   SenderThread:85365 [sender.py:send():379] send: history
+2024-07-25 19:33:56,398 DEBUG   SenderThread:85365 [sender.py:send_request():406] send_request: summary_record
+2024-07-25 19:33:56,400 INFO    SenderThread:85365 [sender.py:_save_file():1390] saving file wandb-summary.json with policy end
+2024-07-25 19:33:57,015 INFO    Thread-12 :85365 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/gmacri/tesiMagistrale/AV_CLIP4Clip/wandb/run-20240725_193051-5gul2vxp/files/wandb-summary.json
+2024-07-25 19:33:58,015 INFO    Thread-12 :85365 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/gmacri/tesiMagistrale/AV_CLIP4Clip/wandb/run-20240725_193051-5gul2vxp/files/output.log
+2024-07-25 19:33:58,573 DEBUG   HandlerThread:85365 [handler.py:handle_request():146] handle_request: status_report
+2024-07-25 19:34:03,574 DEBUG   HandlerThread:85365 [handler.py:handle_request():146] handle_request: status_report
+2024-07-25 19:34:07,442 DEBUG   HandlerThread:85365 [handler.py:handle_request():146] handle_request: partial_history
+2024-07-25 19:34:07,442 DEBUG   SenderThread:85365 [sender.py:send():379] send: history
+2024-07-25 19:34:07,443 DEBUG   SenderThread:85365 [sender.py:send_request():406] send_request: summary_record
+2024-07-25 19:34:07,444 INFO    SenderThread:85365 [sender.py:_save_file():1390] saving file wandb-summary.json with policy end
+2024-07-25 19:34:08,018 INFO    Thread-12 :85365 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/gmacri/tesiMagistrale/AV_CLIP4Clip/wandb/run-20240725_193051-5gul2vxp/files/wandb-summary.json
+2024-07-25 19:34:08,319 DEBUG   HandlerThread:85365 [handler.py:handle_request():146] handle_request: stop_status
+2024-07-25 19:34:08,320 DEBUG   SenderThread:85365 [sender.py:send_request():406] send_request: stop_status
+2024-07-25 19:34:08,320 DEBUG   HandlerThread:85365 [handler.py:handle_request():146] handle_request: internal_messages
+2024-07-25 19:34:09,556 DEBUG   HandlerThread:85365 [handler.py:handle_request():146] handle_request: status_report
+2024-07-25 19:34:10,019 INFO    Thread-12 :85365 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/gmacri/tesiMagistrale/AV_CLIP4Clip/wandb/run-20240725_193051-5gul2vxp/files/output.log
+2024-07-25 19:34:14,557 DEBUG   HandlerThread:85365 [handler.py:handle_request():146] handle_request: status_report
+2024-07-25 19:34:16,263 DEBUG   HandlerThread:85365 [handler.py:handle_request():146] handle_request: partial_history
+2024-07-25 19:34:16,264 DEBUG   SenderThread:85365 [sender.py:send():379] send: history
+2024-07-25 19:34:16,264 DEBUG   SenderThread:85365 [sender.py:send_request():406] send_request: summary_record
+2024-07-25 19:34:16,265 INFO    SenderThread:85365 [sender.py:_save_file():1390] saving file wandb-summary.json with policy end
+2024-07-25 19:34:16,445 DEBUG   HandlerThread:85365 [handler.py:handle_request():146] handle_request: partial_history
+2024-07-25 19:34:16,445 DEBUG   SenderThread:85365 [sender.py:send():379] send: history
+2024-07-25 19:34:16,446 DEBUG   SenderThread:85365 [sender.py:send_request():406] send_request: summary_record
+2024-07-25 19:34:16,446 INFO    SenderThread:85365 [sender.py:_save_file():1390] saving file wandb-summary.json with policy end
+2024-07-25 19:34:17,021 INFO    Thread-12 :85365 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/gmacri/tesiMagistrale/AV_CLIP4Clip/wandb/run-20240725_193051-5gul2vxp/files/wandb-summary.json
+2024-07-25 19:34:18,021 INFO    Thread-12 :85365 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/gmacri/tesiMagistrale/AV_CLIP4Clip/wandb/run-20240725_193051-5gul2vxp/files/output.log
+2024-07-25 19:34:19,635 DEBUG   HandlerThread:85365 [handler.py:handle_request():146] handle_request: status_report
+2024-07-25 19:34:19,656 DEBUG   HandlerThread:85365 [handler.py:handle_request():146] handle_request: partial_history
+2024-07-25 19:34:19,656 DEBUG   HandlerThread:85365 [handler.py:handle_request():146] handle_request: partial_history
+2024-07-25 19:34:19,656 DEBUG   HandlerThread:85365 [handler.py:handle_request():146] handle_request: partial_history
+2024-07-25 19:34:19,657 DEBUG   SenderThread:85365 [sender.py:send():379] send: history
+2024-07-25 19:34:19,657 DEBUG   HandlerThread:85365 [handler.py:handle_request():146] handle_request: partial_history
+2024-07-25 19:34:19,657 DEBUG   SenderThread:85365 [sender.py:send_request():406] send_request: summary_record
+2024-07-25 19:34:19,658 DEBUG   HandlerThread:85365 [handler.py:handle_request():146] handle_request: partial_history
+2024-07-25 19:34:19,658 DEBUG   HandlerThread:85365 [handler.py:handle_request():146] handle_request: partial_history
+2024-07-25 19:34:19,659 DEBUG   HandlerThread:85365 [handler.py:handle_request():146] handle_request: partial_history
+2024-07-25 19:34:19,659 DEBUG   HandlerThread:85365 [handler.py:handle_request():146] handle_request: partial_history
+2024-07-25 19:34:19,659 INFO    SenderThread:85365 [sender.py:_save_file():1390] saving file wandb-summary.json with policy end
+2024-07-25 19:34:19,659 DEBUG   HandlerThread:85365 [handler.py:handle_request():146] handle_request: partial_history
+2024-07-25 19:34:19,660 DEBUG   SenderThread:85365 [sender.py:send():379] send: history
+2024-07-25 19:34:19,660 DEBUG   HandlerThread:85365 [handler.py:handle_request():146] handle_request: partial_history
+2024-07-25 19:34:19,660 DEBUG   SenderThread:85365 [sender.py:send_request():406] send_request: summary_record
+2024-07-25 19:34:19,661 DEBUG   HandlerThread:85365 [handler.py:handle_request():146] handle_request: partial_history
+2024-07-25 19:34:19,662 INFO    SenderThread:85365 [sender.py:_save_file():1390] saving file wandb-summary.json with policy end
+2024-07-25 19:34:19,662 DEBUG   SenderThread:85365 [sender.py:send():379] send: history
+2024-07-25 19:34:19,662 DEBUG   SenderThread:85365 [sender.py:send_request():406] send_request: summary_record
+2024-07-25 19:34:19,663 INFO    SenderThread:85365 [sender.py:_save_file():1390] saving file wandb-summary.json with policy end
+2024-07-25 19:34:19,663 DEBUG   SenderThread:85365 [sender.py:send():379] send: history
+2024-07-25 19:34:19,663 DEBUG   SenderThread:85365 [sender.py:send_request():406] send_request: summary_record
+2024-07-25 19:34:19,663 INFO    SenderThread:85365 [sender.py:_save_file():1390] saving file wandb-summary.json with policy end
+2024-07-25 19:34:19,663 DEBUG   SenderThread:85365 [sender.py:send():379] send: history
+2024-07-25 19:34:19,663 DEBUG   SenderThread:85365 [sender.py:send_request():406] send_request: summary_record
+2024-07-25 19:34:19,664 INFO    SenderThread:85365 [sender.py:_save_file():1390] saving file wandb-summary.json with policy end
+2024-07-25 19:34:19,664 DEBUG   SenderThread:85365 [sender.py:send():379] send: history
+2024-07-25 19:34:19,664 DEBUG   SenderThread:85365 [sender.py:send_request():406] send_request: summary_record
+2024-07-25 19:34:19,664 INFO    SenderThread:85365 [sender.py:_save_file():1390] saving file wandb-summary.json with policy end
+2024-07-25 19:34:19,665 DEBUG   SenderThread:85365 [sender.py:send():379] send: history
+2024-07-25 19:34:19,665 DEBUG   SenderThread:85365 [sender.py:send_request():406] send_request: summary_record
+2024-07-25 19:34:19,665 INFO    SenderThread:85365 [sender.py:_save_file():1390] saving file wandb-summary.json with policy end
+2024-07-25 19:34:19,665 DEBUG   SenderThread:85365 [sender.py:send():379] send: history
+2024-07-25 19:34:19,665 DEBUG   SenderThread:85365 [sender.py:send_request():406] send_request: summary_record
+2024-07-25 19:34:19,665 INFO    SenderThread:85365 [sender.py:_save_file():1390] saving file wandb-summary.json with policy end
+2024-07-25 19:34:19,666 DEBUG   SenderThread:85365 [sender.py:send():379] send: history
+2024-07-25 19:34:19,666 DEBUG   SenderThread:85365 [sender.py:send_request():406] send_request: summary_record
+2024-07-25 19:34:19,666 INFO    SenderThread:85365 [sender.py:_save_file():1390] saving file wandb-summary.json with policy end
+2024-07-25 19:34:19,666 DEBUG   SenderThread:85365 [sender.py:send():379] send: history
+2024-07-25 19:34:19,666 DEBUG   SenderThread:85365 [sender.py:send_request():406] send_request: summary_record
+2024-07-25 19:34:19,666 INFO    SenderThread:85365 [sender.py:_save_file():1390] saving file wandb-summary.json with policy end
+2024-07-25 19:34:19,667 DEBUG   SenderThread:85365 [sender.py:send():379] send: history
+2024-07-25 19:34:19,667 DEBUG   SenderThread:85365 [sender.py:send_request():406] send_request: summary_record
+2024-07-25 19:34:19,667 INFO    SenderThread:85365 [sender.py:_save_file():1390] saving file wandb-summary.json with policy end
+2024-07-25 19:34:20,022 INFO    Thread-12 :85365 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/gmacri/tesiMagistrale/AV_CLIP4Clip/wandb/run-20240725_193051-5gul2vxp/files/wandb-summary.json
+2024-07-25 19:34:22,022 INFO    Thread-12 :85365 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/gmacri/tesiMagistrale/AV_CLIP4Clip/wandb/run-20240725_193051-5gul2vxp/files/output.log
+2024-07-25 19:34:22,086 DEBUG   SenderThread:85365 [sender.py:send():379] send: stats
+2024-07-25 19:34:23,319 DEBUG   HandlerThread:85365 [handler.py:handle_request():146] handle_request: stop_status
+2024-07-25 19:34:23,320 DEBUG   SenderThread:85365 [sender.py:send_request():406] send_request: stop_status
+2024-07-25 19:34:23,321 DEBUG   HandlerThread:85365 [handler.py:handle_request():146] handle_request: internal_messages
+2024-07-25 19:34:25,419 DEBUG   HandlerThread:85365 [handler.py:handle_request():146] handle_request: status_report
+2024-07-25 19:34:26,023 INFO    Thread-12 :85365 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/gmacri/tesiMagistrale/AV_CLIP4Clip/wandb/run-20240725_193051-5gul2vxp/files/output.log
+2024-07-25 19:34:30,598 DEBUG   HandlerThread:85365 [handler.py:handle_request():146] handle_request: status_report
+2024-07-25 19:34:30,962 DEBUG   HandlerThread:85365 [handler.py:handle_request():146] handle_request: partial_history
+2024-07-25 19:34:30,962 DEBUG   HandlerThread:85365 [handler.py:handle_request():146] handle_request: partial_history
+2024-07-25 19:34:30,962 DEBUG   HandlerThread:85365 [handler.py:handle_request():146] handle_request: partial_history
+2024-07-25 19:34:30,963 DEBUG   SenderThread:85365 [sender.py:send():379] send: history
+2024-07-25 19:34:30,963 DEBUG   HandlerThread:85365 [handler.py:handle_request():146] handle_request: partial_history
+2024-07-25 19:34:30,964 DEBUG   SenderThread:85365 [sender.py:send_request():406] send_request: summary_record
+2024-07-25 19:34:30,964 DEBUG   HandlerThread:85365 [handler.py:handle_request():146] handle_request: partial_history
+2024-07-25 19:34:30,966 DEBUG   HandlerThread:85365 [handler.py:handle_request():146] handle_request: partial_history
+2024-07-25 19:34:30,966 DEBUG   HandlerThread:85365 [handler.py:handle_request():146] handle_request: partial_history
+2024-07-25 19:34:30,967 DEBUG   HandlerThread:85365 [handler.py:handle_request():146] handle_request: partial_history
+2024-07-25 19:34:30,967 INFO    SenderThread:85365 [sender.py:_save_file():1390] saving file wandb-summary.json with policy end
+2024-07-25 19:34:30,967 DEBUG   HandlerThread:85365 [handler.py:handle_request():146] handle_request: partial_history
+2024-07-25 19:34:30,967 DEBUG   SenderThread:85365 [sender.py:send():379] send: history
+2024-07-25 19:34:30,968 DEBUG   HandlerThread:85365 [handler.py:handle_request():146] handle_request: partial_history
+2024-07-25 19:34:30,968 DEBUG   SenderThread:85365 [sender.py:send_request():406] send_request: summary_record
+2024-07-25 19:34:30,968 DEBUG   HandlerThread:85365 [handler.py:handle_request():146] handle_request: partial_history
+2024-07-25 19:34:30,969 INFO    SenderThread:85365 [sender.py:_save_file():1390] saving file wandb-summary.json with policy end
+2024-07-25 19:34:30,970 DEBUG   SenderThread:85365 [sender.py:send():379] send: history
+2024-07-25 19:34:30,970 DEBUG   SenderThread:85365 [sender.py:send_request():406] send_request: summary_record
+2024-07-25 19:34:30,970 INFO    SenderThread:85365 [sender.py:_save_file():1390] saving file wandb-summary.json with policy end
+2024-07-25 19:34:30,970 DEBUG   SenderThread:85365 [sender.py:send():379] send: history
+2024-07-25 19:34:30,970 DEBUG   SenderThread:85365 [sender.py:send_request():406] send_request: summary_record
+2024-07-25 19:34:30,970 INFO    SenderThread:85365 [sender.py:_save_file():1390] saving file wandb-summary.json with policy end
+2024-07-25 19:34:30,971 DEBUG   SenderThread:85365 [sender.py:send():379] send: history
+2024-07-25 19:34:30,971 DEBUG   SenderThread:85365 [sender.py:send_request():406] send_request: summary_record
+2024-07-25 19:34:30,971 INFO    SenderThread:85365 [sender.py:_save_file():1390] saving file wandb-summary.json with policy end
+2024-07-25 19:34:30,971 DEBUG   SenderThread:85365 [sender.py:send():379] send: history
+2024-07-25 19:34:30,971 DEBUG   SenderThread:85365 [sender.py:send_request():406] send_request: summary_record
+2024-07-25 19:34:30,972 INFO    SenderThread:85365 [sender.py:_save_file():1390] saving file wandb-summary.json with policy end
+2024-07-25 19:34:30,972 DEBUG   SenderThread:85365 [sender.py:send():379] send: history
+2024-07-25 19:34:30,972 DEBUG   SenderThread:85365 [sender.py:send_request():406] send_request: summary_record
+2024-07-25 19:34:30,972 INFO    SenderThread:85365 [sender.py:_save_file():1390] saving file wandb-summary.json with policy end
+2024-07-25 19:34:30,972 DEBUG   SenderThread:85365 [sender.py:send():379] send: history
+2024-07-25 19:34:30,972 DEBUG   SenderThread:85365 [sender.py:send_request():406] send_request: summary_record
+2024-07-25 19:34:30,972 INFO    SenderThread:85365 [sender.py:_save_file():1390] saving file wandb-summary.json with policy end
+2024-07-25 19:34:30,973 DEBUG   SenderThread:85365 [sender.py:send():379] send: history
+2024-07-25 19:34:30,973 DEBUG   SenderThread:85365 [sender.py:send_request():406] send_request: summary_record
+2024-07-25 19:34:30,973 INFO    SenderThread:85365 [sender.py:_save_file():1390] saving file wandb-summary.json with policy end
+2024-07-25 19:34:30,973 DEBUG   SenderThread:85365 [sender.py:send():379] send: history
+2024-07-25 19:34:30,973 DEBUG   SenderThread:85365 [sender.py:send_request():406] send_request: summary_record
+2024-07-25 19:34:30,973 INFO    SenderThread:85365 [sender.py:_save_file():1390] saving file wandb-summary.json with policy end
+2024-07-25 19:34:30,973 DEBUG   SenderThread:85365 [sender.py:send():379] send: history
+2024-07-25 19:34:30,973 DEBUG   SenderThread:85365 [sender.py:send_request():406] send_request: summary_record
+2024-07-25 19:34:30,974 INFO    SenderThread:85365 [sender.py:_save_file():1390] saving file wandb-summary.json with policy end
+2024-07-25 19:34:30,974 DEBUG   SenderThread:85365 [sender.py:send():379] send: exit
+2024-07-25 19:34:30,974 INFO    SenderThread:85365 [sender.py:send_exit():586] handling exit code: 0
+2024-07-25 19:34:30,974 INFO    SenderThread:85365 [sender.py:send_exit():588] handling runtime: 218
+2024-07-25 19:34:30,974 INFO    SenderThread:85365 [sender.py:_save_file():1390] saving file wandb-summary.json with policy end
+2024-07-25 19:34:30,974 INFO    SenderThread:85365 [sender.py:send_exit():594] send defer
+2024-07-25 19:34:30,974 DEBUG   HandlerThread:85365 [handler.py:handle_request():146] handle_request: defer
+2024-07-25 19:34:30,974 INFO    HandlerThread:85365 [handler.py:handle_request_defer():172] handle defer: 0
+2024-07-25 19:34:30,975 DEBUG   SenderThread:85365 [sender.py:send_request():406] send_request: defer
+2024-07-25 19:34:30,975 INFO    SenderThread:85365 [sender.py:send_request_defer():610] handle sender defer: 0
+2024-07-25 19:34:30,975 INFO    SenderThread:85365 [sender.py:transition_state():614] send defer: 1
+2024-07-25 19:34:30,975 DEBUG   HandlerThread:85365 [handler.py:handle_request():146] handle_request: defer
+2024-07-25 19:34:30,975 INFO    HandlerThread:85365 [handler.py:handle_request_defer():172] handle defer: 1
+2024-07-25 19:34:30,975 DEBUG   SenderThread:85365 [sender.py:send_request():406] send_request: defer
+2024-07-25 19:34:30,975 INFO    SenderThread:85365 [sender.py:send_request_defer():610] handle sender defer: 1
+2024-07-25 19:34:30,975 INFO    SenderThread:85365 [sender.py:transition_state():614] send defer: 2
+2024-07-25 19:34:30,975 DEBUG   HandlerThread:85365 [handler.py:handle_request():146] handle_request: defer
+2024-07-25 19:34:30,975 INFO    HandlerThread:85365 [handler.py:handle_request_defer():172] handle defer: 2
+2024-07-25 19:34:30,975 INFO    HandlerThread:85365 [system_monitor.py:finish():203] Stopping system monitor
+2024-07-25 19:34:30,976 DEBUG   SystemMonitor:85365 [system_monitor.py:_start():179] Finished system metrics aggregation loop
+2024-07-25 19:34:30,976 INFO    HandlerThread:85365 [interfaces.py:finish():202] Joined cpu monitor
+2024-07-25 19:34:30,976 DEBUG   SystemMonitor:85365 [system_monitor.py:_start():183] Publishing last batch of metrics
+2024-07-25 19:34:30,976 INFO    HandlerThread:85365 [interfaces.py:finish():202] Joined disk monitor
+2024-07-25 19:34:31,025 INFO    Thread-12 :85365 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/gmacri/tesiMagistrale/AV_CLIP4Clip/wandb/run-20240725_193051-5gul2vxp/files/wandb-summary.json
+2024-07-25 19:34:31,072 INFO    HandlerThread:85365 [interfaces.py:finish():202] Joined gpu monitor
+2024-07-25 19:34:31,072 INFO    HandlerThread:85365 [interfaces.py:finish():202] Joined memory monitor
+2024-07-25 19:34:31,072 INFO    HandlerThread:85365 [interfaces.py:finish():202] Joined network monitor
+2024-07-25 19:34:31,072 DEBUG   SenderThread:85365 [sender.py:send_request():406] send_request: defer
+2024-07-25 19:34:31,073 INFO    SenderThread:85365 [sender.py:send_request_defer():610] handle sender defer: 2
+2024-07-25 19:34:31,073 INFO    SenderThread:85365 [sender.py:transition_state():614] send defer: 3
+2024-07-25 19:34:31,073 DEBUG   HandlerThread:85365 [handler.py:handle_request():146] handle_request: defer
+2024-07-25 19:34:31,073 INFO    HandlerThread:85365 [handler.py:handle_request_defer():172] handle defer: 3
+2024-07-25 19:34:31,078 DEBUG   SenderThread:85365 [sender.py:send():379] send: stats
+2024-07-25 19:34:31,078 DEBUG   SenderThread:85365 [sender.py:send_request():406] send_request: defer
+2024-07-25 19:34:31,078 INFO    SenderThread:85365 [sender.py:send_request_defer():610] handle sender defer: 3
+2024-07-25 19:34:31,078 INFO    SenderThread:85365 [sender.py:transition_state():614] send defer: 4
+2024-07-25 19:34:31,078 DEBUG   HandlerThread:85365 [handler.py:handle_request():146] handle_request: defer
+2024-07-25 19:34:31,078 INFO    HandlerThread:85365 [handler.py:handle_request_defer():172] handle defer: 4
+2024-07-25 19:34:31,079 DEBUG   SenderThread:85365 [sender.py:send_request():406] send_request: defer
+2024-07-25 19:34:31,079 INFO    SenderThread:85365 [sender.py:send_request_defer():610] handle sender defer: 4
+2024-07-25 19:34:31,079 INFO    SenderThread:85365 [sender.py:transition_state():614] send defer: 5
+2024-07-25 19:34:31,079 DEBUG   HandlerThread:85365 [handler.py:handle_request():146] handle_request: defer
+2024-07-25 19:34:31,079 INFO    HandlerThread:85365 [handler.py:handle_request_defer():172] handle defer: 5
+2024-07-25 19:34:31,080 DEBUG   SenderThread:85365 [sender.py:send():379] send: summary
+2024-07-25 19:34:31,080 INFO    SenderThread:85365 [sender.py:_save_file():1390] saving file wandb-summary.json with policy end
+2024-07-25 19:34:31,080 DEBUG   SenderThread:85365 [sender.py:send_request():406] send_request: defer
+2024-07-25 19:34:31,080 INFO    SenderThread:85365 [sender.py:send_request_defer():610] handle sender defer: 5
+2024-07-25 19:34:31,080 INFO    SenderThread:85365 [sender.py:transition_state():614] send defer: 6
+2024-07-25 19:34:31,080 DEBUG   HandlerThread:85365 [handler.py:handle_request():146] handle_request: defer
+2024-07-25 19:34:31,080 INFO    HandlerThread:85365 [handler.py:handle_request_defer():172] handle defer: 6
+2024-07-25 19:34:31,081 DEBUG   SenderThread:85365 [sender.py:send_request():406] send_request: defer
+2024-07-25 19:34:31,081 INFO    SenderThread:85365 [sender.py:send_request_defer():610] handle sender defer: 6
+2024-07-25 19:34:31,081 INFO    SenderThread:85365 [sender.py:transition_state():614] send defer: 7
+2024-07-25 19:34:31,081 DEBUG   HandlerThread:85365 [handler.py:handle_request():146] handle_request: status_report
+2024-07-25 19:34:31,081 DEBUG   HandlerThread:85365 [handler.py:handle_request():146] handle_request: defer
+2024-07-25 19:34:31,081 INFO    HandlerThread:85365 [handler.py:handle_request_defer():172] handle defer: 7
+2024-07-25 19:34:31,081 DEBUG   SenderThread:85365 [sender.py:send_request():406] send_request: defer
+2024-07-25 19:34:31,081 INFO    SenderThread:85365 [sender.py:send_request_defer():610] handle sender defer: 7
+2024-07-25 19:34:31,971 DEBUG   HandlerThread:85365 [handler.py:handle_request():146] handle_request: poll_exit
+2024-07-25 19:34:32,025 INFO    Thread-12 :85365 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/gmacri/tesiMagistrale/AV_CLIP4Clip/wandb/run-20240725_193051-5gul2vxp/files/wandb-summary.json
+2024-07-25 19:34:32,025 INFO    Thread-12 :85365 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/gmacri/tesiMagistrale/AV_CLIP4Clip/wandb/run-20240725_193051-5gul2vxp/files/output.log
+2024-07-25 19:34:33,028 INFO    SenderThread:85365 [sender.py:transition_state():614] send defer: 8
+2024-07-25 19:34:33,028 DEBUG   SenderThread:85365 [sender.py:send_request():406] send_request: poll_exit
+2024-07-25 19:34:33,028 DEBUG   HandlerThread:85365 [handler.py:handle_request():146] handle_request: defer
+2024-07-25 19:34:33,029 INFO    HandlerThread:85365 [handler.py:handle_request_defer():172] handle defer: 8
+2024-07-25 19:34:33,029 DEBUG   SenderThread:85365 [sender.py:send_request():406] send_request: defer
+2024-07-25 19:34:33,029 INFO    SenderThread:85365 [sender.py:send_request_defer():610] handle sender defer: 8
+2024-07-25 19:34:33,029 INFO    SenderThread:85365 [job_builder.py:build():318] Attempting to build job artifact
+2024-07-25 19:34:33,030 INFO    SenderThread:85365 [job_builder.py:_get_source_type():455] is repo sourced job
+2024-07-25 19:34:33,051 INFO    SenderThread:85365 [job_builder.py:build():431] adding wandb-job metadata file
+2024-07-25 19:34:33,058 INFO    SenderThread:85365 [sender.py:transition_state():614] send defer: 9
+2024-07-25 19:34:33,058 DEBUG   HandlerThread:85365 [handler.py:handle_request():146] handle_request: defer
+2024-07-25 19:34:33,058 INFO    HandlerThread:85365 [handler.py:handle_request_defer():172] handle defer: 9
+2024-07-25 19:34:33,058 DEBUG   SenderThread:85365 [sender.py:send():379] send: artifact
+2024-07-25 19:34:33,972 DEBUG   HandlerThread:85365 [handler.py:handle_request():146] handle_request: poll_exit
+2024-07-25 19:34:34,025 INFO    Thread-12 :85365 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/gmacri/tesiMagistrale/AV_CLIP4Clip/wandb/run-20240725_193051-5gul2vxp/files/output.log
+2024-07-25 19:34:34,325 INFO    SenderThread:85365 [sender.py:send_artifact():1468] sent artifact job-git_github.com_gianlucamacri_AV_CLIP4Clip.git_main_task_retrieval.py - {'id': 'QXJ0aWZhY3Q6MTAzNjIwNjY3MQ==', 'state': 'COMMITTED', 'artifactSequence': {'id': 'QXJ0aWZhY3RDb2xsZWN0aW9uOjMyMDg5NzQxNw==', 'latestArtifact': {'id': 'QXJ0aWZhY3Q6MTAzNjM5ODk5MQ==', 'versionIndex': 10}}}
+2024-07-25 19:34:34,325 DEBUG   SenderThread:85365 [sender.py:send_request():406] send_request: defer
+2024-07-25 19:34:34,326 INFO    SenderThread:85365 [sender.py:send_request_defer():610] handle sender defer: 9
+2024-07-25 19:34:34,326 INFO    SenderThread:85365 [dir_watcher.py:finish():358] shutting down directory watcher
+2024-07-25 19:34:35,026 INFO    SenderThread:85365 [dir_watcher.py:finish():388] scan: /home/gmacri/tesiMagistrale/AV_CLIP4Clip/wandb/run-20240725_193051-5gul2vxp/files
+2024-07-25 19:34:35,026 INFO    SenderThread:85365 [dir_watcher.py:finish():402] scan save: /home/gmacri/tesiMagistrale/AV_CLIP4Clip/wandb/run-20240725_193051-5gul2vxp/files/wandb-metadata.json wandb-metadata.json
+2024-07-25 19:34:35,026 INFO    SenderThread:85365 [dir_watcher.py:finish():402] scan save: /home/gmacri/tesiMagistrale/AV_CLIP4Clip/wandb/run-20240725_193051-5gul2vxp/files/conda-environment.yaml conda-environment.yaml
+2024-07-25 19:34:35,027 INFO    SenderThread:85365 [dir_watcher.py:finish():402] scan save: /home/gmacri/tesiMagistrale/AV_CLIP4Clip/wandb/run-20240725_193051-5gul2vxp/files/requirements.txt requirements.txt
+2024-07-25 19:34:35,027 INFO    SenderThread:85365 [dir_watcher.py:finish():402] scan save: /home/gmacri/tesiMagistrale/AV_CLIP4Clip/wandb/run-20240725_193051-5gul2vxp/files/output.log output.log
+2024-07-25 19:34:35,031 INFO    SenderThread:85365 [dir_watcher.py:finish():402] scan save: /home/gmacri/tesiMagistrale/AV_CLIP4Clip/wandb/run-20240725_193051-5gul2vxp/files/wandb-summary.json wandb-summary.json
+2024-07-25 19:34:35,032 INFO    SenderThread:85365 [dir_watcher.py:finish():402] scan save: /home/gmacri/tesiMagistrale/AV_CLIP4Clip/wandb/run-20240725_193051-5gul2vxp/files/config.yaml config.yaml
+2024-07-25 19:34:35,032 INFO    SenderThread:85365 [sender.py:transition_state():614] send defer: 10
+2024-07-25 19:34:35,032 DEBUG   SenderThread:85365 [sender.py:send_request():406] send_request: poll_exit
+2024-07-25 19:34:35,032 DEBUG   HandlerThread:85365 [handler.py:handle_request():146] handle_request: defer
+2024-07-25 19:34:35,034 INFO    HandlerThread:85365 [handler.py:handle_request_defer():172] handle defer: 10
+2024-07-25 19:34:35,037 DEBUG   SenderThread:85365 [sender.py:send_request():406] send_request: defer
+2024-07-25 19:34:35,037 INFO    SenderThread:85365 [sender.py:send_request_defer():610] handle sender defer: 10
+2024-07-25 19:34:35,037 INFO    SenderThread:85365 [file_pusher.py:finish():172] shutting down file pusher
+2024-07-25 19:34:35,409 INFO    wandb-upload_0:85365 [upload_job.py:push():131] Uploaded file /home/gmacri/tesiMagistrale/AV_CLIP4Clip/wandb/run-20240725_193051-5gul2vxp/files/requirements.txt
+2024-07-25 19:34:35,502 INFO    wandb-upload_1:85365 [upload_job.py:push():131] Uploaded file /home/gmacri/tesiMagistrale/AV_CLIP4Clip/wandb/run-20240725_193051-5gul2vxp/files/conda-environment.yaml
+2024-07-25 19:34:35,527 INFO    wandb-upload_3:85365 [upload_job.py:push():131] Uploaded file /home/gmacri/tesiMagistrale/AV_CLIP4Clip/wandb/run-20240725_193051-5gul2vxp/files/wandb-summary.json
+2024-07-25 19:34:35,562 INFO    wandb-upload_4:85365 [upload_job.py:push():131] Uploaded file /home/gmacri/tesiMagistrale/AV_CLIP4Clip/wandb/run-20240725_193051-5gul2vxp/files/config.yaml
+2024-07-25 19:34:35,973 DEBUG   HandlerThread:85365 [handler.py:handle_request():146] handle_request: poll_exit
+2024-07-25 19:34:35,973 DEBUG   SenderThread:85365 [sender.py:send_request():406] send_request: poll_exit
+2024-07-25 19:34:36,909 INFO    wandb-upload_2:85365 [upload_job.py:push():131] Uploaded file /home/gmacri/tesiMagistrale/AV_CLIP4Clip/wandb/run-20240725_193051-5gul2vxp/files/output.log
+2024-07-25 19:34:36,973 DEBUG   HandlerThread:85365 [handler.py:handle_request():146] handle_request: poll_exit
+2024-07-25 19:34:36,974 DEBUG   SenderThread:85365 [sender.py:send_request():406] send_request: poll_exit
+2024-07-25 19:34:37,109 INFO    Thread-11 (_thread_body):85365 [sender.py:transition_state():614] send defer: 11
+2024-07-25 19:34:37,109 DEBUG   HandlerThread:85365 [handler.py:handle_request():146] handle_request: defer
+2024-07-25 19:34:37,109 INFO    HandlerThread:85365 [handler.py:handle_request_defer():172] handle defer: 11
+2024-07-25 19:34:37,110 DEBUG   SenderThread:85365 [sender.py:send_request():406] send_request: defer
+2024-07-25 19:34:37,110 INFO    SenderThread:85365 [sender.py:send_request_defer():610] handle sender defer: 11
+2024-07-25 19:34:37,110 INFO    SenderThread:85365 [file_pusher.py:join():178] waiting for file pusher
+2024-07-25 19:34:37,110 INFO    SenderThread:85365 [sender.py:transition_state():614] send defer: 12
+2024-07-25 19:34:37,110 DEBUG   HandlerThread:85365 [handler.py:handle_request():146] handle_request: defer
+2024-07-25 19:34:37,110 INFO    HandlerThread:85365 [handler.py:handle_request_defer():172] handle defer: 12
+2024-07-25 19:34:37,110 DEBUG   SenderThread:85365 [sender.py:send_request():406] send_request: defer
+2024-07-25 19:34:37,110 INFO    SenderThread:85365 [sender.py:send_request_defer():610] handle sender defer: 12
+2024-07-25 19:34:37,111 INFO    SenderThread:85365 [file_stream.py:finish():614] file stream finish called
+2024-07-25 19:34:37,782 INFO    SenderThread:85365 [file_stream.py:finish():618] file stream finish is done
+2024-07-25 19:34:37,782 INFO    SenderThread:85365 [sender.py:transition_state():614] send defer: 13
+2024-07-25 19:34:37,782 DEBUG   HandlerThread:85365 [handler.py:handle_request():146] handle_request: defer
+2024-07-25 19:34:37,783 INFO    HandlerThread:85365 [handler.py:handle_request_defer():172] handle defer: 13
+2024-07-25 19:34:37,783 DEBUG   SenderThread:85365 [sender.py:send_request():406] send_request: defer
+2024-07-25 19:34:37,783 INFO    SenderThread:85365 [sender.py:send_request_defer():610] handle sender defer: 13
+2024-07-25 19:34:37,783 INFO    SenderThread:85365 [sender.py:transition_state():614] send defer: 14
+2024-07-25 19:34:37,783 DEBUG   HandlerThread:85365 [handler.py:handle_request():146] handle_request: defer
+2024-07-25 19:34:37,783 DEBUG   SenderThread:85365 [sender.py:send():379] send: final
+2024-07-25 19:34:37,783 INFO    HandlerThread:85365 [handler.py:handle_request_defer():172] handle defer: 14
+2024-07-25 19:34:37,784 DEBUG   SenderThread:85365 [sender.py:send():379] send: footer
+2024-07-25 19:34:37,784 DEBUG   SenderThread:85365 [sender.py:send_request():406] send_request: defer
+2024-07-25 19:34:37,784 INFO    SenderThread:85365 [sender.py:send_request_defer():610] handle sender defer: 14
+2024-07-25 19:34:37,784 DEBUG   HandlerThread:85365 [handler.py:handle_request():146] handle_request: poll_exit
+2024-07-25 19:34:37,784 DEBUG   SenderThread:85365 [sender.py:send_request():406] send_request: poll_exit
+2024-07-25 19:34:37,785 DEBUG   HandlerThread:85365 [handler.py:handle_request():146] handle_request: poll_exit
+2024-07-25 19:34:37,785 DEBUG   SenderThread:85365 [sender.py:send_request():406] send_request: poll_exit
+2024-07-25 19:34:37,785 DEBUG   HandlerThread:85365 [handler.py:handle_request():146] handle_request: server_info
+2024-07-25 19:34:37,786 DEBUG   SenderThread:85365 [sender.py:send_request():406] send_request: server_info
+2024-07-25 19:34:37,786 DEBUG   HandlerThread:85365 [handler.py:handle_request():146] handle_request: get_summary
+2024-07-25 19:34:37,788 DEBUG   HandlerThread:85365 [handler.py:handle_request():146] handle_request: sampled_history
+2024-07-25 19:34:37,789 DEBUG   HandlerThread:85365 [handler.py:handle_request():146] handle_request: internal_messages
+2024-07-25 19:34:37,930 INFO    MainThread:85365 [wandb_run.py:_footer_history_summary_info():3936] rendering history
+2024-07-25 19:34:37,931 INFO    MainThread:85365 [wandb_run.py:_footer_history_summary_info():3968] rendering summary
+2024-07-25 19:34:37,931 INFO    MainThread:85365 [wandb_run.py:_footer_sync_info():3895] logging synced files
+2024-07-25 19:34:37,931 DEBUG   HandlerThread:85365 [handler.py:handle_request():146] handle_request: shutdown
+2024-07-25 19:34:37,932 INFO    HandlerThread:85365 [handler.py:finish():866] shutting down handler
+2024-07-25 19:34:38,786 INFO    WriterThread:85365 [datastore.py:close():296] close: /home/gmacri/tesiMagistrale/AV_CLIP4Clip/wandb/run-20240725_193051-5gul2vxp/run-5gul2vxp.wandb
+2024-07-25 19:34:38,930 INFO    SenderThread:85365 [sender.py:finish():1546] shutting down sender
+2024-07-25 19:34:38,930 INFO    SenderThread:85365 [file_pusher.py:finish():172] shutting down file pusher
+2024-07-25 19:34:38,930 INFO    SenderThread:85365 [file_pusher.py:join():178] waiting for file pusher

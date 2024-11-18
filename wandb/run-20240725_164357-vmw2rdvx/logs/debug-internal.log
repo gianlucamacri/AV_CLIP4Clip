@@ -1,0 +1,193 @@
+2024-07-25 16:43:57,149 INFO    StreamThr :80937 [internal.py:wandb_internal():86] W&B internal server running at pid: 80937, started at: 2024-07-25 16:43:57.149084
+2024-07-25 16:43:57,151 DEBUG   HandlerThread:80937 [handler.py:handle_request():146] handle_request: status
+2024-07-25 16:43:57,153 INFO    WriterThread:80937 [datastore.py:open_for_write():87] open: /home/gmacri/tesiMagistrale/AV_CLIP4Clip/wandb/run-20240725_164357-vmw2rdvx/run-vmw2rdvx.wandb
+2024-07-25 16:43:57,154 DEBUG   SenderThread:80937 [sender.py:send():379] send: header
+2024-07-25 16:43:57,156 DEBUG   SenderThread:80937 [sender.py:send():379] send: run
+2024-07-25 16:43:57,525 INFO    SenderThread:80937 [dir_watcher.py:__init__():211] watching files in: /home/gmacri/tesiMagistrale/AV_CLIP4Clip/wandb/run-20240725_164357-vmw2rdvx/files
+2024-07-25 16:43:57,525 INFO    SenderThread:80937 [sender.py:_start_run_threads():1124] run started: vmw2rdvx with start time 1721918637.148742
+2024-07-25 16:43:57,534 DEBUG   HandlerThread:80937 [handler.py:handle_request():146] handle_request: check_version
+2024-07-25 16:43:57,535 DEBUG   SenderThread:80937 [sender.py:send_request():406] send_request: check_version
+2024-07-25 16:43:57,641 DEBUG   HandlerThread:80937 [handler.py:handle_request():146] handle_request: run_start
+2024-07-25 16:43:57,645 DEBUG   HandlerThread:80937 [system_info.py:__init__():26] System info init
+2024-07-25 16:43:57,645 DEBUG   HandlerThread:80937 [system_info.py:__init__():41] System info init done
+2024-07-25 16:43:57,645 INFO    HandlerThread:80937 [system_monitor.py:start():194] Starting system monitor
+2024-07-25 16:43:57,646 INFO    SystemMonitor:80937 [system_monitor.py:_start():158] Starting system asset monitoring threads
+2024-07-25 16:43:57,646 INFO    HandlerThread:80937 [system_monitor.py:probe():214] Collecting system info
+2024-07-25 16:43:57,647 INFO    SystemMonitor:80937 [interfaces.py:start():190] Started cpu monitoring
+2024-07-25 16:43:57,647 INFO    SystemMonitor:80937 [interfaces.py:start():190] Started disk monitoring
+2024-07-25 16:43:57,648 INFO    SystemMonitor:80937 [interfaces.py:start():190] Started gpu monitoring
+2024-07-25 16:43:57,649 INFO    SystemMonitor:80937 [interfaces.py:start():190] Started memory monitoring
+2024-07-25 16:43:57,649 INFO    SystemMonitor:80937 [interfaces.py:start():190] Started network monitoring
+2024-07-25 16:43:57,681 DEBUG   HandlerThread:80937 [system_info.py:probe():150] Probing system
+2024-07-25 16:43:57,682 DEBUG   HandlerThread:80937 [system_info.py:_probe_git():135] Probing git
+2024-07-25 16:43:57,688 DEBUG   HandlerThread:80937 [system_info.py:_probe_git():143] Probing git done
+2024-07-25 16:43:57,688 DEBUG   HandlerThread:80937 [system_info.py:probe():198] Probing system done
+2024-07-25 16:43:57,688 DEBUG   HandlerThread:80937 [system_monitor.py:probe():223] {'os': 'Linux-5.4.0-150-generic-x86_64-with-glibc2.27', 'python': '3.12.4', 'heartbeatAt': '2024-07-25T14:43:57.681443', 'startedAt': '2024-07-25T14:43:57.144010', 'docker': None, 'cuda': None, 'args': ('--do_train', '--num_thread_reader=1', '--epochs=10', '--batch_size=8', '--n_display=50', '--metadata_fn', 'metadata_no_accents', '--video_dir', 'compressedVideos', '--split', '75_5_10_split_3strat_cap_75', '--output_dir', '../ckpts/av_retreival', '--lr', '2e-5', '--max_frames', '32', '--batch_size_val', '16', '--datatype', 'artistic_videos', '--feature_framerate', '1', '--coef_lr', '1e-3', '--freeze_layer_num', '0', '--slice_framepos', '2', '--loose_type', '--linear_patch', '2d', '--sim_header', 'meanP', '--pretrained_clip_name', 'ViT-B/32', '--best_model_strategy', 'loss', '--use_caching', '--test_best_model', '--test'), 'state': 'running', 'program': '/home/gmacri/tesiMagistrale/AV_CLIP4Clip/main_task_retrieval.py', 'codePathLocal': 'main_task_retrieval.py', 'codePath': 'main_task_retrieval.py', 'git': {'remote': 'git@github.com:gianlucamacri/AV_CLIP4Clip.git', 'commit': '071a7b3e19f093cccee33664fdb1150e9a4ea229'}, 'email': 'gianluca18ma@gmail.com', 'root': '/home/gmacri/tesiMagistrale/AV_CLIP4Clip', 'host': 'leonardo', 'username': 'gmacri', 'executable': '/home/gmacri/anaconda3/envs/clip/bin/python', 'cpu_count': 12, 'cpu_count_logical': 24, 'cpu_freq': {'current': 1.994666666666667, 'min': 2200.0, 'max': 3500.0}, 'cpu_freq_per_core': [{'current': 1.917, 'min': 2200.0, 'max': 3500.0}, {'current': 1.892, 'min': 2200.0, 'max': 3500.0}, {'current': 1.859, 'min': 2200.0, 'max': 3500.0}, {'current': 1.835, 'min': 2200.0, 'max': 3500.0}, {'current': 1.833, 'min': 2200.0, 'max': 3500.0}, {'current': 2.244, 'min': 2200.0, 'max': 3500.0}, {'current': 1.805, 'min': 2200.0, 'max': 3500.0}, {'current': 2.206, 'min': 2200.0, 'max': 3500.0}, {'current': 2.214, 'min': 2200.0, 'max': 3500.0}, {'current': 1.895, 'min': 2200.0, 'max': 3500.0}, {'current': 2.029, 'min': 2200.0, 'max': 3500.0}, {'current': 2.02, 'min': 2200.0, 'max': 3500.0}, {'current': 2.189, 'min': 2200.0, 'max': 3500.0}, {'current': 2.027, 'min': 2200.0, 'max': 3500.0}, {'current': 2.045, 'min': 2200.0, 'max': 3500.0}, {'current': 1.809, 'min': 2200.0, 'max': 3500.0}, {'current': 1.807, 'min': 2200.0, 'max': 3500.0}, {'current': 2.194, 'min': 2200.0, 'max': 3500.0}, {'current': 1.901, 'min': 2200.0, 'max': 3500.0}, {'current': 2.05, 'min': 2200.0, 'max': 3500.0}, {'current': 2.167, 'min': 2200.0, 'max': 3500.0}, {'current': 2.042, 'min': 2200.0, 'max': 3500.0}, {'current': 1.972, 'min': 2200.0, 'max': 3500.0}, {'current': 1.92, 'min': 2200.0, 'max': 3500.0}], 'disk': {'/': {'total': 937.8226585388184, 'used': 749.302604675293}}, 'gpu': 'NVIDIA TITAN RTX', 'gpu_count': 2, 'gpu_devices': [{'name': 'NVIDIA TITAN RTX', 'memory_total': 25396838400}, {'name': 'NVIDIA TITAN RTX', 'memory_total': 25395462144}], 'memory': {'total': 62.74051284790039}}
+2024-07-25 16:43:57,688 INFO    HandlerThread:80937 [system_monitor.py:probe():224] Finished collecting system info
+2024-07-25 16:43:57,688 INFO    HandlerThread:80937 [system_monitor.py:probe():227] Publishing system info
+2024-07-25 16:43:57,688 DEBUG   HandlerThread:80937 [system_info.py:_save_conda():207] Saving list of conda packages installed into the current environment
+2024-07-25 16:43:58,526 INFO    Thread-12 :80937 [dir_watcher.py:_on_file_created():271] file/dir created: /home/gmacri/tesiMagistrale/AV_CLIP4Clip/wandb/run-20240725_164357-vmw2rdvx/files/conda-environment.yaml
+2024-07-25 16:43:58,855 DEBUG   HandlerThread:80937 [system_info.py:_save_conda():222] Saving conda packages done
+2024-07-25 16:43:58,855 INFO    HandlerThread:80937 [system_monitor.py:probe():229] Finished publishing system info
+2024-07-25 16:43:58,857 DEBUG   SenderThread:80937 [sender.py:send():379] send: files
+2024-07-25 16:43:58,858 INFO    SenderThread:80937 [sender.py:_save_file():1390] saving file wandb-metadata.json with policy now
+2024-07-25 16:43:58,892 DEBUG   HandlerThread:80937 [handler.py:handle_request():146] handle_request: python_packages
+2024-07-25 16:43:58,892 DEBUG   SenderThread:80937 [sender.py:send_request():406] send_request: python_packages
+2024-07-25 16:43:58,892 DEBUG   HandlerThread:80937 [handler.py:handle_request():146] handle_request: stop_status
+2024-07-25 16:43:58,893 DEBUG   SenderThread:80937 [sender.py:send_request():406] send_request: stop_status
+2024-07-25 16:43:58,895 DEBUG   HandlerThread:80937 [handler.py:handle_request():146] handle_request: internal_messages
+2024-07-25 16:43:59,166 DEBUG   SenderThread:80937 [sender.py:send():379] send: telemetry
+2024-07-25 16:43:59,166 DEBUG   SenderThread:80937 [sender.py:send():379] send: config
+2024-07-25 16:43:59,524 INFO    wandb-upload_0:80937 [upload_job.py:push():131] Uploaded file /tmp/tmpm1foy_duwandb/zkk8qz9p-wandb-metadata.json
+2024-07-25 16:43:59,525 INFO    Thread-12 :80937 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/gmacri/tesiMagistrale/AV_CLIP4Clip/wandb/run-20240725_164357-vmw2rdvx/files/conda-environment.yaml
+2024-07-25 16:43:59,526 INFO    Thread-12 :80937 [dir_watcher.py:_on_file_created():271] file/dir created: /home/gmacri/tesiMagistrale/AV_CLIP4Clip/wandb/run-20240725_164357-vmw2rdvx/files/requirements.txt
+2024-07-25 16:43:59,526 INFO    Thread-12 :80937 [dir_watcher.py:_on_file_created():271] file/dir created: /home/gmacri/tesiMagistrale/AV_CLIP4Clip/wandb/run-20240725_164357-vmw2rdvx/files/output.log
+2024-07-25 16:43:59,526 INFO    Thread-12 :80937 [dir_watcher.py:_on_file_created():271] file/dir created: /home/gmacri/tesiMagistrale/AV_CLIP4Clip/wandb/run-20240725_164357-vmw2rdvx/files/wandb-metadata.json
+2024-07-25 16:44:01,526 INFO    Thread-12 :80937 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/gmacri/tesiMagistrale/AV_CLIP4Clip/wandb/run-20240725_164357-vmw2rdvx/files/output.log
+2024-07-25 16:44:02,426 DEBUG   HandlerThread:80937 [handler.py:handle_request():146] handle_request: status_report
+2024-07-25 16:44:04,580 DEBUG   SenderThread:80937 [sender.py:send():379] send: telemetry
+2024-07-25 16:44:05,527 INFO    Thread-12 :80937 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/gmacri/tesiMagistrale/AV_CLIP4Clip/wandb/run-20240725_164357-vmw2rdvx/files/output.log
+2024-07-25 16:44:06,977 DEBUG   SenderThread:80937 [sender.py:send():379] send: exit
+2024-07-25 16:44:06,977 INFO    SenderThread:80937 [sender.py:send_exit():586] handling exit code: 255
+2024-07-25 16:44:06,978 INFO    SenderThread:80937 [sender.py:send_exit():588] handling runtime: 9
+2024-07-25 16:44:06,978 INFO    SenderThread:80937 [sender.py:_save_file():1390] saving file wandb-summary.json with policy end
+2024-07-25 16:44:06,978 INFO    SenderThread:80937 [sender.py:send_exit():594] send defer
+2024-07-25 16:44:06,978 DEBUG   HandlerThread:80937 [handler.py:handle_request():146] handle_request: defer
+2024-07-25 16:44:06,978 INFO    HandlerThread:80937 [handler.py:handle_request_defer():172] handle defer: 0
+2024-07-25 16:44:06,978 DEBUG   SenderThread:80937 [sender.py:send_request():406] send_request: defer
+2024-07-25 16:44:06,978 INFO    SenderThread:80937 [sender.py:send_request_defer():610] handle sender defer: 0
+2024-07-25 16:44:06,978 INFO    SenderThread:80937 [sender.py:transition_state():614] send defer: 1
+2024-07-25 16:44:06,979 DEBUG   HandlerThread:80937 [handler.py:handle_request():146] handle_request: defer
+2024-07-25 16:44:06,979 INFO    HandlerThread:80937 [handler.py:handle_request_defer():172] handle defer: 1
+2024-07-25 16:44:06,979 DEBUG   SenderThread:80937 [sender.py:send_request():406] send_request: defer
+2024-07-25 16:44:06,979 INFO    SenderThread:80937 [sender.py:send_request_defer():610] handle sender defer: 1
+2024-07-25 16:44:06,979 INFO    SenderThread:80937 [sender.py:transition_state():614] send defer: 2
+2024-07-25 16:44:06,979 DEBUG   HandlerThread:80937 [handler.py:handle_request():146] handle_request: defer
+2024-07-25 16:44:06,979 INFO    HandlerThread:80937 [handler.py:handle_request_defer():172] handle defer: 2
+2024-07-25 16:44:06,979 INFO    HandlerThread:80937 [system_monitor.py:finish():203] Stopping system monitor
+2024-07-25 16:44:06,979 DEBUG   SystemMonitor:80937 [system_monitor.py:_start():172] Starting system metrics aggregation loop
+2024-07-25 16:44:06,980 DEBUG   SystemMonitor:80937 [system_monitor.py:_start():179] Finished system metrics aggregation loop
+2024-07-25 16:44:06,980 DEBUG   SystemMonitor:80937 [system_monitor.py:_start():183] Publishing last batch of metrics
+2024-07-25 16:44:06,980 INFO    HandlerThread:80937 [interfaces.py:finish():202] Joined cpu monitor
+2024-07-25 16:44:06,981 INFO    HandlerThread:80937 [interfaces.py:finish():202] Joined disk monitor
+2024-07-25 16:44:07,061 INFO    HandlerThread:80937 [interfaces.py:finish():202] Joined gpu monitor
+2024-07-25 16:44:07,062 INFO    HandlerThread:80937 [interfaces.py:finish():202] Joined memory monitor
+2024-07-25 16:44:07,062 INFO    HandlerThread:80937 [interfaces.py:finish():202] Joined network monitor
+2024-07-25 16:44:07,062 DEBUG   SenderThread:80937 [sender.py:send_request():406] send_request: defer
+2024-07-25 16:44:07,062 INFO    SenderThread:80937 [sender.py:send_request_defer():610] handle sender defer: 2
+2024-07-25 16:44:07,062 INFO    SenderThread:80937 [sender.py:transition_state():614] send defer: 3
+2024-07-25 16:44:07,062 DEBUG   SenderThread:80937 [sender.py:send():379] send: stats
+2024-07-25 16:44:07,063 DEBUG   HandlerThread:80937 [handler.py:handle_request():146] handle_request: defer
+2024-07-25 16:44:07,063 INFO    HandlerThread:80937 [handler.py:handle_request_defer():172] handle defer: 3
+2024-07-25 16:44:07,063 DEBUG   SenderThread:80937 [sender.py:send_request():406] send_request: defer
+2024-07-25 16:44:07,063 INFO    SenderThread:80937 [sender.py:send_request_defer():610] handle sender defer: 3
+2024-07-25 16:44:07,063 INFO    SenderThread:80937 [sender.py:transition_state():614] send defer: 4
+2024-07-25 16:44:07,063 DEBUG   HandlerThread:80937 [handler.py:handle_request():146] handle_request: defer
+2024-07-25 16:44:07,063 INFO    HandlerThread:80937 [handler.py:handle_request_defer():172] handle defer: 4
+2024-07-25 16:44:07,063 DEBUG   SenderThread:80937 [sender.py:send_request():406] send_request: defer
+2024-07-25 16:44:07,063 INFO    SenderThread:80937 [sender.py:send_request_defer():610] handle sender defer: 4
+2024-07-25 16:44:07,063 INFO    SenderThread:80937 [sender.py:transition_state():614] send defer: 5
+2024-07-25 16:44:07,063 DEBUG   HandlerThread:80937 [handler.py:handle_request():146] handle_request: defer
+2024-07-25 16:44:07,063 INFO    HandlerThread:80937 [handler.py:handle_request_defer():172] handle defer: 5
+2024-07-25 16:44:07,064 DEBUG   SenderThread:80937 [sender.py:send():379] send: summary
+2024-07-25 16:44:07,064 INFO    SenderThread:80937 [sender.py:_save_file():1390] saving file wandb-summary.json with policy end
+2024-07-25 16:44:07,064 DEBUG   SenderThread:80937 [sender.py:send_request():406] send_request: defer
+2024-07-25 16:44:07,064 INFO    SenderThread:80937 [sender.py:send_request_defer():610] handle sender defer: 5
+2024-07-25 16:44:07,064 INFO    SenderThread:80937 [sender.py:transition_state():614] send defer: 6
+2024-07-25 16:44:07,064 DEBUG   HandlerThread:80937 [handler.py:handle_request():146] handle_request: defer
+2024-07-25 16:44:07,064 INFO    HandlerThread:80937 [handler.py:handle_request_defer():172] handle defer: 6
+2024-07-25 16:44:07,064 DEBUG   SenderThread:80937 [sender.py:send_request():406] send_request: defer
+2024-07-25 16:44:07,064 INFO    SenderThread:80937 [sender.py:send_request_defer():610] handle sender defer: 6
+2024-07-25 16:44:07,067 DEBUG   HandlerThread:80937 [handler.py:handle_request():146] handle_request: status_report
+2024-07-25 16:44:07,359 INFO    SenderThread:80937 [sender.py:transition_state():614] send defer: 7
+2024-07-25 16:44:07,359 DEBUG   HandlerThread:80937 [handler.py:handle_request():146] handle_request: defer
+2024-07-25 16:44:07,359 INFO    HandlerThread:80937 [handler.py:handle_request_defer():172] handle defer: 7
+2024-07-25 16:44:07,359 DEBUG   SenderThread:80937 [sender.py:send_request():406] send_request: defer
+2024-07-25 16:44:07,359 INFO    SenderThread:80937 [sender.py:send_request_defer():610] handle sender defer: 7
+2024-07-25 16:44:07,527 INFO    Thread-12 :80937 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/gmacri/tesiMagistrale/AV_CLIP4Clip/wandb/run-20240725_164357-vmw2rdvx/files/output.log
+2024-07-25 16:44:07,528 INFO    Thread-12 :80937 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/gmacri/tesiMagistrale/AV_CLIP4Clip/wandb/run-20240725_164357-vmw2rdvx/files/config.yaml
+2024-07-25 16:44:07,528 INFO    Thread-12 :80937 [dir_watcher.py:_on_file_created():271] file/dir created: /home/gmacri/tesiMagistrale/AV_CLIP4Clip/wandb/run-20240725_164357-vmw2rdvx/files/wandb-summary.json
+2024-07-25 16:44:07,977 DEBUG   HandlerThread:80937 [handler.py:handle_request():146] handle_request: poll_exit
+2024-07-25 16:44:09,382 INFO    SenderThread:80937 [sender.py:transition_state():614] send defer: 8
+2024-07-25 16:44:09,383 DEBUG   SenderThread:80937 [sender.py:send_request():406] send_request: poll_exit
+2024-07-25 16:44:09,383 DEBUG   HandlerThread:80937 [handler.py:handle_request():146] handle_request: defer
+2024-07-25 16:44:09,383 INFO    HandlerThread:80937 [handler.py:handle_request_defer():172] handle defer: 8
+2024-07-25 16:44:09,383 DEBUG   SenderThread:80937 [sender.py:send_request():406] send_request: defer
+2024-07-25 16:44:09,383 INFO    SenderThread:80937 [sender.py:send_request_defer():610] handle sender defer: 8
+2024-07-25 16:44:09,383 INFO    SenderThread:80937 [job_builder.py:build():318] Attempting to build job artifact
+2024-07-25 16:44:09,384 INFO    SenderThread:80937 [job_builder.py:_get_source_type():455] is repo sourced job
+2024-07-25 16:44:09,405 INFO    SenderThread:80937 [job_builder.py:build():431] adding wandb-job metadata file
+2024-07-25 16:44:09,424 INFO    SenderThread:80937 [sender.py:transition_state():614] send defer: 9
+2024-07-25 16:44:09,424 DEBUG   HandlerThread:80937 [handler.py:handle_request():146] handle_request: defer
+2024-07-25 16:44:09,424 DEBUG   SenderThread:80937 [sender.py:send():379] send: artifact
+2024-07-25 16:44:09,424 INFO    HandlerThread:80937 [handler.py:handle_request_defer():172] handle defer: 9
+2024-07-25 16:44:09,528 INFO    Thread-12 :80937 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/gmacri/tesiMagistrale/AV_CLIP4Clip/wandb/run-20240725_164357-vmw2rdvx/files/output.log
+2024-07-25 16:44:09,978 DEBUG   HandlerThread:80937 [handler.py:handle_request():146] handle_request: poll_exit
+2024-07-25 16:44:10,288 INFO    SenderThread:80937 [sender.py:send_artifact():1468] sent artifact job-git_github.com_gianlucamacri_AV_CLIP4Clip.git_main_task_retrieval.py - {'id': 'QXJ0aWZhY3Q6MTAzNTc3NTA1NQ==', 'state': 'COMMITTED', 'artifactSequence': {'id': 'QXJ0aWZhY3RDb2xsZWN0aW9uOjMyMDg5NzQxNw==', 'latestArtifact': {'id': 'QXJ0aWZhY3Q6MTAzNTg3NTU2Mg==', 'versionIndex': 1}}}
+2024-07-25 16:44:10,288 DEBUG   SenderThread:80937 [sender.py:send_request():406] send_request: defer
+2024-07-25 16:44:10,288 INFO    SenderThread:80937 [sender.py:send_request_defer():610] handle sender defer: 9
+2024-07-25 16:44:10,288 INFO    SenderThread:80937 [dir_watcher.py:finish():358] shutting down directory watcher
+2024-07-25 16:44:10,529 INFO    SenderThread:80937 [dir_watcher.py:finish():388] scan: /home/gmacri/tesiMagistrale/AV_CLIP4Clip/wandb/run-20240725_164357-vmw2rdvx/files
+2024-07-25 16:44:10,529 INFO    SenderThread:80937 [dir_watcher.py:finish():402] scan save: /home/gmacri/tesiMagistrale/AV_CLIP4Clip/wandb/run-20240725_164357-vmw2rdvx/files/wandb-metadata.json wandb-metadata.json
+2024-07-25 16:44:10,529 INFO    SenderThread:80937 [dir_watcher.py:finish():402] scan save: /home/gmacri/tesiMagistrale/AV_CLIP4Clip/wandb/run-20240725_164357-vmw2rdvx/files/conda-environment.yaml conda-environment.yaml
+2024-07-25 16:44:10,529 INFO    SenderThread:80937 [dir_watcher.py:finish():402] scan save: /home/gmacri/tesiMagistrale/AV_CLIP4Clip/wandb/run-20240725_164357-vmw2rdvx/files/requirements.txt requirements.txt
+2024-07-25 16:44:10,529 INFO    SenderThread:80937 [dir_watcher.py:finish():402] scan save: /home/gmacri/tesiMagistrale/AV_CLIP4Clip/wandb/run-20240725_164357-vmw2rdvx/files/output.log output.log
+2024-07-25 16:44:10,530 INFO    SenderThread:80937 [dir_watcher.py:finish():402] scan save: /home/gmacri/tesiMagistrale/AV_CLIP4Clip/wandb/run-20240725_164357-vmw2rdvx/files/wandb-summary.json wandb-summary.json
+2024-07-25 16:44:10,531 INFO    SenderThread:80937 [dir_watcher.py:finish():402] scan save: /home/gmacri/tesiMagistrale/AV_CLIP4Clip/wandb/run-20240725_164357-vmw2rdvx/files/config.yaml config.yaml
+2024-07-25 16:44:10,534 INFO    SenderThread:80937 [sender.py:transition_state():614] send defer: 10
+2024-07-25 16:44:10,534 DEBUG   SenderThread:80937 [sender.py:send_request():406] send_request: poll_exit
+2024-07-25 16:44:10,536 DEBUG   HandlerThread:80937 [handler.py:handle_request():146] handle_request: defer
+2024-07-25 16:44:10,538 INFO    HandlerThread:80937 [handler.py:handle_request_defer():172] handle defer: 10
+2024-07-25 16:44:10,539 DEBUG   SenderThread:80937 [sender.py:send_request():406] send_request: defer
+2024-07-25 16:44:10,541 INFO    SenderThread:80937 [sender.py:send_request_defer():610] handle sender defer: 10
+2024-07-25 16:44:10,541 INFO    SenderThread:80937 [file_pusher.py:finish():172] shutting down file pusher
+2024-07-25 16:44:10,910 INFO    wandb-upload_1:80937 [upload_job.py:push():131] Uploaded file /home/gmacri/tesiMagistrale/AV_CLIP4Clip/wandb/run-20240725_164357-vmw2rdvx/files/requirements.txt
+2024-07-25 16:44:10,963 INFO    wandb-upload_0:80937 [upload_job.py:push():131] Uploaded file /home/gmacri/tesiMagistrale/AV_CLIP4Clip/wandb/run-20240725_164357-vmw2rdvx/files/conda-environment.yaml
+2024-07-25 16:44:10,978 DEBUG   HandlerThread:80937 [handler.py:handle_request():146] handle_request: poll_exit
+2024-07-25 16:44:10,979 DEBUG   SenderThread:80937 [sender.py:send_request():406] send_request: poll_exit
+2024-07-25 16:44:10,998 INFO    wandb-upload_4:80937 [upload_job.py:push():131] Uploaded file /home/gmacri/tesiMagistrale/AV_CLIP4Clip/wandb/run-20240725_164357-vmw2rdvx/files/config.yaml
+2024-07-25 16:44:11,042 INFO    wandb-upload_3:80937 [upload_job.py:push():131] Uploaded file /home/gmacri/tesiMagistrale/AV_CLIP4Clip/wandb/run-20240725_164357-vmw2rdvx/files/wandb-summary.json
+2024-07-25 16:44:11,054 INFO    wandb-upload_2:80937 [upload_job.py:push():131] Uploaded file /home/gmacri/tesiMagistrale/AV_CLIP4Clip/wandb/run-20240725_164357-vmw2rdvx/files/output.log
+2024-07-25 16:44:11,254 INFO    Thread-11 (_thread_body):80937 [sender.py:transition_state():614] send defer: 11
+2024-07-25 16:44:11,254 DEBUG   HandlerThread:80937 [handler.py:handle_request():146] handle_request: defer
+2024-07-25 16:44:11,255 INFO    HandlerThread:80937 [handler.py:handle_request_defer():172] handle defer: 11
+2024-07-25 16:44:11,255 DEBUG   SenderThread:80937 [sender.py:send_request():406] send_request: defer
+2024-07-25 16:44:11,255 INFO    SenderThread:80937 [sender.py:send_request_defer():610] handle sender defer: 11
+2024-07-25 16:44:11,255 INFO    SenderThread:80937 [file_pusher.py:join():178] waiting for file pusher
+2024-07-25 16:44:11,255 INFO    SenderThread:80937 [sender.py:transition_state():614] send defer: 12
+2024-07-25 16:44:11,256 DEBUG   HandlerThread:80937 [handler.py:handle_request():146] handle_request: defer
+2024-07-25 16:44:11,256 INFO    HandlerThread:80937 [handler.py:handle_request_defer():172] handle defer: 12
+2024-07-25 16:44:11,256 DEBUG   SenderThread:80937 [sender.py:send_request():406] send_request: defer
+2024-07-25 16:44:11,256 INFO    SenderThread:80937 [sender.py:send_request_defer():610] handle sender defer: 12
+2024-07-25 16:44:11,256 INFO    SenderThread:80937 [file_stream.py:finish():614] file stream finish called
+2024-07-25 16:44:11,405 INFO    SenderThread:80937 [file_stream.py:finish():618] file stream finish is done
+2024-07-25 16:44:11,406 INFO    SenderThread:80937 [sender.py:transition_state():614] send defer: 13
+2024-07-25 16:44:11,406 DEBUG   HandlerThread:80937 [handler.py:handle_request():146] handle_request: defer
+2024-07-25 16:44:11,406 INFO    HandlerThread:80937 [handler.py:handle_request_defer():172] handle defer: 13
+2024-07-25 16:44:11,406 DEBUG   SenderThread:80937 [sender.py:send_request():406] send_request: defer
+2024-07-25 16:44:11,406 INFO    SenderThread:80937 [sender.py:send_request_defer():610] handle sender defer: 13
+2024-07-25 16:44:11,406 INFO    SenderThread:80937 [sender.py:transition_state():614] send defer: 14
+2024-07-25 16:44:11,406 DEBUG   HandlerThread:80937 [handler.py:handle_request():146] handle_request: defer
+2024-07-25 16:44:11,406 INFO    HandlerThread:80937 [handler.py:handle_request_defer():172] handle defer: 14
+2024-07-25 16:44:11,407 DEBUG   SenderThread:80937 [sender.py:send():379] send: final
+2024-07-25 16:44:11,407 DEBUG   SenderThread:80937 [sender.py:send():379] send: footer
+2024-07-25 16:44:11,407 DEBUG   SenderThread:80937 [sender.py:send_request():406] send_request: defer
+2024-07-25 16:44:11,407 INFO    SenderThread:80937 [sender.py:send_request_defer():610] handle sender defer: 14
+2024-07-25 16:44:11,407 DEBUG   HandlerThread:80937 [handler.py:handle_request():146] handle_request: poll_exit
+2024-07-25 16:44:11,408 DEBUG   SenderThread:80937 [sender.py:send_request():406] send_request: poll_exit
+2024-07-25 16:44:11,408 DEBUG   HandlerThread:80937 [handler.py:handle_request():146] handle_request: poll_exit
+2024-07-25 16:44:11,408 DEBUG   HandlerThread:80937 [handler.py:handle_request():146] handle_request: server_info
+2024-07-25 16:44:11,409 DEBUG   SenderThread:80937 [sender.py:send_request():406] send_request: poll_exit
+2024-07-25 16:44:11,409 DEBUG   SenderThread:80937 [sender.py:send_request():406] send_request: server_info
+2024-07-25 16:44:11,411 DEBUG   HandlerThread:80937 [handler.py:handle_request():146] handle_request: get_summary
+2024-07-25 16:44:11,411 DEBUG   HandlerThread:80937 [handler.py:handle_request():146] handle_request: sampled_history
+2024-07-25 16:44:11,411 DEBUG   HandlerThread:80937 [handler.py:handle_request():146] handle_request: internal_messages
+2024-07-25 16:44:11,557 INFO    MainThread:80937 [wandb_run.py:_footer_history_summary_info():3936] rendering history
+2024-07-25 16:44:11,558 INFO    MainThread:80937 [wandb_run.py:_footer_history_summary_info():3968] rendering summary
+2024-07-25 16:44:11,558 INFO    MainThread:80937 [wandb_run.py:_footer_sync_info():3895] logging synced files
+2024-07-25 16:44:11,558 DEBUG   HandlerThread:80937 [handler.py:handle_request():146] handle_request: shutdown
+2024-07-25 16:44:11,558 INFO    HandlerThread:80937 [handler.py:finish():866] shutting down handler
+2024-07-25 16:44:12,409 INFO    WriterThread:80937 [datastore.py:close():296] close: /home/gmacri/tesiMagistrale/AV_CLIP4Clip/wandb/run-20240725_164357-vmw2rdvx/run-vmw2rdvx.wandb
+2024-07-25 16:44:12,557 INFO    SenderThread:80937 [sender.py:finish():1546] shutting down sender
+2024-07-25 16:44:12,558 INFO    SenderThread:80937 [file_pusher.py:finish():172] shutting down file pusher
+2024-07-25 16:44:12,558 INFO    SenderThread:80937 [file_pusher.py:join():178] waiting for file pusher

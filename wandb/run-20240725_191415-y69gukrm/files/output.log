@@ -1,0 +1,158 @@
+07/25/2024 19:14:17 - INFO -   loading archive file /home/gmacri/tesiMagistrale/AV_CLIP4Clip/modules/cross-base
+07/25/2024 19:14:17 - INFO -   Model config {
+  "attention_probs_dropout_prob": 0.1,
+  "hidden_act": "gelu",
+  "hidden_dropout_prob": 0.1,
+  "hidden_size": 512,
+  "initializer_range": 0.02,
+  "intermediate_size": 2048,
+  "max_position_embeddings": 128,
+  "num_attention_heads": 8,
+  "num_hidden_layers": 4,
+  "type_vocab_size": 2,
+  "vocab_size": 512
+}
+07/25/2024 19:14:17 - INFO -   Weight doesn't exsits. /home/gmacri/tesiMagistrale/AV_CLIP4Clip/modules/cross-base/cross_pytorch_model.bin
+07/25/2024 19:14:17 - WARNING -   Stage-One:True, Stage-Two:False
+07/25/2024 19:14:17 - WARNING -   Test retrieval by loose type.
+07/25/2024 19:14:17 - WARNING -   	 embed_dim: 512
+07/25/2024 19:14:17 - WARNING -   	 image_resolution: 224
+07/25/2024 19:14:17 - WARNING -   	 vision_layers: 12
+07/25/2024 19:14:17 - WARNING -   	 vision_width: 768
+07/25/2024 19:14:17 - WARNING -   	 vision_patch_size: 32
+07/25/2024 19:14:17 - WARNING -   	 context_length: 77
+07/25/2024 19:14:17 - WARNING -   	 vocab_size: 49408
+07/25/2024 19:14:17 - WARNING -   	 transformer_width: 512
+07/25/2024 19:14:17 - WARNING -   	 transformer_heads: 8
+07/25/2024 19:14:17 - WARNING -   	 transformer_layers: 12
+07/25/2024 19:14:17 - WARNING -   		 linear_patch: 2d
+07/25/2024 19:14:17 - WARNING -   	 cut_top_layer: 0
+07/25/2024 19:14:18 - WARNING -   	 sim_header: meanP
+07/25/2024 19:14:22 - INFO -   --------------------
+07/25/2024 19:14:22 - INFO -   Weights from pretrained model not used in CLIP4Clip:
+   clip.input_resolution
+   clip.context_length
+   clip.vocab_size
+07/25/2024 19:14:23 - INFO -   updating metadata video filename paths to match the actual location, to prevent this behavior set the updateVideoFilenames to false
+07/25/2024 19:14:23 - INFO -   updating metadata video filename paths to match the actual location, to prevent this behavior set the updateVideoFilenames to false
+07/25/2024 19:14:23 - INFO -   ***** Running test *****
+07/25/2024 19:14:23 - INFO -     Num examples = 24
+07/25/2024 19:14:23 - INFO -     Batch size = 16
+07/25/2024 19:14:23 - INFO -     Num steps = 2
+07/25/2024 19:14:23 - INFO -   ***** Running val *****
+07/25/2024 19:14:23 - INFO -     Num examples = 6
+07/25/2024 19:14:23 - INFO -   updating metadata video filename paths to match the actual location, to prevent this behavior set the updateVideoFilenames to false
+07/25/2024 19:14:23 - INFO -   0 (0.0 %) will remain unsued for each epoch due to drop last set to true for the dataloader
+07/25/2024 19:14:23 - INFO -   ***** Running training *****
+07/25/2024 19:14:23 - INFO -     Num examples = 90
+07/25/2024 19:14:23 - INFO -     Batch size = 30
+07/25/2024 19:14:23 - INFO -     Num steps = 36
+
+
+
+
+
+100%|███████████████████████████████████████████| 6/6 [00:37<00:00,  6.17s/it]
+07/25/2024 19:15:00 - INFO -   Epoch 1/6 Finished, Train Loss: 0.361593
+07/25/2024 19:15:01 - INFO -   Model saved to ckpts/av_retreival_lr0.0005_e6_b30_48fps_loss_42_1721927654_test/pytorch_model.bin.0
+07/25/2024 19:15:01 - INFO -   Optimizer saved to ckpts/av_retreival_lr0.0005_e6_b30_48fps_loss_42_1721927654_test/pytorch_opt.bin.0
+07/25/2024 19:15:01 - INFO -   Eval on val dataset
+  0%|                                                   | 0/1 [00:00<?, ?it/s]
+  0%|                                                   | 0/1 [00:00<?, ?it/s]07/25/2024 19:15:03 - INFO -   retrieval of video 16 took 2.281705114990473
+07/25/2024 19:15:03 - INFO -   computation took 0.047477963962592185
+100%|███████████████████████████████████████████| 1/1 [00:02<00:00,  2.33s/it]
+07/25/2024 19:15:04 - INFO -   sim matrix size: 6, 6
+07/25/2024 19:15:04 - INFO -   	 Length-T: 6, Length-V:6
+07/25/2024 19:15:04 - INFO -   Similarity loss: 1.1
+07/25/2024 19:15:04 - INFO -   Text-to-Video:
+07/25/2024 19:15:04 - INFO -   	>>>  R@1: 83.3 - R@5: 100.0 - R@10: 100.0 - Median R: 1.0 - Mean R: 1.2
+07/25/2024 19:15:04 - INFO -   Video-to-Text:
+07/25/2024 19:15:04 - INFO -   	>>>  V2T$R@1: 83.3 - V2T$R@5: 100.0 - V2T$R@10: 100.0 - V2T$Median R: 1.0 - V2T$Mean R: 1.5
+07/25/2024 19:15:04 - INFO -   The best model according to loss strategy is: ckpts/av_retreival_lr0.0005_e6_b30_48fps_loss_42_1721927654_test/pytorch_model.bin.0, its metric is: 1.0731
+
+
+
+
+
+100%|███████████████████████████████████████████| 6/6 [00:36<00:00,  6.08s/it]
+07/25/2024 19:15:41 - INFO -   Epoch 2/6 Finished, Train Loss: 0.189109
+07/25/2024 19:15:42 - INFO -   Model saved to ckpts/av_retreival_lr0.0005_e6_b30_48fps_loss_42_1721927654_test/pytorch_model.bin.1
+07/25/2024 19:15:42 - INFO -   Optimizer saved to ckpts/av_retreival_lr0.0005_e6_b30_48fps_loss_42_1721927654_test/pytorch_opt.bin.1
+07/25/2024 19:15:42 - INFO -   Eval on val dataset
+  0%|                                                   | 0/1 [00:00<?, ?it/s]07/25/2024 19:15:44 - INFO -   retrieval of video 16 took 2.373762569972314
+07/25/2024 19:15:44 - INFO -   computation took 0.047404465964064
+100%|███████████████████████████████████████████| 1/1 [00:02<00:00,  2.42s/it]
+07/25/2024 19:15:44 - INFO -   sim matrix size: 6, 6
+07/25/2024 19:15:44 - INFO -   	 Length-T: 6, Length-V:6
+07/25/2024 19:15:44 - INFO -   Similarity loss: 0.9
+07/25/2024 19:15:44 - INFO -   Text-to-Video:
+07/25/2024 19:15:44 - INFO -   	>>>  R@1: 83.3 - R@5: 100.0 - R@10: 100.0 - Median R: 1.0 - Mean R: 1.5
+07/25/2024 19:15:44 - INFO -   Video-to-Text:
+07/25/2024 19:15:44 - INFO -   	>>>  V2T$R@1: 66.7 - V2T$R@5: 100.0 - V2T$R@10: 100.0 - V2T$Median R: 1.0 - V2T$Mean R: 1.3
+07/25/2024 19:15:44 - INFO -   The best model according to loss strategy is: ckpts/av_retreival_lr0.0005_e6_b30_48fps_loss_42_1721927654_test/pytorch_model.bin.1, its metric is: 0.8668
+
+
+
+
+
+100%|███████████████████████████████████████████| 6/6 [00:36<00:00,  6.07s/it]
+07/25/2024 19:16:21 - INFO -   Epoch 3/6 Finished, Train Loss: 0.235743
+07/25/2024 19:16:22 - INFO -   Model saved to ckpts/av_retreival_lr0.0005_e6_b30_48fps_loss_42_1721927654_test/pytorch_model.bin.2
+07/25/2024 19:16:22 - INFO -   Optimizer saved to ckpts/av_retreival_lr0.0005_e6_b30_48fps_loss_42_1721927654_test/pytorch_opt.bin.2
+07/25/2024 19:16:22 - INFO -   Eval on val dataset
+  0%|                                                   | 0/1 [00:00<?, ?it/s]07/25/2024 19:16:24 - INFO -   retrieval of video 16 took 2.3743180900346488
+07/25/2024 19:16:24 - INFO -   computation took 0.046573195955716074
+100%|███████████████████████████████████████████| 1/1 [00:02<00:00,  2.42s/it]
+07/25/2024 19:16:24 - INFO -   sim matrix size: 6, 6
+07/25/2024 19:16:24 - INFO -   	 Length-T: 6, Length-V:6
+07/25/2024 19:16:24 - INFO -   Similarity loss: 1.4
+07/25/2024 19:16:24 - INFO -   Text-to-Video:
+07/25/2024 19:16:24 - INFO -   	>>>  R@1: 66.7 - R@5: 100.0 - R@10: 100.0 - Median R: 1.0 - Mean R: 1.7
+07/25/2024 19:16:24 - INFO -   Video-to-Text:
+07/25/2024 19:16:24 - INFO -   	>>>  V2T$R@1: 66.7 - V2T$R@5: 100.0 - V2T$R@10: 100.0 - V2T$Median R: 1.0 - V2T$Mean R: 1.8
+07/25/2024 19:16:24 - INFO -   The best model according to loss strategy is: ckpts/av_retreival_lr0.0005_e6_b30_48fps_loss_42_1721927654_test/pytorch_model.bin.1, its metric is: 0.8668
+
+
+
+
+
+100%|███████████████████████████████████████████| 6/6 [00:36<00:00,  6.09s/it]
+07/25/2024 19:17:01 - INFO -   Epoch 4/6 Finished, Train Loss: 0.081702
+07/25/2024 19:17:02 - INFO -   Model saved to ckpts/av_retreival_lr0.0005_e6_b30_48fps_loss_42_1721927654_test/pytorch_model.bin.3
+07/25/2024 19:17:02 - INFO -   Optimizer saved to ckpts/av_retreival_lr0.0005_e6_b30_48fps_loss_42_1721927654_test/pytorch_opt.bin.3
+07/25/2024 19:17:02 - INFO -   Eval on val dataset
+07/25/2024 19:17:04 - INFO -   	 Length-T: 6, Length-V:6| 0/1 [00:00<?, ?it/s]07/25/2024 19:17:04 - INFO -   retrieval of video 16 took 2.37775036401581
+07/25/2024 19:17:04 - INFO -   computation took 0.046525018056854606
+100%|███████████████████████████████████████████| 1/1 [00:02<00:00,  2.42s/it]
+07/25/2024 19:17:04 - INFO -   sim matrix size: 6, 6
+07/25/2024 19:17:04 - INFO -   	 Length-T: 6, Length-V:6| 0/1 [00:00<?, ?it/s]07/25/2024 19:17:04 - INFO -   retrieval of video 16 took 2.37775036401581
+07/25/2024 19:17:04 - INFO -   Similarity loss: 1.1
+07/25/2024 19:17:04 - INFO -   Text-to-Video:
+07/25/2024 19:17:04 - INFO -   	>>>  R@1: 83.3 - R@5: 100.0 - R@10: 100.0 - Median R: 1.0 - Mean R: 1.7
+07/25/2024 19:17:04 - INFO -   Video-to-Text:
+07/25/2024 19:17:04 - INFO -   	>>>  V2T$R@1: 83.3 - V2T$R@5: 100.0 - V2T$R@10: 100.0 - V2T$Median R: 1.0 - V2T$Mean R: 1.5
+07/25/2024 19:17:04 - INFO -   The best model according to loss strategy is: ckpts/av_retreival_lr0.0005_e6_b30_48fps_loss_42_1721927654_test/pytorch_model.bin.1, its metric is: 0.8668
+ 17%|███████▏                                   | 1/6 [00:05<00:26,  5.31s/it]
+ 33%|██████████████▎                            | 2/6 [00:11<00:23,  6.00s/it]
+ 50%|█████████████████████▌                     | 3/6 [00:19<00:20,  6.81s/it]
+ 67%|████████████████████████████▋              | 4/6 [00:24<00:12,  6.06s/it]
+ 83%|███████████████████████████████████▊       | 5/6 [00:30<00:06,  6.10s/it]
+100%|███████████████████████████████████████████| 6/6 [00:36<00:00,  6.08s/it]
+100%|███████████████████████████████████████████| 6/6 [00:36<00:00,  6.08s/it]
+07/25/2024 19:17:44 - INFO -   Text-to-Video:███| 6/6 [00:36<00:00,  6.08s/it]
+07/25/2024 19:17:44 - INFO -   Text-to-Video:███| 6/6 [00:36<00:00,  6.08s/it]
+07/25/2024 19:17:44 - INFO -   Text-to-Video:███| 6/6 [00:36<00:00,  6.08s/it]
+07/25/2024 19:17:44 - INFO -   Text-to-Video:███| 6/6 [00:36<00:00,  6.08s/it]
+ 67%|████████████████████████████▋              | 4/6 [00:25<00:13,  6.58s/it]
+ 83%|███████████████████████████████████▊       | 5/6 [00:30<00:06,  6.04s/it]
+100%|███████████████████████████████████████████| 6/6 [00:36<00:00,  6.13s/it]
+07/25/2024 19:18:22 - INFO -   Model saved to ckpts/av_retreival_lr0.0005_e6_b30_48fps_loss_42_1721927654_test/pytorch_model.bin.5
+07/25/2024 19:18:25 - WARNING -   	 image_resolution: 224val.py:320: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+07/25/2024 19:18:26 - WARNING -   	 sim_header: meanP 224val.py:320: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+07/25/2024 19:18:26 - WARNING -   	 sim_header: meanP 224val.py:320: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+07/25/2024 19:18:26 - WARNING -   	 sim_header: meanP 224val.py:320: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+
+0/2
+
+07/25/2024 19:18:37 - INFO -   sim matrix size: 24, 24224val.py:320: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+07/25/2024 19:18:37 - INFO -   sim matrix size: 24, 24224val.py:320: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.

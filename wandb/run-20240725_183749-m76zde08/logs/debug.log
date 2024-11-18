@@ -1,0 +1,30 @@
+2024-07-25 18:37:49,988 INFO    MainThread:84300 [wandb_setup.py:_flush():76] Current SDK version is 0.16.6
+2024-07-25 18:37:49,988 INFO    MainThread:84300 [wandb_setup.py:_flush():76] Configure stats pid to 84300
+2024-07-25 18:37:49,988 INFO    MainThread:84300 [wandb_setup.py:_flush():76] Loading settings from /home/gmacri/.config/wandb/settings
+2024-07-25 18:37:49,988 INFO    MainThread:84300 [wandb_setup.py:_flush():76] Loading settings from /home/gmacri/tesiMagistrale/AV_CLIP4Clip/wandb/settings
+2024-07-25 18:37:49,988 INFO    MainThread:84300 [wandb_setup.py:_flush():76] Loading settings from environment variables: {}
+2024-07-25 18:37:49,988 INFO    MainThread:84300 [wandb_setup.py:_flush():76] Applying setup settings: {'_disable_service': False}
+2024-07-25 18:37:49,988 INFO    MainThread:84300 [wandb_setup.py:_flush():76] Inferring run settings from compute environment: {'program_relpath': 'main_task_retrieval.py', 'program_abspath': '/home/gmacri/tesiMagistrale/AV_CLIP4Clip/main_task_retrieval.py', 'program': '/home/gmacri/tesiMagistrale/AV_CLIP4Clip/main_task_retrieval.py'}
+2024-07-25 18:37:49,988 INFO    MainThread:84300 [wandb_setup.py:_flush():76] Applying login settings: {}
+2024-07-25 18:37:49,988 INFO    MainThread:84300 [wandb_init.py:_log_setup():521] Logging user logs to /home/gmacri/tesiMagistrale/AV_CLIP4Clip/wandb/run-20240725_183749-m76zde08/logs/debug.log
+2024-07-25 18:37:49,988 INFO    MainThread:84300 [wandb_init.py:_log_setup():522] Logging internal logs to /home/gmacri/tesiMagistrale/AV_CLIP4Clip/wandb/run-20240725_183749-m76zde08/logs/debug-internal.log
+2024-07-25 18:37:49,988 INFO    MainThread:84300 [wandb_init.py:init():561] calling init triggers
+2024-07-25 18:37:49,989 INFO    MainThread:84300 [wandb_init.py:init():568] wandb.init called with sweep_config: {}
+config: {}
+2024-07-25 18:37:49,989 INFO    MainThread:84300 [wandb_init.py:init():611] starting backend
+2024-07-25 18:37:49,989 INFO    MainThread:84300 [wandb_init.py:init():615] setting up manager
+2024-07-25 18:37:49,990 INFO    MainThread:84300 [backend.py:_multiprocessing_setup():105] multiprocessing start_methods=fork,spawn,forkserver, using: spawn
+2024-07-25 18:37:49,991 INFO    MainThread:84300 [wandb_init.py:init():623] backend started and connected
+2024-07-25 18:37:49,993 INFO    MainThread:84300 [wandb_init.py:init():715] updated telemetry
+2024-07-25 18:37:49,997 INFO    MainThread:84300 [wandb_init.py:init():748] communicating run to backend with 90.0 second timeout
+2024-07-25 18:37:50,408 INFO    MainThread:84300 [wandb_run.py:_on_init():2357] communicating current version
+2024-07-25 18:37:50,508 INFO    MainThread:84300 [wandb_run.py:_on_init():2366] got version response upgrade_message: "wandb version 0.17.5 is available!  To upgrade, please run:\n $ pip install wandb --upgrade"
+
+2024-07-25 18:37:50,508 INFO    MainThread:84300 [wandb_init.py:init():799] starting run threads in backend
+2024-07-25 18:37:51,761 INFO    MainThread:84300 [wandb_run.py:_console_start():2335] atexit reg
+2024-07-25 18:37:51,761 INFO    MainThread:84300 [wandb_run.py:_redirect():2190] redirect: wrap_raw
+2024-07-25 18:37:51,761 INFO    MainThread:84300 [wandb_run.py:_redirect():2255] Wrapping output streams.
+2024-07-25 18:37:51,761 INFO    MainThread:84300 [wandb_run.py:_redirect():2280] Redirects installed.
+2024-07-25 18:37:51,762 INFO    MainThread:84300 [wandb_init.py:init():842] run started, returning control to user process
+2024-07-25 18:37:51,762 INFO    MainThread:84300 [wandb_run.py:_config_callback():1347] config_cb None None {'do_pretrain': False, 'do_train': True, 'do_eval': False, 'test_best_model': True, 'train_csv': None, 'val_csv': None, 'data_path': None, 'features_path': None, 'metadata_fn': 'metadata_no_accents', 'video_dir': 'compressedVideos', 'split': '75_5_10_split_3strat_cap_75', 'merge_test_val': False, 'best_model_strategy': 'loss', 'use_caching': True, 'num_thread_reader': 1, 'lr': 2e-05, 'epochs': 10, 'batch_size': 30, 'batch_size_val': 16, 'lr_decay': 0.9, 'n_display': 50, 'seed': 42, 'max_words': 20, 'max_frames': 128, 'feature_framerate': 1, 'margin': 0.1, 'hard_negative_rate': 0.5, 'negative_weighting': 1, 'n_pair': 1, 'output_dir': 'ckpts/av_retreival_lr2e-05_e10_b30_128fps_loss_42_1721925469_test', 'cross_model': 'cross-base', 'init_model': None, 'resume_model': None, 'do_lower_case': False, 'warmup_proportion': 0.1, 'gradient_accumulation_steps': 1, 'n_gpu': 1, 'cache_dir': '', 'fp16': False, 'fp16_opt_level': 'O1', 'task_type': 'retrieval', 'datatype': 'artistic_videos', 'world_size': 1, 'local_rank': 0, 'rank': 0, 'coef_lr': 0.001, 'use_mil': False, 'sampled_use_mil': False, 'text_num_hidden_layers': 12, 'visual_num_hidden_layers': 12, 'cross_num_hidden_layers': 4, 'loose_type': True, 'expand_msrvtt_sentences': False, 'train_frame_order': 0, 'eval_frame_order': 0, 'freeze_layer_num': 0, 'slice_framepos': 2, 'linear_patch': '2d', 'sim_header': 'meanP', 'pretrained_clip_name': 'ViT-B/32', 'load_model_from_fn': None, 'load_best_model_from_dir': None, 'test': True, 'debug': False, 'logger': '<Logger logger (INFO)>'}
+2024-07-25 18:37:57,448 WARNING MsgRouterThr:84300 [router.py:message_loop():77] message_loop has been closed

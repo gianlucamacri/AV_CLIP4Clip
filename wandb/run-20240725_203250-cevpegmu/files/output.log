@@ -1,0 +1,203 @@
+07/25/2024 20:32:52 - INFO -   loading archive file /home/gmacri/tesiMagistrale/AV_CLIP4Clip/modules/cross-base
+07/25/2024 20:32:52 - INFO -   Model config {
+  "attention_probs_dropout_prob": 0.1,
+  "hidden_act": "gelu",
+  "hidden_dropout_prob": 0.1,
+  "hidden_size": 512,
+  "initializer_range": 0.02,
+  "intermediate_size": 2048,
+  "max_position_embeddings": 128,
+  "num_attention_heads": 8,
+  "num_hidden_layers": 4,
+  "type_vocab_size": 2,
+  "vocab_size": 512
+}
+07/25/2024 20:32:52 - INFO -   Weight doesn't exsits. /home/gmacri/tesiMagistrale/AV_CLIP4Clip/modules/cross-base/cross_pytorch_model.bin
+07/25/2024 20:32:52 - WARNING -   Stage-One:True, Stage-Two:False
+07/25/2024 20:32:52 - WARNING -   Test retrieval by loose type.
+07/25/2024 20:32:52 - WARNING -   	 embed_dim: 512
+07/25/2024 20:32:52 - WARNING -   	 image_resolution: 224
+07/25/2024 20:32:52 - WARNING -   	 vision_layers: 12
+07/25/2024 20:32:52 - WARNING -   	 vision_width: 768
+07/25/2024 20:32:52 - WARNING -   	 vision_patch_size: 32
+07/25/2024 20:32:52 - WARNING -   	 context_length: 77
+07/25/2024 20:32:52 - WARNING -   	 vocab_size: 49408
+07/25/2024 20:32:52 - WARNING -   	 transformer_width: 512
+07/25/2024 20:32:52 - WARNING -   	 transformer_heads: 8
+07/25/2024 20:32:52 - WARNING -   	 transformer_layers: 12
+07/25/2024 20:32:52 - WARNING -   		 linear_patch: 2d
+07/25/2024 20:32:52 - WARNING -   	 cut_top_layer: 0
+07/25/2024 20:32:53 - WARNING -   	 sim_header: meanP
+07/25/2024 20:32:57 - INFO -   --------------------
+07/25/2024 20:32:57 - INFO -   Weights from pretrained model not used in CLIP4Clip:
+   clip.input_resolution
+   clip.context_length
+   clip.vocab_size
+07/25/2024 20:32:58 - INFO -   updating metadata video filename paths to match the actual location, to prevent this behavior set the updateVideoFilenames to false
+07/25/2024 20:32:58 - INFO -   updating metadata video filename paths to match the actual location, to prevent this behavior set the updateVideoFilenames to false
+07/25/2024 20:32:58 - INFO -   ***** Running test *****
+07/25/2024 20:32:58 - INFO -     Num examples = 24
+07/25/2024 20:32:58 - INFO -     Batch size = 16
+07/25/2024 20:32:58 - INFO -     Num steps = 2
+07/25/2024 20:32:58 - INFO -   ***** Running val *****
+07/25/2024 20:32:58 - INFO -     Num examples = 6
+07/25/2024 20:32:58 - INFO -   updating metadata video filename paths to match the actual location, to prevent this behavior set the updateVideoFilenames to false
+07/25/2024 20:32:58 - INFO -   0 (0.0 %) will remain unsued for each epoch due to drop last set to true for the dataloader
+07/25/2024 20:32:58 - INFO -   ***** Running training *****
+07/25/2024 20:32:58 - INFO -     Num examples = 90
+07/25/2024 20:32:58 - INFO -     Batch size = 30
+07/25/2024 20:32:58 - INFO -     Num steps = 60
+
+
+100%|███████████████████████████████████████████| 3/3 [00:33<00:00, 11.15s/it]
+07/25/2024 20:33:31 - INFO -   Epoch 1/20 Finished, Train Loss: 0.720247
+07/25/2024 20:33:32 - INFO -   Model saved to ckpts/av_retreival_lr5e-05_e20_b30_24fps_loss_42_1721932369_test/pytorch_model.bin.0
+07/25/2024 20:33:32 - INFO -   Optimizer saved to ckpts/av_retreival_lr5e-05_e20_b30_24fps_loss_42_1721932369_test/pytorch_opt.bin.0
+07/25/2024 20:33:32 - INFO -   Eval on val dataset
+  0%|                                                   | 0/1 [00:00<?, ?it/s]
+  0%|                                                   | 0/1 [00:00<?, ?it/s]07/25/2024 20:33:34 - INFO -   retrieval of video 16 took 2.206619956996292
+07/25/2024 20:33:34 - INFO -   computation took 0.03238796000368893
+100%|███████████████████████████████████████████| 1/1 [00:02<00:00,  2.24s/it]
+07/25/2024 20:33:34 - INFO -   sim matrix size: 6, 6
+07/25/2024 20:33:34 - INFO -   	 Length-T: 6, Length-V:6
+07/25/2024 20:33:34 - INFO -   Similarity loss: 1.6
+07/25/2024 20:33:34 - INFO -   Text-to-Video:
+07/25/2024 20:33:34 - INFO -   	>>>  R@1: 83.3 - R@5: 100.0 - R@10: 100.0 - Median R: 1.0 - Mean R: 1.7
+07/25/2024 20:33:34 - INFO -   Video-to-Text:
+07/25/2024 20:33:34 - INFO -   	>>>  V2T$R@1: 83.3 - V2T$R@5: 83.3 - V2T$R@10: 100.0 - V2T$Median R: 1.0 - V2T$Mean R: 1.8
+07/25/2024 20:33:34 - INFO -   The best model according to loss strategy is: ckpts/av_retreival_lr5e-05_e20_b30_24fps_loss_42_1721932369_test/pytorch_model.bin.0, its metric is: 1.6233
+
+
+100%|███████████████████████████████████████████| 3/3 [00:32<00:00, 10.86s/it]
+07/25/2024 20:34:07 - INFO -   Epoch 2/20 Finished, Train Loss: 0.670465
+07/25/2024 20:34:08 - INFO -   Model saved to ckpts/av_retreival_lr5e-05_e20_b30_24fps_loss_42_1721932369_test/pytorch_model.bin.1
+07/25/2024 20:34:08 - INFO -   Optimizer saved to ckpts/av_retreival_lr5e-05_e20_b30_24fps_loss_42_1721932369_test/pytorch_opt.bin.1
+07/25/2024 20:34:08 - INFO -   Eval on val dataset
+  0%|                                                   | 0/1 [00:00<?, ?it/s]07/25/2024 20:34:10 - INFO -   retrieval of video 16 took 2.2183111771009862
+07/25/2024 20:34:10 - INFO -   computation took 0.03170726995449513
+100%|███████████████████████████████████████████| 1/1 [00:02<00:00,  2.25s/it]
+07/25/2024 20:34:10 - INFO -   sim matrix size: 6, 6
+07/25/2024 20:34:10 - INFO -   	 Length-T: 6, Length-V:6
+07/25/2024 20:34:10 - INFO -   Similarity loss: 1.3
+07/25/2024 20:34:10 - INFO -   Text-to-Video:
+07/25/2024 20:34:10 - INFO -   	>>>  R@1: 83.3 - R@5: 100.0 - R@10: 100.0 - Median R: 1.0 - Mean R: 1.2
+07/25/2024 20:34:10 - INFO -   Video-to-Text:
+07/25/2024 20:34:10 - INFO -   	>>>  V2T$R@1: 83.3 - V2T$R@5: 83.3 - V2T$R@10: 100.0 - V2T$Median R: 1.0 - V2T$Mean R: 1.8
+07/25/2024 20:34:10 - INFO -   The best model according to loss strategy is: ckpts/av_retreival_lr5e-05_e20_b30_24fps_loss_42_1721932369_test/pytorch_model.bin.1, its metric is: 1.2838
+
+
+100%|███████████████████████████████████████████| 3/3 [00:32<00:00, 10.75s/it]
+07/25/2024 20:34:42 - INFO -   Epoch 3/20 Finished, Train Loss: 0.438845
+07/25/2024 20:34:43 - INFO -   Model saved to ckpts/av_retreival_lr5e-05_e20_b30_24fps_loss_42_1721932369_test/pytorch_model.bin.2
+07/25/2024 20:34:43 - INFO -   Optimizer saved to ckpts/av_retreival_lr5e-05_e20_b30_24fps_loss_42_1721932369_test/pytorch_opt.bin.2
+07/25/2024 20:34:43 - INFO -   Eval on val dataset
+  0%|                                                   | 0/1 [00:00<?, ?it/s]07/25/2024 20:34:45 - INFO -   retrieval of video 16 took 2.2056889550294727
+07/25/2024 20:34:45 - INFO -   computation took 0.031447143061086535
+100%|███████████████████████████████████████████| 1/1 [00:02<00:00,  2.24s/it]
+07/25/2024 20:34:45 - INFO -   sim matrix size: 6, 6
+07/25/2024 20:34:45 - INFO -   	 Length-T: 6, Length-V:6
+07/25/2024 20:34:45 - INFO -   Similarity loss: 1.5
+07/25/2024 20:34:45 - INFO -   Text-to-Video:
+07/25/2024 20:34:45 - INFO -   	>>>  R@1: 83.3 - R@5: 100.0 - R@10: 100.0 - Median R: 1.0 - Mean R: 1.7
+07/25/2024 20:34:45 - INFO -   Video-to-Text:
+07/25/2024 20:34:45 - INFO -   	>>>  V2T$R@1: 83.3 - V2T$R@5: 83.3 - V2T$R@10: 100.0 - V2T$Median R: 1.0 - V2T$Mean R: 1.8
+07/25/2024 20:34:45 - INFO -   The best model according to loss strategy is: ckpts/av_retreival_lr5e-05_e20_b30_24fps_loss_42_1721932369_test/pytorch_model.bin.1, its metric is: 1.2838
+
+
+100%|███████████████████████████████████████████| 3/3 [00:32<00:00, 10.80s/it]
+07/25/2024 20:35:18 - INFO -   Epoch 4/20 Finished, Train Loss: 0.210750
+07/25/2024 20:35:19 - INFO -   Model saved to ckpts/av_retreival_lr5e-05_e20_b30_24fps_loss_42_1721932369_test/pytorch_model.bin.3
+07/25/2024 20:35:19 - INFO -   Optimizer saved to ckpts/av_retreival_lr5e-05_e20_b30_24fps_loss_42_1721932369_test/pytorch_opt.bin.3
+07/25/2024 20:35:19 - INFO -   Eval on val dataset
+07/25/2024 20:35:21 - INFO -   	 Length-T: 6, Length-V:6| 0/1 [00:00<?, ?it/s]07/25/2024 20:35:21 - INFO -   retrieval of video 16 took 2.2131151580251753
+07/25/2024 20:35:21 - INFO -   computation took 0.03149025491438806
+100%|███████████████████████████████████████████| 1/1 [00:02<00:00,  2.24s/it]
+07/25/2024 20:35:21 - INFO -   sim matrix size: 6, 6
+07/25/2024 20:35:21 - INFO -   	 Length-T: 6, Length-V:6| 0/1 [00:00<?, ?it/s]07/25/2024 20:35:21 - INFO -   retrieval of video 16 took 2.2131151580251753
+07/25/2024 20:35:21 - INFO -   Similarity loss: 1.3
+07/25/2024 20:35:21 - INFO -   Text-to-Video:
+07/25/2024 20:35:21 - INFO -   	>>>  R@1: 83.3 - R@5: 100.0 - R@10: 100.0 - Median R: 1.0 - Mean R: 1.3
+07/25/2024 20:35:21 - INFO -   Video-to-Text:
+07/25/2024 20:35:21 - INFO -   	>>>  V2T$R@1: 83.3 - V2T$R@5: 100.0 - V2T$R@10: 100.0 - V2T$Median R: 1.0 - V2T$Mean R: 1.7
+07/25/2024 20:35:21 - INFO -   The best model according to loss strategy is: ckpts/av_retreival_lr5e-05_e20_b30_24fps_loss_42_1721932369_test/pytorch_model.bin.1, its metric is: 1.2838
+ 33%|██████████████▎                            | 1/3 [00:10<00:20, 10.28s/it]
+ 67%|████████████████████████████▋              | 2/3 [00:21<00:10, 10.97s/it]
+100%|███████████████████████████████████████████| 3/3 [00:32<00:00, 10.79s/it]
+100%|███████████████████████████████████████████| 3/3 [00:32<00:00, 10.79s/it]
+07/25/2024 20:35:57 - INFO -   Text-to-Video:███| 3/3 [00:32<00:00, 10.79s/it]
+07/25/2024 20:35:57 - INFO -   Text-to-Video:███| 3/3 [00:32<00:00, 10.79s/it]
+07/25/2024 20:35:57 - INFO -   Text-to-Video:███| 3/3 [00:32<00:00, 10.79s/it]
+07/25/2024 20:35:57 - INFO -   Text-to-Video:███| 3/3 [00:32<00:00, 10.79s/it]
+07/25/2024 20:36:32 - INFO -   computation took 0.03098456899169832510.79s/it]
+07/25/2024 20:36:32 - INFO -   computation took 0.03098456899169832510.79s/it]
+07/25/2024 20:36:32 - INFO -   computation took 0.03098456899169832510.79s/it]
+07/25/2024 20:37:03 - INFO -   Epoch 7/20 Finished, Train Loss: 0.0120799s/it]
+07/25/2024 20:37:03 - INFO -   Epoch 7/20 Finished, Train Loss: 0.0120799s/it]
+  0%|                                                   | 0/3 [00:00<?, ?it/s]07/25/2024 20:37:06 - INFO -   retrieval of video 16 took 2.1324022080516443
+ 33%|██████████████▎                            | 1/3 [00:10<00:20, 10.11s/it]07/25/2024 20:37:06 - INFO -   retrieval of video 16 took 2.1324022080516443
+ 67%|████████████████████████████▋              | 2/3 [00:22<00:11, 11.45s/it]07/25/2024 20:37:06 - INFO -   retrieval of video 16 took 2.1324022080516443
+100%|███████████████████████████████████████████| 3/3 [00:31<00:00, 10.63s/it]07/25/2024 20:37:06 - INFO -   retrieval of video 16 took 2.1324022080516443
+  0%|                                                   | 0/3 [00:00<?, ?it/s]07/25/2024 20:37:42 - INFO -   retrieval of video 16 took 2.2159770630532876
+ 33%|██████████████▎                            | 1/3 [00:10<00:20, 10.35s/it]07/25/2024 20:37:42 - INFO -   retrieval of video 16 took 2.2159770630532876
+ 67%|████████████████████████████▋              | 2/3 [00:22<00:11, 11.55s/it]07/25/2024 20:37:42 - INFO -   retrieval of video 16 took 2.2159770630532876
+100%|███████████████████████████████████████████| 3/3 [00:32<00:00, 10.73s/it]07/25/2024 20:37:42 - INFO -   retrieval of video 16 took 2.2159770630532876
+07/25/2024 20:38:15 - INFO -   Model saved to ckpts/av_retreival_lr5e-05_e20_b30_24fps_loss_42_1721932369_test/pytorch_model.bin.8 took 2.2159770630532876
+  0%|                                                   | 0/3 [00:00<?, ?it/s]07/25/2024 20:38:17 - INFO -   retrieval of video 16 took 2.1760723360348493
+ 33%|██████████████▎                            | 1/3 [00:11<00:22, 11.15s/it]07/25/2024 20:38:17 - INFO -   retrieval of video 16 took 2.1760723360348493
+ 67%|████████████████████████████▋              | 2/3 [00:22<00:11, 11.09s/it]07/25/2024 20:38:17 - INFO -   retrieval of video 16 took 2.1760723360348493
+100%|███████████████████████████████████████████| 3/3 [00:32<00:00, 10.83s/it]07/25/2024 20:38:17 - INFO -   retrieval of video 16 took 2.1760723360348493
+07/25/2024 20:38:50 - INFO -   Model saved to ckpts/av_retreival_lr5e-05_e20_b30_24fps_loss_42_1721932369_test/pytorch_model.bin.9 took 2.1760723360348493
+  0%|                                                   | 0/3 [00:00<?, ?it/s]07/25/2024 20:38:53 - INFO -   retrieval of video 16 took 2.2248115760739893
+ 33%|██████████████▎                            | 1/3 [00:10<00:21, 10.77s/it]07/25/2024 20:38:53 - INFO -   retrieval of video 16 took 2.2248115760739893
+ 67%|████████████████████████████▋              | 2/3 [00:23<00:11, 11.70s/it]07/25/2024 20:38:53 - INFO -   retrieval of video 16 took 2.2248115760739893
+100%|███████████████████████████████████████████| 3/3 [00:32<00:00, 10.89s/it]07/25/2024 20:38:53 - INFO -   retrieval of video 16 took 2.2248115760739893
+07/25/2024 20:39:26 - INFO -   Model saved to ckpts/av_retreival_lr5e-05_e20_b30_24fps_loss_42_1721932369_test/pytorch_model.bin.10took 2.2248115760739893
+  0%|                                                   | 0/3 [00:00<?, ?it/s]07/25/2024 20:39:28 - INFO -   retrieval of video 16 took 2.2343651270493865
+ 33%|██████████████▎                            | 1/3 [00:09<00:18,  9.30s/it]07/25/2024 20:39:28 - INFO -   retrieval of video 16 took 2.2343651270493865
+ 67%|████████████████████████████▋              | 2/3 [00:22<00:11, 11.47s/it]07/25/2024 20:39:28 - INFO -   retrieval of video 16 took 2.2343651270493865
+100%|███████████████████████████████████████████| 3/3 [00:32<00:00, 10.76s/it]07/25/2024 20:39:28 - INFO -   retrieval of video 16 took 2.2343651270493865
+  0%|                                                   | 0/3 [00:00<?, ?it/s]07/25/2024 20:40:04 - INFO -   retrieval of video 16 took 2.1916178839746863
+ 33%|██████████████▎                            | 1/3 [00:10<00:21, 10.93s/it]07/25/2024 20:40:04 - INFO -   retrieval of video 16 took 2.1916178839746863
+ 67%|████████████████████████████▋              | 2/3 [00:22<00:11, 11.53s/it]07/25/2024 20:40:04 - INFO -   retrieval of video 16 took 2.1916178839746863
+100%|███████████████████████████████████████████| 3/3 [00:31<00:00, 10.60s/it]07/25/2024 20:40:04 - INFO -   retrieval of video 16 took 2.1916178839746863
+07/25/2024 20:40:37 - INFO -   Model saved to ckpts/av_retreival_lr5e-05_e20_b30_24fps_loss_42_1721932369_test/pytorch_model.bin.12took 2.1916178839746863
+  0%|                                                   | 0/3 [00:00<?, ?it/s]07/25/2024 20:40:39 - INFO -   retrieval of video 16 took 2.1668199689593166
+ 33%|██████████████▎                            | 1/3 [00:10<00:21, 10.72s/it]07/25/2024 20:40:39 - INFO -   retrieval of video 16 took 2.1668199689593166
+ 67%|████████████████████████████▋              | 2/3 [00:22<00:11, 11.31s/it]07/25/2024 20:40:39 - INFO -   retrieval of video 16 took 2.1668199689593166
+100%|███████████████████████████████████████████| 3/3 [00:32<00:00, 10.74s/it]07/25/2024 20:40:39 - INFO -   retrieval of video 16 took 2.1668199689593166
+07/25/2024 20:41:12 - INFO -   Model saved to ckpts/av_retreival_lr5e-05_e20_b30_24fps_loss_42_1721932369_test/pytorch_model.bin.13took 2.1668199689593166
+  0%|                                                   | 0/3 [00:00<?, ?it/s]07/25/2024 20:41:14 - INFO -   retrieval of video 16 took 2.1878815699601546
+ 33%|██████████████▎                            | 1/3 [00:11<00:22, 11.01s/it]07/25/2024 20:41:14 - INFO -   retrieval of video 16 took 2.1878815699601546
+ 67%|████████████████████████████▋              | 2/3 [00:20<00:09,  9.93s/it]07/25/2024 20:41:14 - INFO -   retrieval of video 16 took 2.1878815699601546
+100%|███████████████████████████████████████████| 3/3 [00:31<00:00, 10.62s/it]07/25/2024 20:41:14 - INFO -   retrieval of video 16 took 2.1878815699601546
+  0%|                                                   | 0/3 [00:00<?, ?it/s]07/25/2024 20:41:49 - INFO -   retrieval of video 16 took 2.2301039570011246
+ 33%|██████████████▎                            | 1/3 [00:11<00:22, 11.23s/it]07/25/2024 20:41:49 - INFO -   retrieval of video 16 took 2.2301039570011246
+ 67%|████████████████████████████▋              | 2/3 [00:22<00:11, 11.27s/it]07/25/2024 20:41:49 - INFO -   retrieval of video 16 took 2.2301039570011246
+100%|███████████████████████████████████████████| 3/3 [00:32<00:00, 10.76s/it]07/25/2024 20:41:49 - INFO -   retrieval of video 16 took 2.2301039570011246
+07/25/2024 20:42:23 - INFO -   Model saved to ckpts/av_retreival_lr5e-05_e20_b30_24fps_loss_42_1721932369_test/pytorch_model.bin.15took 2.2301039570011246
+  0%|                                                   | 0/3 [00:00<?, ?it/s]07/25/2024 20:42:25 - INFO -   retrieval of video 16 took 2.2215645150281496
+ 33%|██████████████▎                            | 1/3 [00:09<00:19,  9.66s/it]07/25/2024 20:42:25 - INFO -   retrieval of video 16 took 2.2215645150281496
+ 33%|██████████████▎                            | 1/3 [00:09<00:19,  9.66s/it]07/25/2024 20:42:45 - INFO -   Epoch: 17/20, Step: 2/3, Lr: , Loss: 0.001480, Time/step: 0.412083
+100%|███████████████████████████████████████████| 3/3 [00:32<00:00, 10.73s/it]07/25/2024 20:42:45 - INFO -   Epoch: 17/20, Step: 2/3, Lr: , Loss: 0.001480, Time/step: 0.412083
+  0%|                                                   | 0/3 [00:00<?, ?it/s]07/25/2024 20:43:00 - INFO -   retrieval of video 16 took 2.2132763069821520, Time/step: 0.412083
+ 33%|██████████████▎                            | 1/3 [00:10<00:21, 10.53s/it]07/25/2024 20:43:00 - INFO -   retrieval of video 16 took 2.2132763069821520, Time/step: 0.412083
+ 67%|████████████████████████████▋              | 2/3 [00:23<00:11, 11.69s/it]07/25/2024 20:43:00 - INFO -   retrieval of video 16 took 2.2132763069821520, Time/step: 0.412083
+100%|███████████████████████████████████████████| 3/3 [00:32<00:00, 10.79s/it]07/25/2024 20:43:00 - INFO -   retrieval of video 16 took 2.2132763069821520, Time/step: 0.412083
+  0%|                                                   | 0/3 [00:00<?, ?it/s]07/25/2024 20:43:36 - INFO -   retrieval of video 16 took 2.1567310539539903, Time/step: 0.412083
+ 33%|██████████████▎                            | 1/3 [00:10<00:21, 10.99s/it]07/25/2024 20:43:36 - INFO -   retrieval of video 16 took 2.1567310539539903, Time/step: 0.412083
+ 67%|████████████████████████████▋              | 2/3 [00:22<00:11, 11.22s/it]07/25/2024 20:43:36 - INFO -   retrieval of video 16 took 2.1567310539539903, Time/step: 0.412083
+100%|███████████████████████████████████████████| 3/3 [00:32<00:00, 10.72s/it]07/25/2024 20:43:36 - INFO -   retrieval of video 16 took 2.1567310539539903, Time/step: 0.412083
+07/25/2024 20:44:09 - INFO -   Model saved to ckpts/av_retreival_lr5e-05_e20_b30_24fps_loss_42_1721932369_test/pytorch_model.bin.18took 2.1567310539539903, Time/step: 0.412083
+  0%|                                                   | 0/3 [00:00<?, ?it/s]07/25/2024 20:44:11 - INFO -   retrieval of video 16 took 2.2166372119681913, Time/step: 0.412083
+ 33%|██████████████▎                            | 1/3 [00:11<00:23, 11.67s/it]07/25/2024 20:44:11 - INFO -   retrieval of video 16 took 2.2166372119681913, Time/step: 0.412083
+ 67%|████████████████████████████▋              | 2/3 [00:23<00:12, 12.00s/it]07/25/2024 20:44:11 - INFO -   retrieval of video 16 took 2.2166372119681913, Time/step: 0.412083
+100%|███████████████████████████████████████████| 3/3 [00:32<00:00, 10.86s/it]07/25/2024 20:44:11 - INFO -   retrieval of video 16 took 2.2166372119681913, Time/step: 0.412083
+07/25/2024 20:44:45 - INFO -   Model saved to ckpts/av_retreival_lr5e-05_e20_b30_24fps_loss_42_1721932369_test/pytorch_model.bin.19took 2.2166372119681913, Time/step: 0.412083
+07/25/2024 20:44:47 - WARNING -   	 image_resolution: 224val.py:325: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+07/25/2024 20:44:48 - WARNING -   	 sim_header: meanP 224val.py:325: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+07/25/2024 20:44:48 - WARNING -   	 sim_header: meanP 224val.py:325: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+
+0/2
+
+07/25/2024 20:44:59 - INFO -   sim matrix size: 24, 24224val.py:325: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+07/25/2024 20:44:59 - INFO -   sim matrix size: 24, 24224val.py:325: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.

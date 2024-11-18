@@ -1,0 +1,138 @@
+07/25/2024 19:37:34 - INFO -   loading archive file /home/gmacri/tesiMagistrale/AV_CLIP4Clip/modules/cross-base
+07/25/2024 19:37:34 - INFO -   Model config {
+  "attention_probs_dropout_prob": 0.1,
+  "hidden_act": "gelu",
+  "hidden_dropout_prob": 0.1,
+  "hidden_size": 512,
+  "initializer_range": 0.02,
+  "intermediate_size": 2048,
+  "max_position_embeddings": 128,
+  "num_attention_heads": 8,
+  "num_hidden_layers": 4,
+  "type_vocab_size": 2,
+  "vocab_size": 512
+}
+07/25/2024 19:37:34 - INFO -   Weight doesn't exsits. /home/gmacri/tesiMagistrale/AV_CLIP4Clip/modules/cross-base/cross_pytorch_model.bin
+07/25/2024 19:37:34 - WARNING -   Stage-One:True, Stage-Two:False
+07/25/2024 19:37:34 - WARNING -   Test retrieval by loose type.
+07/25/2024 19:37:34 - WARNING -   	 embed_dim: 512
+07/25/2024 19:37:34 - WARNING -   	 image_resolution: 224
+07/25/2024 19:37:34 - WARNING -   	 vision_layers: 12
+07/25/2024 19:37:34 - WARNING -   	 vision_width: 768
+07/25/2024 19:37:34 - WARNING -   	 vision_patch_size: 32
+07/25/2024 19:37:34 - WARNING -   	 context_length: 77
+07/25/2024 19:37:34 - WARNING -   	 vocab_size: 49408
+07/25/2024 19:37:34 - WARNING -   	 transformer_width: 512
+07/25/2024 19:37:34 - WARNING -   	 transformer_heads: 8
+07/25/2024 19:37:34 - WARNING -   	 transformer_layers: 12
+07/25/2024 19:37:34 - WARNING -   		 linear_patch: 2d
+07/25/2024 19:37:34 - WARNING -   	 cut_top_layer: 0
+07/25/2024 19:37:35 - WARNING -   	 sim_header: meanP
+07/25/2024 19:37:39 - INFO -   --------------------
+07/25/2024 19:37:39 - INFO -   Weights from pretrained model not used in CLIP4Clip:
+   clip.input_resolution
+   clip.context_length
+   clip.vocab_size
+07/25/2024 19:37:40 - INFO -   updating metadata video filename paths to match the actual location, to prevent this behavior set the updateVideoFilenames to false
+07/25/2024 19:37:40 - INFO -   updating metadata video filename paths to match the actual location, to prevent this behavior set the updateVideoFilenames to false
+07/25/2024 19:37:40 - INFO -   ***** Running test *****
+07/25/2024 19:37:40 - INFO -     Num examples = 24
+07/25/2024 19:37:40 - INFO -     Batch size = 16
+07/25/2024 19:37:40 - INFO -     Num steps = 2
+07/25/2024 19:37:40 - INFO -   ***** Running val *****
+07/25/2024 19:37:40 - INFO -     Num examples = 6
+07/25/2024 19:37:40 - INFO -   updating metadata video filename paths to match the actual location, to prevent this behavior set the updateVideoFilenames to false
+07/25/2024 19:37:40 - INFO -   0 (0.0 %) will remain unsued for each epoch due to drop last set to true for the dataloader
+07/25/2024 19:37:40 - INFO -   ***** Running training *****
+07/25/2024 19:37:40 - INFO -     Num examples = 90
+07/25/2024 19:37:40 - INFO -     Batch size = 30
+07/25/2024 19:37:40 - INFO -     Num steps = 18
+
+
+100%|███████████████████████████████████████████| 3/3 [00:31<00:00, 10.41s/it]
+07/25/2024 19:38:11 - INFO -   Epoch 1/6 Finished, Train Loss: 0.798041
+07/25/2024 19:38:12 - INFO -   Model saved to ckpts/av_retreival_lr0.0002_e6_b30_8fps_loss_42_1721929049_test/pytorch_model.bin.0
+07/25/2024 19:38:12 - INFO -   Optimizer saved to ckpts/av_retreival_lr0.0002_e6_b30_8fps_loss_42_1721929049_test/pytorch_opt.bin.0
+07/25/2024 19:38:12 - INFO -   Eval on val dataset
+  0%|                                                   | 0/1 [00:00<?, ?it/s]
+  0%|                                                   | 0/1 [00:00<?, ?it/s]07/25/2024 19:38:14 - INFO -   retrieval of video 16 took 2.2614370699739084
+07/25/2024 19:38:14 - INFO -   computation took 0.02235592296347022
+100%|███████████████████████████████████████████| 1/1 [00:02<00:00,  2.28s/it]
+07/25/2024 19:38:14 - INFO -   sim matrix size: 6, 6
+07/25/2024 19:38:14 - INFO -   	 Length-T: 6, Length-V:6
+07/25/2024 19:38:14 - INFO -   Similarity loss: 1.5
+07/25/2024 19:38:14 - INFO -   Text-to-Video:
+07/25/2024 19:38:14 - INFO -   	>>>  R@1: 83.3 - R@5: 100.0 - R@10: 100.0 - Median R: 1.0 - Mean R: 1.5
+07/25/2024 19:38:14 - INFO -   Video-to-Text:
+07/25/2024 19:38:14 - INFO -   	>>>  V2T$R@1: 83.3 - V2T$R@5: 83.3 - V2T$R@10: 100.0 - V2T$Median R: 1.0 - V2T$Mean R: 1.8
+07/25/2024 19:38:14 - INFO -   The best model according to loss strategy is: ckpts/av_retreival_lr0.0002_e6_b30_8fps_loss_42_1721929049_test/pytorch_model.bin.0, its metric is: 1.5088
+
+
+100%|███████████████████████████████████████████| 3/3 [00:30<00:00, 10.10s/it]
+07/25/2024 19:38:45 - INFO -   Epoch 2/6 Finished, Train Loss: 0.170635
+07/25/2024 19:38:45 - INFO -   Model saved to ckpts/av_retreival_lr0.0002_e6_b30_8fps_loss_42_1721929049_test/pytorch_model.bin.1
+07/25/2024 19:38:45 - INFO -   Optimizer saved to ckpts/av_retreival_lr0.0002_e6_b30_8fps_loss_42_1721929049_test/pytorch_opt.bin.1
+07/25/2024 19:38:45 - INFO -   Eval on val dataset
+  0%|                                                   | 0/1 [00:00<?, ?it/s]07/25/2024 19:38:48 - INFO -   retrieval of video 16 took 2.2187598039163277
+07/25/2024 19:38:48 - INFO -   computation took 0.02120278507936746
+100%|███████████████████████████████████████████| 1/1 [00:02<00:00,  2.24s/it]
+07/25/2024 19:38:48 - INFO -   sim matrix size: 6, 6
+07/25/2024 19:38:48 - INFO -   	 Length-T: 6, Length-V:6
+07/25/2024 19:38:48 - INFO -   Similarity loss: 1.6
+07/25/2024 19:38:48 - INFO -   Text-to-Video:
+07/25/2024 19:38:48 - INFO -   	>>>  R@1: 83.3 - R@5: 100.0 - R@10: 100.0 - Median R: 1.0 - Mean R: 1.3
+07/25/2024 19:38:48 - INFO -   Video-to-Text:
+07/25/2024 19:38:48 - INFO -   	>>>  V2T$R@1: 83.3 - V2T$R@5: 83.3 - V2T$R@10: 100.0 - V2T$Median R: 1.0 - V2T$Mean R: 1.8
+07/25/2024 19:38:48 - INFO -   The best model according to loss strategy is: ckpts/av_retreival_lr0.0002_e6_b30_8fps_loss_42_1721929049_test/pytorch_model.bin.0, its metric is: 1.5088
+
+
+100%|███████████████████████████████████████████| 3/3 [00:30<00:00, 10.15s/it]
+07/25/2024 19:39:18 - INFO -   Epoch 3/6 Finished, Train Loss: 0.022947
+07/25/2024 19:39:19 - INFO -   Model saved to ckpts/av_retreival_lr0.0002_e6_b30_8fps_loss_42_1721929049_test/pytorch_model.bin.2
+07/25/2024 19:39:19 - INFO -   Optimizer saved to ckpts/av_retreival_lr0.0002_e6_b30_8fps_loss_42_1721929049_test/pytorch_opt.bin.2
+07/25/2024 19:39:19 - INFO -   Eval on val dataset
+  0%|                                                   | 0/1 [00:00<?, ?it/s]07/25/2024 19:39:21 - INFO -   retrieval of video 16 took 2.2718112730653957
+07/25/2024 19:39:21 - INFO -   computation took 0.021277363994158804
+100%|███████████████████████████████████████████| 1/1 [00:02<00:00,  2.29s/it]
+07/25/2024 19:39:21 - INFO -   sim matrix size: 6, 6
+07/25/2024 19:39:21 - INFO -   	 Length-T: 6, Length-V:6
+07/25/2024 19:39:21 - INFO -   Similarity loss: 1.7
+07/25/2024 19:39:21 - INFO -   Text-to-Video:
+07/25/2024 19:39:21 - INFO -   	>>>  R@1: 83.3 - R@5: 100.0 - R@10: 100.0 - Median R: 1.0 - Mean R: 1.3
+07/25/2024 19:39:21 - INFO -   Video-to-Text:
+07/25/2024 19:39:21 - INFO -   	>>>  V2T$R@1: 83.3 - V2T$R@5: 83.3 - V2T$R@10: 100.0 - V2T$Median R: 1.0 - V2T$Mean R: 1.8
+07/25/2024 19:39:21 - INFO -   The best model according to loss strategy is: ckpts/av_retreival_lr0.0002_e6_b30_8fps_loss_42_1721929049_test/pytorch_model.bin.0, its metric is: 1.5088
+
+
+100%|███████████████████████████████████████████| 3/3 [00:30<00:00, 10.22s/it]
+07/25/2024 19:39:52 - INFO -   Epoch 4/6 Finished, Train Loss: 0.022940
+07/25/2024 19:39:53 - INFO -   Model saved to ckpts/av_retreival_lr0.0002_e6_b30_8fps_loss_42_1721929049_test/pytorch_model.bin.3
+07/25/2024 19:39:53 - INFO -   Optimizer saved to ckpts/av_retreival_lr0.0002_e6_b30_8fps_loss_42_1721929049_test/pytorch_opt.bin.3
+07/25/2024 19:39:53 - INFO -   Eval on val dataset
+07/25/2024 19:39:55 - INFO -   	 Length-T: 6, Length-V:6| 0/1 [00:00<?, ?it/s]07/25/2024 19:39:55 - INFO -   retrieval of video 16 took 2.309736411087215
+07/25/2024 19:39:55 - INFO -   computation took 0.021502147894352674
+100%|███████████████████████████████████████████| 1/1 [00:02<00:00,  2.33s/it]
+07/25/2024 19:39:55 - INFO -   sim matrix size: 6, 6
+07/25/2024 19:39:55 - INFO -   	 Length-T: 6, Length-V:6| 0/1 [00:00<?, ?it/s]07/25/2024 19:39:55 - INFO -   retrieval of video 16 took 2.309736411087215
+07/25/2024 19:39:55 - INFO -   Similarity loss: 1.7
+07/25/2024 19:39:55 - INFO -   Text-to-Video:
+07/25/2024 19:39:55 - INFO -   	>>>  R@1: 83.3 - R@5: 100.0 - R@10: 100.0 - Median R: 1.0 - Mean R: 1.3
+07/25/2024 19:39:55 - INFO -   Video-to-Text:
+07/25/2024 19:39:55 - INFO -   	>>>  V2T$R@1: 83.3 - V2T$R@5: 83.3 - V2T$R@10: 100.0 - V2T$Median R: 1.0 - V2T$Mean R: 1.8
+07/25/2024 19:39:55 - INFO -   The best model according to loss strategy is: ckpts/av_retreival_lr0.0002_e6_b30_8fps_loss_42_1721929049_test/pytorch_model.bin.0, its metric is: 1.5088
+ 33%|██████████████▎                            | 1/3 [00:09<00:19,  9.69s/it]
+ 67%|████████████████████████████▋              | 2/3 [00:20<00:10, 10.29s/it]
+100%|███████████████████████████████████████████| 3/3 [00:30<00:00, 10.16s/it]
+100%|███████████████████████████████████████████| 3/3 [00:30<00:00, 10.16s/it]
+07/25/2024 19:40:29 - INFO -   Text-to-Video:███| 3/3 [00:30<00:00, 10.16s/it]
+07/25/2024 19:40:29 - INFO -   Text-to-Video:███| 3/3 [00:30<00:00, 10.16s/it]
+07/25/2024 19:40:29 - INFO -   Text-to-Video:███| 3/3 [00:30<00:00, 10.16s/it]
+07/25/2024 19:40:29 - INFO -   Text-to-Video:███| 3/3 [00:30<00:00, 10.16s/it]
+07/25/2024 19:40:29 - INFO -   Text-to-Video:███| 3/3 [00:30<00:00, 10.16s/it]
+07/25/2024 19:41:03 - WARNING -   	 vision_layers: 12ion='cpu')4334610.16s/it]
+07/25/2024 19:41:03 - WARNING -   	 vision_layers: 12ion='cpu')4334610.16s/it]
+07/25/2024 19:41:07 - INFO -   --------------------12ion='cpu')4334610.16s/it]
+
+07/25/2024 19:41:14 - INFO -   	 Length-T: 24, Length-V:24cpu')4334610.16s/it]
+
+1/2

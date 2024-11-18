@@ -1,0 +1,191 @@
+07/25/2024 16:45:50 - INFO -   loading archive file /home/gmacri/tesiMagistrale/AV_CLIP4Clip/modules/cross-base
+07/25/2024 16:45:50 - INFO -   Model config {
+  "attention_probs_dropout_prob": 0.1,
+  "hidden_act": "gelu",
+  "hidden_dropout_prob": 0.1,
+  "hidden_size": 512,
+  "initializer_range": 0.02,
+  "intermediate_size": 2048,
+  "max_position_embeddings": 128,
+  "num_attention_heads": 8,
+  "num_hidden_layers": 4,
+  "type_vocab_size": 2,
+  "vocab_size": 512
+}
+07/25/2024 16:45:50 - INFO -   Weight doesn't exsits. /home/gmacri/tesiMagistrale/AV_CLIP4Clip/modules/cross-base/cross_pytorch_model.bin
+07/25/2024 16:45:50 - WARNING -   Stage-One:True, Stage-Two:False
+07/25/2024 16:45:50 - WARNING -   Test retrieval by loose type.
+07/25/2024 16:45:50 - WARNING -   	 embed_dim: 512
+07/25/2024 16:45:50 - WARNING -   	 image_resolution: 224
+07/25/2024 16:45:50 - WARNING -   	 vision_layers: 12
+07/25/2024 16:45:50 - WARNING -   	 vision_width: 768
+07/25/2024 16:45:50 - WARNING -   	 vision_patch_size: 32
+07/25/2024 16:45:50 - WARNING -   	 context_length: 77
+07/25/2024 16:45:50 - WARNING -   	 vocab_size: 49408
+07/25/2024 16:45:50 - WARNING -   	 transformer_width: 512
+07/25/2024 16:45:50 - WARNING -   	 transformer_heads: 8
+07/25/2024 16:45:50 - WARNING -   	 transformer_layers: 12
+07/25/2024 16:45:50 - WARNING -   		 linear_patch: 2d
+07/25/2024 16:45:50 - WARNING -   	 cut_top_layer: 0
+07/25/2024 16:45:51 - WARNING -   	 sim_header: meanP
+07/25/2024 16:45:54 - INFO -   --------------------
+07/25/2024 16:45:54 - INFO -   Weights from pretrained model not used in CLIP4Clip:
+   clip.input_resolution
+   clip.context_length
+   clip.vocab_size
+07/25/2024 16:45:55 - INFO -   updating metadata video filename paths to match the actual location, to prevent this behavior set the updateVideoFilenames to false
+07/25/2024 16:45:55 - INFO -   updating metadata video filename paths to match the actual location, to prevent this behavior set the updateVideoFilenames to false
+07/25/2024 16:45:55 - INFO -   ***** Running test *****
+07/25/2024 16:45:55 - INFO -     Num examples = 24
+07/25/2024 16:45:55 - INFO -     Batch size = 16
+07/25/2024 16:45:55 - INFO -     Num steps = 2
+07/25/2024 16:45:55 - INFO -   ***** Running val *****
+07/25/2024 16:45:55 - INFO -     Num examples = 6
+07/25/2024 16:45:55 - INFO -   updating metadata video filename paths to match the actual location, to prevent this behavior set the updateVideoFilenames to false
+07/25/2024 16:45:55 - INFO -   0 (0.0 %) will remain unsued for each epoch due to drop last set to true for the dataloader
+07/25/2024 16:45:55 - INFO -   ***** Running training *****
+07/25/2024 16:45:55 - INFO -     Num examples = 90
+07/25/2024 16:45:55 - INFO -     Batch size = 30
+07/25/2024 16:45:55 - INFO -     Num steps = 60
+  0%|                                                   | 0/6 [00:00<?, ?it/s]07/25/2024 16:45:55 - DEBUG -   cache hit: /home/gmacri/tesiMagistrale/AV_CLIP4Clip/datasets/artistic_video_dataset/compressedVideos/121815712_Nauman-Bruce_Black-Balls.mp4
+07/25/2024 16:45:56 - DEBUG -   cache hit: /home/gmacri/tesiMagistrale/AV_CLIP4Clip/datasets/artistic_video_dataset/compressedVideos/e338_338_Duba_Sambolec_Code_I_640.mp4
+07/25/2024 16:45:56 - DEBUG -   cache hit: /home/gmacri/tesiMagistrale/AV_CLIP4Clip/datasets/artistic_video_dataset/compressedVideos/135110753_Pilson-John_Sidewalk-single-channel_2003.mp4
+07/25/2024 16:45:56 - DEBUG -   cache hit: /home/gmacri/tesiMagistrale/AV_CLIP4Clip/datasets/artistic_video_dataset/compressedVideos/131792875_Taylor-Wood-Sam_Hysteria_1999.mp4
+07/25/2024 16:45:57 - DEBUG -   cache hit: /home/gmacri/tesiMagistrale/AV_CLIP4Clip/datasets/artistic_video_dataset/compressedVideos/e1004_1004_d250_muratovic_amir_zivljena_knjig1min.mp4
+07/25/2024 16:45:57 - DEBUG -   cache hit: /home/gmacri/tesiMagistrale/AV_CLIP4Clip/datasets/artistic_video_dataset/compressedVideos/127784684_Leslie-Alfred_The-Last-Clean-Shirt_1964.mp4
+07/25/2024 16:45:58 - DEBUG -   cache hit: /home/gmacri/tesiMagistrale/AV_CLIP4Clip/datasets/artistic_video_dataset/compressedVideos/152853167_Weiner-Lawrence_To-And-Fro.-Fro-And-To.-And-To-And-Fro.-And-Fro-And-To.mp4
+07/25/2024 16:45:58 - DEBUG -   cache hit: /home/gmacri/tesiMagistrale/AV_CLIP4Clip/datasets/artistic_video_dataset/compressedVideos/6ff577428996dcb0cadc5d9a7dd05461.mp4
+07/25/2024 16:45:58 - DEBUG -   cache hit: /home/gmacri/tesiMagistrale/AV_CLIP4Clip/datasets/artistic_video_dataset/compressedVideos/ad4d4e3ff70887910c6c1b5c6d416fc9.mp4
+07/25/2024 16:45:59 - DEBUG -   cache hit: /home/gmacri/tesiMagistrale/AV_CLIP4Clip/datasets/artistic_video_dataset/compressedVideos/e340_340_Duba-Sambolec_Code_III_640.mp4
+07/25/2024 16:46:00 - DEBUG -   cache hit: /home/gmacri/tesiMagistrale/AV_CLIP4Clip/datasets/artistic_video_dataset/compressedVideos/135131105_Dwoskin-Stephen_Moment_1968.mp4
+07/25/2024 16:46:00 - DEBUG -   cache hit: /home/gmacri/tesiMagistrale/AV_CLIP4Clip/datasets/artistic_video_dataset/compressedVideos/134065932_Eriksson_Annika_The-Great-Good-Place_2010.mp4
+07/25/2024 16:46:01 - DEBUG -   cache hit: /home/gmacri/tesiMagistrale/AV_CLIP4Clip/datasets/artistic_video_dataset/compressedVideos/135807828_Simpson-Lorna_Cloudscape_2004.mp4
+07/25/2024 16:46:01 - DEBUG -   cache hit: /home/gmacri/tesiMagistrale/AV_CLIP4Clip/datasets/artistic_video_dataset/compressedVideos/40d57def2cb5d948a8e2737a816f325a.mp4
+07/25/2024 16:46:01 - DEBUG -   cache hit: /home/gmacri/tesiMagistrale/AV_CLIP4Clip/datasets/artistic_video_dataset/compressedVideos/e309_309_D16d_skusek_natasa_toaleta1_16.MP4.mp4
+ 17%|███████▏                                   | 1/6 [00:07<00:38,  7.68s/it]07/25/2024 16:46:03 - DEBUG -   cache hit: /home/gmacri/tesiMagistrale/AV_CLIP4Clip/datasets/artistic_video_dataset/compressedVideos/237753589_Mutu-Wangechi_Cutting.mp4
+07/25/2024 16:46:03 - DEBUG -   cache hit: /home/gmacri/tesiMagistrale/AV_CLIP4Clip/datasets/artistic_video_dataset/compressedVideos/e776_Stermitz_Darovanje_Mesecu.mp4
+07/25/2024 16:46:03 - DEBUG -   cache hit: /home/gmacri/tesiMagistrale/AV_CLIP4Clip/datasets/artistic_video_dataset/compressedVideos/b228e94aac9dafd3016a38a4d28e1431.mp4
+07/25/2024 16:46:04 - DEBUG -   cache hit: /home/gmacri/tesiMagistrale/AV_CLIP4Clip/datasets/artistic_video_dataset/compressedVideos/6820354b93096632fd0a041dcc2df335.mp4
+07/25/2024 16:46:04 - DEBUG -   cache hit: /home/gmacri/tesiMagistrale/AV_CLIP4Clip/datasets/artistic_video_dataset/compressedVideos/EvelinStermitz_rose_is_a_rose.mp4
+07/25/2024 16:46:04 - DEBUG -   cache hit: /home/gmacri/tesiMagistrale/AV_CLIP4Clip/datasets/artistic_video_dataset/compressedVideos/122679750_Arnold-Skip_Punch_1992.mp4
+07/25/2024 16:46:04 - DEBUG -   cache hit: /home/gmacri/tesiMagistrale/AV_CLIP4Clip/datasets/artistic_video_dataset/compressedVideos/e252_252_DVD97_vipotnik_miha_video8_tape_N3.avi.MP4.mp4
+07/25/2024 16:46:04 - DEBUG -   cache hit: /home/gmacri/tesiMagistrale/AV_CLIP4Clip/datasets/artistic_video_dataset/compressedVideos/125948671_Harris-Hilary_Longhorns_1951.mp4
+07/25/2024 16:46:04 - DEBUG -   cache hit: /home/gmacri/tesiMagistrale/AV_CLIP4Clip/datasets/artistic_video_dataset/compressedVideos/131792548_Taylor-Wood-Sam_Ascension_2003.mp4
+07/25/2024 16:46:05 - DEBUG -   cache hit: /home/gmacri/tesiMagistrale/AV_CLIP4Clip/datasets/artistic_video_dataset/compressedVideos/e805_805_D160_ana_cigon_real_presence.mp4
+07/25/2024 16:46:05 - DEBUG -   cache hit: /home/gmacri/tesiMagistrale/AV_CLIP4Clip/datasets/artistic_video_dataset/compressedVideos/e1136_Avtoportret.mp4
+07/25/2024 16:46:05 - DEBUG -   cache hit: /home/gmacri/tesiMagistrale/AV_CLIP4Clip/datasets/artistic_video_dataset/compressedVideos/e71_kracina_kurca_640.mp4
+07/25/2024 16:46:05 - DEBUG -   cache hit: /home/gmacri/tesiMagistrale/AV_CLIP4Clip/datasets/artistic_video_dataset/compressedVideos/EvelinStermitz_room_thoughts.mp4
+07/25/2024 16:46:05 - DEBUG -   cache hit: /home/gmacri/tesiMagistrale/AV_CLIP4Clip/datasets/artistic_video_dataset/compressedVideos/53a2e3657c136a9c3d8071bcda959771.mp4
+07/25/2024 16:46:05 - DEBUG -   cache hit: /home/gmacri/tesiMagistrale/AV_CLIP4Clip/datasets/artistic_video_dataset/compressedVideos/135115285_Wieland-Joyce_Sailboat_1967.mp4
+ 33%|██████████████▎                            | 2/6 [00:11<00:20,  5.24s/it]07/25/2024 16:46:06 - DEBUG -   cache hit: /home/gmacri/tesiMagistrale/AV_CLIP4Clip/datasets/artistic_video_dataset/compressedVideos/9b403de050d0f9549440b43b7167f7a3.mp4
+07/25/2024 16:46:07 - DEBUG -   cache hit: /home/gmacri/tesiMagistrale/AV_CLIP4Clip/datasets/artistic_video_dataset/compressedVideos/508416142d523b73a6e7f8307a4d92e3.mp4
+07/25/2024 16:46:07 - DEBUG -   cache hit: /home/gmacri/tesiMagistrale/AV_CLIP4Clip/datasets/artistic_video_dataset/compressedVideos/e1122_Ana_Sluga_Still_Life_1.mp4
+07/25/2024 16:46:07 - DEBUG -   cache hit: /home/gmacri/tesiMagistrale/AV_CLIP4Clip/datasets/artistic_video_dataset/compressedVideos/e289_Prosenc_Crossing.mp4
+07/25/2024 16:46:07 - DEBUG -   cache hit: /home/gmacri/tesiMagistrale/AV_CLIP4Clip/datasets/artistic_video_dataset/compressedVideos/c979d5c1408fb8ea58b83f4143cc39ba.mp4
+07/25/2024 16:46:07 - DEBUG -   cache hit: /home/gmacri/tesiMagistrale/AV_CLIP4Clip/datasets/artistic_video_dataset/compressedVideos/125836986_Goldstein-Jack_Ballet-Shoe_1975.mp4
+07/25/2024 16:46:07 - DEBUG -   cache hit: /home/gmacri/tesiMagistrale/AV_CLIP4Clip/datasets/artistic_video_dataset/compressedVideos/e135_203MirkoSimicAlislisiszvoktisine.mp4
+07/25/2024 16:46:07 - DEBUG -   cache hit: /home/gmacri/tesiMagistrale/AV_CLIP4Clip/datasets/artistic_video_dataset/compressedVideos/EvelinStermitz_into_the_mirror.mp4
+07/25/2024 16:46:08 - DEBUG -   cache hit: /home/gmacri/tesiMagistrale/AV_CLIP4Clip/datasets/artistic_video_dataset/compressedVideos/e807_807_D160_ana_cigon_one_more_kick.mp4
+07/25/2024 16:46:08 - DEBUG -   cache hit: /home/gmacri/tesiMagistrale/AV_CLIP4Clip/datasets/artistic_video_dataset/compressedVideos/132251077_Toshio.Matsumoto.-.Experimental.film.works.-.2.6.-.Atman.1975.mp4
+07/25/2024 16:46:09 - DEBUG -   cache hit: /home/gmacri/tesiMagistrale/AV_CLIP4Clip/datasets/artistic_video_dataset/compressedVideos/ce04410663a46df64678bbd4d2291e41.mp4
+07/25/2024 16:46:09 - DEBUG -   cache hit: /home/gmacri/tesiMagistrale/AV_CLIP4Clip/datasets/artistic_video_dataset/compressedVideos/124841012_Herring-Oliver_Nathan_2007.mp4
+07/25/2024 16:46:10 - DEBUG -   cache hit: /home/gmacri/tesiMagistrale/AV_CLIP4Clip/datasets/artistic_video_dataset/compressedVideos/e824_824_D170_Furlan_Tomaz_Wear_IV.mp4
+07/25/2024 16:46:10 - DEBUG -   cache hit: /home/gmacri/tesiMagistrale/AV_CLIP4Clip/datasets/artistic_video_dataset/compressedVideos/e1311_Bukovec_Okroznica.mp4
+07/25/2024 16:46:10 - DEBUG -   cache hit: /home/gmacri/tesiMagistrale/AV_CLIP4Clip/datasets/artistic_video_dataset/compressedVideos/624b47639c9eb7c4cb877b741e78f2cb.mp4
+ 50%|█████████████████████▌                     | 3/6 [00:16<00:15,  5.13s/it]07/25/2024 16:46:11 - DEBUG -   cache hit: /home/gmacri/tesiMagistrale/AV_CLIP4Clip/datasets/artistic_video_dataset/compressedVideos/e760_MD11VesnaBukovecConsumerculture.mp4
+07/25/2024 16:46:11 - DEBUG -   cache hit: /home/gmacri/tesiMagistrale/AV_CLIP4Clip/datasets/artistic_video_dataset/compressedVideos/e1614_1614_Berk_Toerpe.mp4
+ 50%|█████████████████████▌                     | 3/6 [00:16<00:16,  5.46s/it]
+Traceback (most recent call last):
+  File "/home/gmacri/tesiMagistrale/AV_CLIP4Clip/main_task_retrieval.py", line 751, in <module>
+    main()
+  File "/home/gmacri/tesiMagistrale/AV_CLIP4Clip/main_task_retrieval.py", line 711, in main
+    tr_loss, global_step = train_epoch(epoch, args, model, train_dataloader, device, n_gpu, optimizer,
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/gmacri/tesiMagistrale/AV_CLIP4Clip/main_task_retrieval.py", line 339, in train_epoch
+    for step, batch in enumerate(tqdm(train_dataloader)):
+  File "/home/gmacri/anaconda3/envs/clip/lib/python3.12/site-packages/tqdm/std.py", line 1181, in __iter__
+    for obj in iterable:
+  File "/home/gmacri/anaconda3/envs/clip/lib/python3.12/site-packages/torch/utils/data/dataloader.py", line 630, in __next__
+    data = self._next_data()
+           ^^^^^^^^^^^^^^^^^
+  File "/home/gmacri/anaconda3/envs/clip/lib/python3.12/site-packages/torch/utils/data/dataloader.py", line 673, in _next_data
+    data = self._dataset_fetcher.fetch(index)  # may raise StopIteration
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/gmacri/anaconda3/envs/clip/lib/python3.12/site-packages/torch/utils/data/_utils/fetch.py", line 52, in fetch
+    data = [self.dataset[idx] for idx in possibly_batched_index]
+            ~~~~~~~~~~~~^^^^^
+  File "/home/gmacri/tesiMagistrale/AV_CLIP4Clip/dataloaders/dataloader_artistic_videos_retreival.py", line 159, in __getitem__
+    video, video_mask = self._get_rawvideo(choice_video_ids)
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/gmacri/tesiMagistrale/AV_CLIP4Clip/dataloaders/dataloader_artistic_videos_retreival.py", line 121, in _get_rawvideo
+    raw_video_data = self.rawVideoExtractor.get_video_data(video_path)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/gmacri/tesiMagistrale/AV_CLIP4Clip/dataloaders/rawvideo_util.py", line 133, in get_video_data
+    image_input = {'video':th.tensor(np.load(f))}
+                                     ^^^^^^^^^^
+  File "/home/gmacri/anaconda3/envs/clip/lib/python3.12/site-packages/numpy/lib/npyio.py", line 456, in load
+    return format.read_array(fid, allow_pickle=allow_pickle,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/gmacri/anaconda3/envs/clip/lib/python3.12/site-packages/numpy/lib/format.py", line 831, in read_array
+    data = _read_bytes(fp, read_size, "array data")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/gmacri/anaconda3/envs/clip/lib/python3.12/site-packages/numpy/lib/format.py", line 966, in _read_bytes
+    r = fp.read(size - len(data))
+        ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/gmacri/anaconda3/envs/clip/lib/python3.12/gzip.py", line 324, in read
+    return self._buffer.read(size)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/gmacri/anaconda3/envs/clip/lib/python3.12/_compression.py", line 68, in readinto
+    data = self.read(len(byte_view))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/gmacri/anaconda3/envs/clip/lib/python3.12/gzip.py", line 537, in read
+    uncompress = self._decompressor.decompress(b"", size)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+KeyboardInterrupt
+[rank0]: Traceback (most recent call last):
+[rank0]:   File "/home/gmacri/tesiMagistrale/AV_CLIP4Clip/main_task_retrieval.py", line 751, in <module>
+[rank0]:     main()
+[rank0]:   File "/home/gmacri/tesiMagistrale/AV_CLIP4Clip/main_task_retrieval.py", line 711, in main
+[rank0]:     tr_loss, global_step = train_epoch(epoch, args, model, train_dataloader, device, n_gpu, optimizer,
+[rank0]:                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/home/gmacri/tesiMagistrale/AV_CLIP4Clip/main_task_retrieval.py", line 339, in train_epoch
+[rank0]:     for step, batch in enumerate(tqdm(train_dataloader)):
+[rank0]:   File "/home/gmacri/anaconda3/envs/clip/lib/python3.12/site-packages/tqdm/std.py", line 1181, in __iter__
+[rank0]:     for obj in iterable:
+[rank0]:   File "/home/gmacri/anaconda3/envs/clip/lib/python3.12/site-packages/torch/utils/data/dataloader.py", line 630, in __next__
+[rank0]:     data = self._next_data()
+[rank0]:            ^^^^^^^^^^^^^^^^^
+[rank0]:   File "/home/gmacri/anaconda3/envs/clip/lib/python3.12/site-packages/torch/utils/data/dataloader.py", line 673, in _next_data
+[rank0]:     data = self._dataset_fetcher.fetch(index)  # may raise StopIteration
+[rank0]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/home/gmacri/anaconda3/envs/clip/lib/python3.12/site-packages/torch/utils/data/_utils/fetch.py", line 52, in fetch
+[rank0]:     data = [self.dataset[idx] for idx in possibly_batched_index]
+[rank0]:             ~~~~~~~~~~~~^^^^^
+[rank0]:   File "/home/gmacri/tesiMagistrale/AV_CLIP4Clip/dataloaders/dataloader_artistic_videos_retreival.py", line 159, in __getitem__
+[rank0]:     video, video_mask = self._get_rawvideo(choice_video_ids)
+[rank0]:                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/home/gmacri/tesiMagistrale/AV_CLIP4Clip/dataloaders/dataloader_artistic_videos_retreival.py", line 121, in _get_rawvideo
+[rank0]:     raw_video_data = self.rawVideoExtractor.get_video_data(video_path)
+[rank0]:                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/home/gmacri/tesiMagistrale/AV_CLIP4Clip/dataloaders/rawvideo_util.py", line 133, in get_video_data
+[rank0]:     image_input = {'video':th.tensor(np.load(f))}
+[rank0]:                                      ^^^^^^^^^^
+[rank0]:   File "/home/gmacri/anaconda3/envs/clip/lib/python3.12/site-packages/numpy/lib/npyio.py", line 456, in load
+[rank0]:     return format.read_array(fid, allow_pickle=allow_pickle,
+[rank0]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/home/gmacri/anaconda3/envs/clip/lib/python3.12/site-packages/numpy/lib/format.py", line 831, in read_array
+[rank0]:     data = _read_bytes(fp, read_size, "array data")
+[rank0]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/home/gmacri/anaconda3/envs/clip/lib/python3.12/site-packages/numpy/lib/format.py", line 966, in _read_bytes
+[rank0]:     r = fp.read(size - len(data))
+[rank0]:         ^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/home/gmacri/anaconda3/envs/clip/lib/python3.12/gzip.py", line 324, in read
+[rank0]:     return self._buffer.read(size)
+[rank0]:            ^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/home/gmacri/anaconda3/envs/clip/lib/python3.12/_compression.py", line 68, in readinto
+[rank0]:     data = self.read(len(byte_view))
+[rank0]:            ^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/home/gmacri/anaconda3/envs/clip/lib/python3.12/gzip.py", line 537, in read
+[rank0]:     uncompress = self._decompressor.decompress(b"", size)
+[rank0]:                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]: KeyboardInterrupt
