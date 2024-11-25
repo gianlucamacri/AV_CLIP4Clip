@@ -177,25 +177,25 @@ def get_args(description='CLIP4Clip on Retrieval Task'):
         args.batch_size_val = 1
 
         assert args.featureExtDir is not None, "featureExtDir is required when do_featureExt is set"
-        assert args.datatype == 'artistic_videos', 'feature extraction is supported only by artistic_videos'
+        assert args.datatype in {'artistic_videos', 'semart_generated_artistic_videos'}, 'feature extraction is supported only by artistic_videos and semart_generated_artistic_videos'
 
     if args.merge_test_val and args.best_model_strategy != 'last':
         raise ValueError("When  merge_test_val is set best_model_strategy must be last as otherwise the evaluation would be biased.")
     
-    if args.datatype == 'artistic_videos':
+    if args.datatype in {'artistic_videos', 'semart_generated_artistic_videos'}:
         if args.metadata_fn is None:
-            raise ValueError(f"metadata_fn must be set when datatype is set to artistic_videos")
+            raise ValueError(f"metadata_fn must be set when datatype is set to artistic_videos or semart_generated_artistic_videos")
         if args.video_dir is None:
-            raise ValueError(f"video_dir must be set when datatype is set to artistic_videos")
+            raise ValueError(f"video_dir must be set when datatype is set to artistic_videos or semart_generated_artistic_videos")
         if args.split is None:
-            raise ValueError(f"split must be set when datatype is set to artistic_videos")
+            raise ValueError(f"split must be set when datatype is set to artistic_videos or semart_generated_artistic_videos")
         if args.do_train and args.best_model_strategy is None:
-            raise ValueError(f"best_model_strategy must be set when datatype is set to artistic_videos and do_train is set")
+            raise ValueError(f"best_model_strategy must be set when datatype is set to artistic_videos or semart_generated_artistic_videos and do_train is set")
         if args.use_caching and args.num_thread_reader != 1:
             raise ValueError(f"num_thread_reader must be set to 1 when caching is used to prevent cuncurrency issues")
 
     elif args.use_caching:
-        raise ValueError(f"use_caching is supported only for artistic_videos datatype")
+        raise ValueError(f"use_caching is supported only for artistic_videos and semart_generated_artistic_videos datatype")
 
     if args.load_model_from_fn  and args.load_best_model_from_dir:
         raise ValueError(f"pnly one between load_model_from_fn  and load_best_model_from_dir can be set")
@@ -608,7 +608,7 @@ def eval_epoch(args, model, test_dataloader, device, n_gpu, isTest=False):
 
     save_output_data['metrics'] = metrics
 
-    if args.datatype == 'artistic_videos':
+    if args.datatype in {'artistic_videos', 'semart_generated_artistic_videos'}:
         save_output_data['video_ids'] = test_dataloader.dataset.getVideoIds() # save video ids order relatively to the similarity matrix
 
     return save_output_data

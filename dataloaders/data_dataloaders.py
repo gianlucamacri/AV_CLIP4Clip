@@ -3,7 +3,8 @@ import torch.utils
 from torch.utils.data import DataLoader
 import torch.utils.data
 import torch.utils.data.distributed
-from dataloaders.dataloader_artistic_videos_retreival import Artistic_Videos_DataLoader
+from dataloaders.dataloader_semart_generated_artistic_videos_retreival import SemArt_Generated_Artistic_Videos_DataLoader
+#from dataloaders.dataloader_artistic_videos_retreival import Artistic_Videos_DataLoader
 from dataloaders.dataloader_msrvtt_retrieval import MSRVTT_DataLoader
 from dataloaders.dataloader_msrvtt_retrieval import MSRVTT_TrainDataLoader
 from dataloaders.dataloader_msvd_retrieval import MSVD_DataLoader
@@ -11,6 +12,65 @@ from dataloaders.dataloader_lsmdc_retrieval import LSMDC_DataLoader
 from dataloaders.dataloader_activitynet_retrieval import ActivityNet_DataLoader
 from dataloaders.dataloader_didemo_retrieval import DiDeMo_DataLoader
 import logging
+
+def dataloader_semart_generated_artistic_videos_train(args, tokenizer):
+    artistic_videos_dataset = SemArt_Generated_Artistic_Videos_DataLoader(
+        metadata_fn=args.metadata_fn,
+        video_dir=args.video_dir,
+        split_fn=args.split,
+        split='training',
+        merge_test_val=False,
+        video_framerate=args.feature_framerate,
+        tokenizer=tokenizer,
+        max_frames=args.max_frames,
+        frame_order=args.train_frame_order,
+        slice_framepos=args.slice_framepos,
+        use_caching=args.use_caching,
+        logger=args.logger
+    )
+
+    train_sampler = torch.utils.data.distributed.DistributedSampler(artistic_videos_dataset)
+    dataloader = DataLoader(
+        artistic_videos_dataset,
+        batch_size=args.batch_size // args.n_gpu,
+        num_workers=args.num_thread_reader if args.num_thread_reader > 1 else 0, # necessary to avoid possible caching issue due to concurrency as 1 means "an additional process"
+        pin_memory=False,
+        shuffle=(train_sampler is None),
+        sampler=train_sampler,
+        drop_last=True,
+    )
+
+    dropped_els = len(artistic_videos_dataset) % (args.batch_size // args.n_gpu)
+    logging.info(f"{dropped_els} ({dropped_els*100.0/len(artistic_videos_dataset)} %) will remain unsued for each epoch due to drop last set to true for the dataloader")
+
+    return dataloader, len(artistic_videos_dataset), train_sampler
+
+def dataloader_semart_generated_artistic_videos_test(args, tokenizer, subset:str):
+    if subset=='val':
+        subset='validation'
+    artistic_videos_testset = SemArt_Generated_Artistic_Videos_DataLoader(
+        metadata_fn=args.metadata_fn,
+        video_dir=args.video_dir,
+        split_fn=args.split,
+        split = subset,
+        merge_test_val=args.merge_test_val,
+        video_framerate=args.feature_framerate,
+        tokenizer=tokenizer,
+        max_frames=args.max_frames,
+        frame_order=args.eval_frame_order,
+        slice_framepos=args.slice_framepos,
+        use_caching=args.use_caching,
+        logger = args.logger
+    )
+    dataloader = DataLoader(
+        artistic_videos_testset,
+        batch_size=args.batch_size_val,
+        num_workers=args.num_thread_reader if args.num_thread_reader > 1 else 0, # necessary to avoid possible caching issue due to concurrency as 1 means "an additional process"
+        shuffle=False,
+        drop_last=False,
+    )
+    return dataloader, len(artistic_videos_testset)
+
 
 def dataloader_artistic_videos_train(args, tokenizer):
     artistic_videos_dataset = Artistic_Videos_DataLoader(
@@ -311,6 +371,7 @@ def dataloader_didemo_test(args, tokenizer, subset="test"):
 
 
 DATALOADER_DICT = {}
+DATALOADER_DICT["semart_generated_artistic_videos"] = {"train":dataloader_semart_generated_artistic_videos_train, "val":dataloader_semart_generated_artistic_videos_test, "test":dataloader_semart_generated_artistic_videos_test}
 DATALOADER_DICT["artistic_videos"] = {"train":dataloader_artistic_videos_train, "val":dataloader_artistic_videos_test, "test":dataloader_artistic_videos_test}
 DATALOADER_DICT["msrvtt"] = {"train":dataloader_msrvtt_train, "val":dataloader_msrvtt_test, "test":None}
 DATALOADER_DICT["msvd"] = {"train":dataloader_msvd_train, "val":dataloader_msvd_test, "test":dataloader_msvd_test}
